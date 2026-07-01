@@ -19,6 +19,7 @@ export default function AppRoutes() {
           <Route path="/team" element={<Team />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       
   );

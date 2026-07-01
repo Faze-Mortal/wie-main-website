@@ -1,3 +1,4 @@
+cat > src/pages/Blog.jsx << 'EOF'
 import { motion } from "framer-motion";
 
 const blogData = [
@@ -6,64 +7,47 @@ const blogData = [
     title: "🌱 Data Cleaning Techniques Every Analyst Should Know 📊",
     author: "Chinmayee Khanna",
     imageUrl: "/blog11.jpeg",
-    readMoreUrl:
-      "https://medium.com/@ieee.wiemuj/data-cleaning-techniques-every-analyst-should-know-0a9ab0adbb50",
+    readMoreUrl: "https://medium.com/@ieee.wiemuj/data-cleaning-techniques-every-analyst-should-know-0a9ab0adbb50",
   },
   {
     id: 2,
     title: "🌟 What Happens When Systems Fail-And Humans Take Over 🌟",
     author: "Ashita Saxena",
     imageUrl: "/blog10.jpeg",
-    readMoreUrl:
-      "https://medium.com/@ieee.wiemuj/what-happens-when-systems-fail-and-humans-take-over-8120ed4c2ae5",
+    readMoreUrl: "https://medium.com/@ieee.wiemuj/what-happens-when-systems-fail-and-humans-take-over-8120ed4c2ae5",
   },
   {
     id: 1,
     title: "🌐 Exploring the Metaverse: Your Guide to the Virtual Universe ✨",
     author: "Shreya Singh",
     imageUrl: "/blog9.jpeg",
-    readMoreUrl:
-      "https://medium.com/@ieee.wiemuj/exploring-the-metaverse-your-guide-to-the-virtual-universe-5dace13f5716",
+    readMoreUrl: "https://medium.com/@ieee.wiemuj/exploring-the-metaverse-your-guide-to-the-virtual-universe-5dace13f5716",
   },
 ];
 
 export default function Blog() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-24">
-      <h1 className="text-4xl font-bold text-center mb-12 text-purple-200">
-        Our Blog
-      </h1>
+      <h1 className="text-4xl font-bold text-center mb-12 text-purple-200">Our Blog</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {blogData.map((blog) => (
-          <motion.div
-            key={blog.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: blog.id * 0.1 }}
-            className="bg-purple-950/40 border border-pink-500/50 rounded-2xl overflow-hidden hover:border-pink-400 transition-all duration-300"
-          >
-            <img
-              src={blog.imageUrl}
-              alt={blog.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-5 flex flex-col gap-3">
-              <h2 className="text-lg font-semibold text-white leading-snug">
-                {blog.title}
-              </h2>
-              <p className="text-pink-400 text-sm">By {blog.author}</p>
-              
-                href={blog.readMoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-block text-sm text-pink-400 hover:text-pink-300 font-medium"
-              >
-                Read more →
-              </a>
-            </div>
-          </motion.div>
+          <a key={blog.id} href={blog.readMoreUrl} target="_blank" rel="noopener noreferrer">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: blog.id * 0.1 }}
+              className="bg-purple-950/40 border border-pink-500/50 rounded-2xl overflow-hidden hover:border-pink-400 transition-all duration-300 cursor-pointer"
+            >
+              <img src={blog.imageUrl} alt={blog.title} className="w-full h-48 object-cover" />
+              <div className="p-5 flex flex-col gap-3">
+                <h2 className="text-lg font-semibold text-white leading-snug">{blog.title}</h2>
+                <p className="text-pink-400 text-sm">By {blog.author}</p>
+              </div>
+            </motion.div>
+          </a>
         ))}
       </div>
     </div>
   );
 }
+EOF
