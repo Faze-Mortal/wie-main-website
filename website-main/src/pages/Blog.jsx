@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function  blogData = [
+const blogData = [
   {
     id: 3,
     title: "Data Cleaning Techniques Every Analyst Should Know",
