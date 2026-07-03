@@ -3,6 +3,7 @@ import React from "react";
 const blogData = [
   {
     id: 3,
+    title: "Data Cleaning Techniques Every Analyst Should Know",
     author: "Chinmayee Khanna",
     excerpt: "Master essential techniques to clean messy data and turn raw numbers into reliable, actionable insights.",
     imageUrl: "/blog11.jpeg",
@@ -10,6 +11,7 @@ const blogData = [
   },
   {
     id: 2,
+    title: "What Happens When Systems Fail - And Humans Take Over",
     author: "Ashita Saxena",
     excerpt: "When technology hits its limits, human intuition steps in — explore the moments that define man vs machine.",
     imageUrl: "/blog10.jpeg",
@@ -17,6 +19,7 @@ const blogData = [
   },
   {
     id: 1,
+    title: "Exploring the Metaverse: Your Guide to the Virtual Universe",
     author: "Shreya Singh",
     excerpt: "Step into the metaverse — a beginner's guide to the virtual worlds redefining how we connect and create.",
     imageUrl: "/blog9.jpeg",
