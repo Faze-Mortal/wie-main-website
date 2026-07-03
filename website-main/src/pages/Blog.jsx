@@ -3,45 +3,26 @@ import React from "react";
 const blogData = [
   {
     id: 3,
-    title: "Data Cleaning Techniques Every Analyst Should Know",
     author: "Chinmayee Khanna",
+    excerpt: "Master essential techniques to clean messy data and turn raw numbers into reliable, actionable insights.",
     imageUrl: "/blog11.jpeg",
     readMoreUrl: "https://medium.com/@ieee.wiemuj/data-cleaning-techniques-every-analyst-should-know-0a9ab0adbb50",
   },
   {
     id: 2,
-    title: "What Happens When Systems Fail-And Humans Take Over",
     author: "Ashita Saxena",
+    excerpt: "When technology hits its limits, human intuition steps in — explore the moments that define man vs machine.",
     imageUrl: "/blog10.jpeg",
     readMoreUrl: "https://medium.com/@ieee.wiemuj/what-happens-when-systems-fail-and-humans-take-over-8120ed4c2ae5",
   },
   {
     id: 1,
-    title: "Exploring the Metaverse: Your Guide to the Virtual Universe",
     author: "Shreya Singh",
+    excerpt: "Step into the metaverse — a beginner's guide to the virtual worlds redefining how we connect and create.",
     imageUrl: "/blog9.jpeg",
     readMoreUrl: "https://medium.com/@ieee.wiemuj/exploring-the-metaverse-your-guide-to-the-virtual-universe-5dace13f5716",
   },
 ];
-
-const cardStyle = {
-  background: "rgba(88, 28, 135, 0.25)",
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  border: "1px solid rgba(236, 72, 153, 0.25)",
-  borderRadius: "1rem",
-  overflow: "hidden",
-  transition: "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
-  cursor: "pointer",
-  display: "block",
-  width: "300px",
-};
-
-const cardHoverStyle = {
-  transform: "scale(1.07)",
-  boxShadow: "0 0 32px rgba(236, 72, 153, 0.45), 0 0 8px rgba(168, 85, 247, 0.3)",
-  border: "1px solid rgba(236, 72, 153, 0.7)",
-};
 
 function BlogCard({ blog }) {
   const [hovered, setHovered] = React.useState(false);
@@ -51,29 +32,106 @@ function BlogCard({ blog }) {
       href={blog.readMoreUrl}
       target="_blank"
       rel="noopener noreferrer"
-      style={hovered ? { ...cardStyle, ...cardHoverStyle } : cardStyle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "320px",
+        borderRadius: "1.25rem",
+        overflow: "hidden",
+        cursor: "pointer",
+        textDecoration: "none",
+        transition: "transform 0.35s ease, box-shadow 0.35s ease",
+        transform: hovered ? "scale(1.05)" : "scale(1)",
+        boxShadow: hovered
+          ? "0 0 0 2px rgba(236,72,153,0.9), 0 0 35px rgba(236,72,153,0.45), 0 0 70px rgba(168,85,247,0.25)"
+          : "0 0 0 1px rgba(236,72,153,0.25), 0 0 18px rgba(168,85,247,0.15)",
+      }}
     >
+      {/* Full poster image - no crop, full height */}
       <img
         src={blog.imageUrl}
         alt={blog.title}
         style={{
           width: "100%",
-          height: "192px",
-          objectFit: "cover",
+          height: "auto",
+          display: "block",
           transition: "transform 0.35s ease",
-          transform: hovered ? "scale(1.05)" : "scale(1)",
+          transform: hovered ? "scale(1.03)" : "scale(1)",
         }}
       />
-      <div style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-        <h2 style={{ fontSize: "1rem", fontWeight: "600", color: hovered ? "#f9a8d4" : "#ffffff", lineHeight: "1.4", transition: "color 0.3s ease" }}>
-          {blog.title}
-        </h2>
-        <p style={{ fontSize: "0.875rem", color: "#f472b6" }}>By {blog.author}</p>
-        <span style={{ fontSize: "0.75rem", color: hovered ? "#f9a8d4" : "#c084fc", transition: "color 0.3s ease", marginTop: "0.25rem" }}>
-          Read on Medium →
-        </span>
+
+      {/* Bottom box: same poster as blurred translucent background */}
+      <div style={{ position: "relative", overflow: "hidden" }}>
+
+        {/* Blurred poster behind text */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${blog.imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
+          filter: "blur(8px) brightness(0.45)",
+          transform: "scale(1.15)",
+        }} />
+
+        {/* Semi-transparent dark tint */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(5,0,20,0.35)",
+        }} />
+
+        {/* Text */}
+        <div style={{
+          position: "relative",
+          zIndex: 2,
+          padding: "1.1rem 1.25rem 1.35rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.45rem",
+        }}>
+          <h2 style={{
+            fontSize: "0.95rem",
+            fontWeight: "700",
+            color: hovered ? "#f9a8d4" : "#ffffff",
+            lineHeight: "1.5",
+            margin: 0,
+            transition: "color 0.3s ease",
+          }}>
+            {blog.title}
+          </h2>
+
+          <p style={{
+            fontSize: "0.76rem",
+            color: "rgba(220,200,255,0.9)",
+            margin: 0,
+            lineHeight: "1.6",
+          }}>
+            {blog.excerpt}
+          </p>
+
+          <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "0.5rem",
+            paddingTop: "0.5rem",
+            borderTop: "1px solid rgba(236,72,153,0.25)",
+          }}>
+            <p style={{ fontSize: "0.74rem", color: "#f472b6", margin: 0 }}>
+              By {blog.author}
+            </p>
+            <span style={{
+              fontSize: "0.72rem",
+              color: hovered ? "#f9a8d4" : "#a78bfa",
+              transition: "color 0.3s ease",
+            }}>
+              Read on Medium →
+            </span>
+          </div>
+        </div>
       </div>
     </a>
   );
@@ -81,7 +139,14 @@ function BlogCard({ blog }) {
 
 export default function Blog() {
   return (
-    <div style={{ position: "relative", minHeight: "100vh", background: "linear-gradient(135deg, #0a0010 0%, #1a0030 50%, #0a0010 100%)", color: "white", padding: "6rem 1.5rem 4rem", overflow: "hidden" }}>
+    <div style={{
+      position: "relative",
+      minHeight: "100vh",
+      background: "linear-gradient(135deg, #0a0010 0%, #1a0030 50%, #0a0010 100%)",
+      color: "white",
+      padding: "6rem 1.5rem 4rem",
+      overflow: "hidden",
+    }}>
 
       <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.12, pointerEvents: "none" }} xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -94,11 +159,18 @@ export default function Blog() {
         <rect width="100%" height="100%" fill="url(#triangles)" />
       </svg>
 
-      <div style={{ position: "absolute", top: 0, left: "20%", width: "400px", height: "400px", background: "rgba(126, 34, 206, 0.25)", borderRadius: "50%", filter: "blur(80px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: 0, right: "20%", width: "400px", height: "400px", background: "rgba(190, 24, 93, 0.15)", borderRadius: "50%", filter: "blur(80px)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 0, left: "20%", width: "400px", height: "400px", background: "rgba(126,34,206,0.25)", borderRadius: "50%", filter: "blur(80px)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: 0, right: "20%", width: "400px", height: "400px", background: "rgba(190,24,93,0.15)", borderRadius: "50%", filter: "blur(80px)", pointerEvents: "none" }} />
 
-      <div style={{ position: "relative", zIndex: 10, textAlign: "center", marginBottom: "4rem" }}>
-        <h1 style={{ fontSize: "3rem", fontWeight: "700", background: "linear-gradient(to right, #d8b4fe, #f9a8d4, #d8b4fe)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+      <div style={{ position: "relative", zIndex: 10, textAlign: "center", marginBottom: "3rem" }}>
+        <h1 style={{
+          fontSize: "3rem",
+          fontWeight: "700",
+          background: "linear-gradient(to right, #d8b4fe, #f9a8d4, #d8b4fe)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          margin: 0,
+        }}>
           Our Blog
         </h1>
         <p style={{ color: "#a78bfa", marginTop: "0.75rem", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
@@ -106,7 +178,16 @@ export default function Blog() {
         </p>
       </div>
 
-      <div style={{ position: "relative", zIndex: 10, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "2rem", maxWidth: "1100px", margin: "0 auto" }}>
+      <div style={{
+        position: "relative",
+        zIndex: 10,
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "2rem",
+        maxWidth: "1100px",
+        margin: "0 auto",
+      }}>
         {blogData.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
         ))}
