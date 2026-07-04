@@ -254,7 +254,7 @@ export default function Blog() {
           WebkitTextFillColor: "transparent",
           margin: 0,
         }}>
-          Our Blog
+          Our Blogs
         </h1>
         <p style={{ color: "#a78bfa", marginTop: "0.75rem", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
           Stories, insights and ideas
