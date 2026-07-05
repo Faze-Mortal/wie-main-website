@@ -264,4 +264,18 @@
 
 .white-icon {
   color: white !important;
+<<<<<<< HEAD
 }
+=======
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes glint {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+>>>>>>> 7ca9aa357b4f05d2da9a2a405d3d2d6cfa3816ba

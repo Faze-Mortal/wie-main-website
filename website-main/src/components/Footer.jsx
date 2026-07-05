@@ -24,6 +24,8 @@ export default function Footer() {
     { path: "/team", label: "Our Team" },
     { path: "/about", label: "About Us" },
     { path: "/gallery", label: "Gallery" },
+    { path: "/blog", label: "Blog" },
+
   ];
 
   const socialLinks = [
@@ -73,8 +75,7 @@ export default function Footer() {
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `transition duration-200 ${
-                        isActive ? "text-white font-medium" : "hover:text-white"
+                      `transition duration-200 ${isActive ? "text-white font-medium" : "hover:text-white"
                       }`
                     }
                   >
