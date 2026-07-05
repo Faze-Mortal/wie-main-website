@@ -244,3 +244,13 @@
 .white-icon {
   color: white !important;
 }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes glint {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
