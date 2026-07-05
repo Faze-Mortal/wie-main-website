@@ -12,11 +12,11 @@ export default function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-black text-white font-tektur">
         <Header />
-         
+
         <main className="flex-grow">
-          
+
           <AppRoutes />
-          
+
         </main>
         <Footer />
       </div>
