@@ -276,6 +276,7 @@
   100% { transform: translateX(150%); }
 }
 
+
 .eventss {
   background-image:
     linear-gradient(45deg, rgba(255,255,255,0.18) 1.5px, transparent 1.5px),
