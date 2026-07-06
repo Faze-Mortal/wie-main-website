@@ -132,13 +132,6 @@ const coreDepartments = [
       { id: 30, name: "Shriya Desai", designation: "Senior Coordinator", img: "/Team/shriyadesai.jpg", instagram: "https://www.instagram.com/shriyadesai612?igsh=bDNqZGNpdm82MXhi", linkedin:"https://www.linkedin.com/in/shriya-desai-9a3b74361", github:"https://github.com/astro-quanta" },
       { id: 31, name: "Dhruv Gupta", designation: "Senior Coordinator", img: "/Team/dhruvgupta.jpg", instagram: "https://www.instagram.com/ur_dhruvv/", linkedin:"https://www.linkedin.com/in/dhruv-gupta-3933b231a" },
     ]
-  },
-  {
-    department: "Community",
-    members: [
-      { id: 53, name: "Tanisha Srivastava", designation: "Community Manager", img: "/Team/tanishasrivastava.jpg", instagram: "https://www.instagram.com/tanishasrivastava?igsh=MTd2Y2Q2Nmo2ZHF4ag==", linkedin:"https://www.linkedin.com/in/tanisha-srivastava-990232330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 54, name: "Anushka Dixit", designation: "Community Manager", img: "/Team/anushkadixit.jpg", instagram: "", linkedin:"", github:"" }
-    ]
   }
 ];
 
@@ -180,16 +173,22 @@ const TeamCard = ({ member }) => {
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-white/10 border border-white/20 backdrop-blur-lg rounded-3xl p-6 shadow-2xl hover:scale-[1.03] transition-transform duration-300 w-full max-w-xs group"
+      className="bg-gradient-to-b from-[#181132] to-[#0e091f] hover:from-[#1f163c] hover:to-[#160f29] border border-fuchsia-500/10 hover:border-fuchsia-500/60 rounded-3xl p-6 relative overflow-hidden group transition-all duration-300 ease-out shadow-lg hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] hover:scale-[1.02] w-full max-w-xs"
     >
+      {/* High-tech Corner Accents */}
+      <div className="absolute top-0 left-0 w-5 h-5 border-t-[3px] border-l-[3px] border-fuchsia-500/0 group-hover:border-fuchsia-500/100 transition-all duration-300 rounded-tl-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-5 h-5 border-t-[3px] border-r-[3px] border-fuchsia-500/0 group-hover:border-fuchsia-500/100 transition-all duration-300 rounded-tr-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[3px] border-l-[3px] border-fuchsia-500/0 group-hover:border-fuchsia-500/100 transition-all duration-300 rounded-bl-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[3px] border-r-[3px] border-fuchsia-500/0 group-hover:border-fuchsia-500/100 transition-all duration-300 rounded-br-3xl pointer-events-none" />
+
       <img
         src={img}
         alt={name}
-        className="w-full h-80 object-cover rounded-2xl border border-purple-500 mb-4 transition-transform group-hover:scale-105"
+        className="relative z-10 w-full h-80 object-cover rounded-2xl border border-purple-500/30 mb-4 transition-transform duration-300 group-hover:scale-105 group-hover:border-purple-400 filter-none grayscale-0 saturate-100 contrast-100"
       />
-      <h3 className="text-xl font-semibold text-purple-100 mb-1 text-center">{name}</h3>
-      <p className="text-purple-400 text-sm mb-4 text-center">{designation}</p>
-      <div className="flex justify-center gap-5 text-xl text-purple-300">
+      <h3 className="relative z-10 text-xl font-semibold text-purple-100 mb-1 text-center">{name}</h3>
+      <p className="relative z-10 text-purple-400 text-sm mb-4 text-center">{designation}</p>
+      <div className="relative z-10 flex justify-center gap-5 text-xl text-purple-300">
         {instagram && <a href={instagram} target="_blank" rel="noopener noreferrer"><FaInstagram className="hover:text-pink-500 transition" /></a>}
         {linkedin && <a href={linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedin className="hover:text-blue-500 transition" /></a>}
         {github && <a href={github} target="_blank" rel="noopener noreferrer"><FaGithub className="hover:text-white transition" /></a>}
@@ -199,14 +198,14 @@ const TeamCard = ({ member }) => {
 };
 
 // Filtered Core Card Component
-const CoreCard = ({ member }) => {
+const CoreCard = ({ member, isCarousel }) => {
   const { name, designation, img, instagram, linkedin, github } = member;
   return (
-    <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-5 shadow-lg transition-all duration-300 w-full h-full group hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:border-purple-500/50">
+    <div className={`bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-5 shadow-lg transition-all duration-300 w-full h-full group hover:bg-white/10 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:border-purple-500/50 ${!isCarousel ? 'hover:-translate-y-2' : ''}`}>
       <img
         src={img}
         alt={name}
-        className="w-full h-64 object-cover rounded-xl border border-gray-600 mb-4 transition-all duration-300 grayscale contrast-125 group-hover:grayscale-0 group-hover:border-purple-400"
+        className="w-full h-64 object-cover rounded-xl border border-gray-600 mb-4 transition-all duration-300 filter-none grayscale-0 saturate-100 contrast-100 group-hover:border-purple-400"
       />
       <h3 className="text-lg font-semibold text-purple-100 mb-1 text-center">{name}</h3>
       <p className="text-purple-300 text-xs mb-4 text-center">{designation}</p>
@@ -229,7 +228,7 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         className="w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-xl shadow-[0_0_10px_rgba(217,70,239,0.15)] group-hover:shadow-[0_0_25px_rgba(217,70,239,0.5)] group-hover:-translate-y-1 transition-shadow duration-500"
       >
         {/* Front Face (Unrevealed) */}
-        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-[#070312] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden flex flex-col items-center justify-center p-4">
+        <div className="absolute inset-0 p-4 flex flex-col items-center justify-center bg-[#070114] w-full h-full [backface-visibility:hidden] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
           {/* Outer Frame Corners */}
           <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
@@ -242,11 +241,6 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
           <h3 className="font-mono tracking-[0.1em] text-fuchsia-400/80 text-xs md:text-[13px] text-center uppercase relative z-10 break-words w-full px-2">
             {member.designation}
           </h3>
-          <div className="absolute bottom-6 w-full text-center">
-            <span className="font-mono text-[9px] md:text-[10px] text-fuchsia-300/60 tracking-widest animate-pulse">
-              [ ACCESS LOCKED ]
-            </span>
-          </div>
         </div>
 
         {/* Back Face (Revealed) */}
@@ -330,60 +324,232 @@ export default function Team() {
     }
   }, { scope: execSectionRef });
 
-  // Department Section Component
-  const DepartmentSection = ({ dept }) => {
-    const scrollRef = useRef(null);
-    const [members, setMembers] = useState([]);
+  const DepartmentCarousel = ({ dept }) => {
+    const initialMembers = dept.members;
+    // Pad array if fewer than 7 members to create a safe off-screen buffer runway
+    const members = initialMembers.length < 7 
+      ? [...initialMembers, ...initialMembers.map((m, i) => ({...m, id: m.id + "_pad" + i}))]
+      : initialMembers;
 
-    useEffect(() => {
-      setMembers(shuffleMembers(dept.members));
-    }, [dept.members]); // Add dependency
+    const n = members.length;
+    const isFallback = initialMembers.length < 4;
 
-    const scroll = (direction) => {
-      if (scrollRef.current) {
-        const { current } = scrollRef;
-        const scrollAmount = direction === "left" ? -320 : 320;
-        current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    };
+    const containerRef = useRef(null);
+    const cardsRef = useRef([]);
 
-    const isLarge = members.length >= 7;
+    useGSAP(() => {
+      if (isFallback) return;
 
-    return (
-      <div className="mb-20">
-        <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-8 tracking-wide">{dept.department}</h3>
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      let currentIndex = 0;
+      let timer;
+      let isPaused = false;
+      let isVisible = false;
+      let isMobile = window.innerWidth < 768;
+
+      const getPosition = (dist, isMob) => {
+        if (isMob) {
+          // Mobile fallback (1 card crossfade)
+          if (dist === 0) return { x: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 30, isBack: false, transformOrigin: "center center" };
+          return { x: 0, scale: 1, rotateY: 0, opacity: 0, zIndex: 0, isBack: false, transformOrigin: "center center" };
+        } else {
+          // Desktop 3D Sliding Window
+          if (dist === 0) return { x: -280, scale: 1, rotateY: 0, opacity: 1, zIndex: 20, isBack: false, transformOrigin: "center center" }; // left
+          if (dist === 1) return { x: 0, scale: 1.1, rotateY: 0, opacity: 1, zIndex: 30, isBack: false, transformOrigin: "center center" }; // center
+          if (dist === 2) return { x: 280, scale: 1, rotateY: 0, opacity: 1, zIndex: 20, isBack: false, transformOrigin: "center center" }; // right
+          if (dist === 3) return { x: 540, scale: 0.8, rotateY: 30, opacity: 0.85, zIndex: 10, isBack: true, transformOrigin: "left center" }; // edgeRight
+          if (dist === n - 1) return { x: -540, scale: 0.8, rotateY: -30, opacity: 0.85, zIndex: 10, isBack: true, transformOrigin: "right center" }; // edgeLeft
+          return { x: 750, scale: 0.8, rotateY: 30, opacity: 0, zIndex: 0, isBack: true, transformOrigin: "left center" }; // hidden right queue
+        }
+      };
+
+      const updateLayout = (immediate = false) => {
+        cardsRef.current.forEach((card, i) => {
+          if (!card) return;
+          const dist = (i - currentIndex + n) % n;
+          const pos = getPosition(dist, isMobile);
+          
+          if (immediate) {
+             gsap.set(card, { 
+                x: pos.x, 
+                scale: pos.scale, 
+                opacity: pos.opacity, 
+                zIndex: pos.zIndex, 
+                rotateY: pos.rotateY,
+                transformOrigin: pos.transformOrigin
+             });
+             const inner = card.querySelector('.carousel-inner');
+             if (inner) gsap.set(inner, { rotationY: pos.isBack ? 180 : 0 });
+          } else {
+             const oldDist = (i - ((currentIndex - 1 + n) % n) + n) % n;
+             if (!isMobile && oldDist === n - 1 && dist !== 0) {
+                // Animate old edgeLeft offscreen to the left
+                const tl = gsap.timeline();
+                tl.to(card, { x: -750, opacity: 0, duration: 0.3 });
+                tl.set(card, { x: 750, rotateY: 30, transformOrigin: "left center" }, 0.3); // Queue back on the right
+             } else if (!isMobile && dist === 3 && oldDist !== 2) {
+                // New edgeRight entering from hidden
+                const tl = gsap.timeline();
+                tl.set(card, { x: 750, scale: 0.8, opacity: 0, zIndex: 10, rotateY: 30, transformOrigin: "left center" });
+                const inner = card.querySelector('.carousel-inner');
+                if (inner) tl.set(inner, { rotationY: 180 });
+                tl.to(card, { x: pos.x, opacity: pos.opacity, duration: 0.6 }, 0);
+             } else {
+                // Standard internal slot slide
+                const tl = gsap.timeline();
+                tl.to(card, { 
+                   x: pos.x, 
+                   scale: pos.scale, 
+                   opacity: pos.opacity, 
+                   zIndex: pos.zIndex,
+                   rotateY: pos.rotateY,
+                   transformOrigin: pos.transformOrigin,
+                   duration: 0.6 
+                }, 0);
+                
+                const inner = card.querySelector('.carousel-inner');
+                if (inner) {
+                   if (isMobile) {
+                      tl.set(inner, { rotationY: 0 }, 0);
+                   } else {
+                      if (pos.isBack && oldDist !== n-1 && oldDist <= 3) {
+                         tl.to(inner, { rotationY: 180, duration: 0.6 }, 0); // Flip to back
+                      } else if (!pos.isBack && oldDist === 3) {
+                         tl.to(inner, { rotationY: 0, duration: 0.6 }, 0); // Flip to front
+                      }
+                   }
+                }
+             }
+          }
+        });
+      };
+
+      updateLayout(true); // Initial layout setup
+
+      const advance = () => {
+        if (isPaused || !isVisible) return;
+        currentIndex = (currentIndex + 1) % n;
+        updateLayout(false);
         
-        {isLarge ? (
-          <div className="relative group/slider max-w-7xl mx-auto px-4 md:px-12">
-            {/* Desktop Slider Track / Mobile Grid */}
-            <div 
-              ref={scrollRef} 
-              className="grid grid-cols-2 gap-4 md:flex md:overflow-x-auto md:snap-x md:snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:flex-nowrap md:gap-6 md:pb-6 md:px-2 scroll-smooth"
-            >
-              {members.map((member) => (
-                <div key={member.id} className="md:min-w-[260px] md:snap-start">
-                  <CoreCard member={member} />
-                </div>
-              ))}
-            </div>
-            {/* Navigation Arrows (Desktop Only) */}
-            <button onClick={() => scroll("left")} className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-10 hover:bg-purple-600 shadow-xl border border-white/10 backdrop-blur-md">
-              <FaChevronLeft size={20} />
-            </button>
-            <button onClick={() => scroll("right")} className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-10 hover:bg-purple-600 shadow-xl border border-white/10 backdrop-blur-md">
-              <FaChevronRight size={20} />
-            </button>
-          </div>
-        ) : (
-          /* Static Row / Mobile Grid */
+        // Screen reader update
+        const liveRegion = document.getElementById(`live-region-${dept.department.replace(/\s+/g, '')}`);
+        if (liveRegion) {
+          const centerMember = members[(currentIndex + 1) % n];
+          if (centerMember) liveRegion.innerText = `${centerMember.name}, ${centerMember.designation}`;
+        }
+        
+        timer = gsap.delayedCall(2, advance);
+      };
+
+      timer = gsap.delayedCall(2, advance);
+
+      const handleMouseEnter = () => { isPaused = true; };
+      const handleMouseLeave = () => { isPaused = false; timer.restart(true); };
+      
+      const container = containerRef.current;
+      container.addEventListener('mouseenter', handleMouseEnter);
+      container.addEventListener('mouseleave', handleMouseLeave);
+      container.addEventListener('focusin', handleMouseEnter);
+      container.addEventListener('focusout', handleMouseLeave);
+
+      const observer = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible && !isPaused) {
+          timer.restart(true);
+        } else {
+          timer.pause();
+        }
+      });
+      observer.observe(container);
+      
+      const handleResize = () => {
+         const newIsMobile = window.innerWidth < 768;
+         if (newIsMobile !== isMobile) {
+            isMobile = newIsMobile;
+            updateLayout(true);
+         }
+      };
+      window.addEventListener('resize', handleResize);
+
+      // Mobile touch swipe fallback
+      let startX = 0;
+      const handleTouchStart = (e) => { startX = e.touches[0].clientX; };
+      const handleTouchEnd = (e) => {
+         const endX = e.changedTouches[0].clientX;
+         if (startX - endX > 50) advance(); 
+         else if (endX - startX > 50) { 
+            if (isPaused || !isVisible) return;
+            currentIndex = (currentIndex - 1 + n) % n;
+            updateLayout(false);
+            timer.restart(true);
+         }
+      };
+      container.addEventListener('touchstart', handleTouchStart);
+      container.addEventListener('touchend', handleTouchEnd);
+
+      return () => {
+        timer.kill();
+        container.removeEventListener('mouseenter', handleMouseEnter);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+        container.removeEventListener('focusin', handleMouseEnter);
+        container.removeEventListener('focusout', handleMouseLeave);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
+        observer.disconnect();
+        window.removeEventListener('resize', handleResize);
+      };
+
+    }, { scope: containerRef, dependencies: [members] });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isFallback || prefersReducedMotion) {
+      return (
+        <div className="mb-20">
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-8 tracking-wide">{dept.department}</h3>
           <div className="grid grid-cols-2 gap-4 md:flex md:flex-wrap md:justify-center md:gap-8 px-4 max-w-6xl mx-auto">
-            {members.map((member) => (
+            {initialMembers.map((member) => (
               <div key={member.id} className="md:w-[260px]">
-                <CoreCard member={member} />
+                <CoreCard member={member} isCarousel={false} />
               </div>
             ))}
           </div>
-        )}
+        </div>
+      );
+    }
+
+    return (
+      <div className="mb-32">
+        <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-12 tracking-wide">{dept.department}</h3>
+        <div 
+           ref={containerRef} 
+           className="relative w-full max-w-screen-xl h-[450px] mx-auto perspective-[1000px] flex items-center justify-center overflow-visible px-20 touch-pan-y group"
+        >
+          <div id={`live-region-${dept.department.replace(/\s+/g, '')}`} className="sr-only" aria-live="polite"></div>
+          {members.map((member, i) => (
+            <div
+              key={`${member.id}-${i}`}
+              ref={el => cardsRef.current[i] = el}
+              className="absolute w-[260px] h-[380px] origin-center [transform-style:preserve-3d]"
+              style={{ opacity: 0 }}
+            >
+              <div className="carousel-inner w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-2xl">
+                 {/* Front Face (Open) */}
+                 <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                   <CoreCard member={member} isCarousel={true} />
+                 </div>
+                 {/* Back Face (Closed) */}
+                 <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-white/5 bg-gradient-to-b from-black/20 to-black/50 border border-fuchsia-500/20 shadow-[0_0_10px_rgba(217,70,239,0.1)] flex items-center justify-center overflow-hidden">
+                    <span className="font-tomorrow-bold text-fuchsia-400 text-sm tracking-[0.25em] text-center px-4 uppercase whitespace-normal break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
+                      CORE COMMITTEE
+                    </span>
+                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   };
@@ -418,11 +584,9 @@ export default function Team() {
 
         {/* Executive Committee - Night Market Reveal */}
         <div ref={execSectionRef} className="mt-32 mb-24 max-w-[1200px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-16 md:mb-20 px-4 md:px-10">
-            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-purple-100 mb-6 md:mb-0">
-              Executive Committee
-            </motion.h2>
-          </div>
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-16 md:mb-20">
+            Executive Committee
+          </motion.h2>
           
           <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:flex-nowrap md:justify-center md:items-stretch md:gap-4 px-2 md:px-4 w-full">
             {executiveCommittee.map((member, index) => (
@@ -443,7 +607,7 @@ export default function Team() {
            </motion.h2>
            
            {coreDepartments.map((dept, idx) => (
-             <DepartmentSection key={idx} dept={dept} />
+             <DepartmentCarousel key={idx} dept={dept} />
            ))}
         </div>
 

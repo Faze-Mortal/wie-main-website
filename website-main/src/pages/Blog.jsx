@@ -187,7 +187,7 @@ export default function Blog() {
 
       <div style={{ textAlign: "center", marginBottom: "2.5rem", position: "relative", zIndex: 10 }}>
         <h1 style={{ fontSize: "3rem", fontWeight: "700", margin: 0, background: "linear-gradient(to right,#f9a8d4,#f472b6,#e879f9,#f9a8d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Our Blog
+          Our Blogs
         </h1>
         <p style={{ color: "#f472b6", marginTop: "0.5rem", fontSize: "0.78rem", letterSpacing: "0.18em", textTransform: "uppercase", opacity: 0.7 }}>
           Stories · Insights · Ideas
