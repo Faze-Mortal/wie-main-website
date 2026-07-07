@@ -266,21 +266,43 @@
   color: white !important;
 }
 
+
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @keyframes glint {
-  0% { transform: translateX(-150%); }
-  100% { transform: translateX(150%); }
+  <<<<<<< HEAD 0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(150%);
+  }
 }
 
 
 .eventss {
   background-image:
-    linear-gradient(45deg, rgba(255,255,255,0.18) 1.5px, transparent 1.5px),
-    linear-gradient(-45deg, rgba(255,255,255,0.18) 1.5px, transparent 1.5px),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px),
     linear-gradient(to bottom, rgba(88, 28, 135, 0.8), rgba(0, 0, 0, 0.7), rgba(88, 28, 135, 0.8));
   background-size: 60px 60px, 60px 60px, 100% 100%;
 }
+
+=======0% {
+  transform: translateX(-150%);
+}
+
+100% {
+  transform: translateX(150%);
+}
+}
+
+>>>>>>>36486ec (Update Blog page styling)
