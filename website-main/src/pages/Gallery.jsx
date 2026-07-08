@@ -1,192 +1,220 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import './Gallery.css'
 
-const imageData = [{
-  src: `/Gallery/img1.jpg`,
-  title: `Executive Committee -2`,
-  description: `ECs 24-25`,
-}, {
-  src: `/Gallery/img2.jpg`,
-  title: `Elysium`,
-  description: `Team Elysium`,
-}, {
-  src: `/Gallery/img3.jpg`,
-  title: `Pyaare JCs`,
-  description: `JCs 24-25`,
-}, {
-  src: `/Gallery/img4.jpg`,
-  title: `Elyisium in the Hostel`,
-  description: `Elysium 4 the win`,
-}, {
-  src: `/Gallery/img5.jpg`,
-  title: `EC reel shoot`,
-  description: `The team for EC reel 24-25`,
-}, {
-  src: `/Gallery/img6.jpg`,
-  title: `CCs in HardWired`,
-  description: `CCs on Top`,
-}, {
-  src: `/Gallery/img7.jpg`,
-  title: `Gyaan`,
-  description: `Shashwat bhaiya giving Gyaan`,
-}, {
-  src: `/Gallery/img8.jpg`,
-  title: `ATL Lab`,
-  description: `JC masti in ATL Lab`,
-}, {
-  src: `/Gallery/img9.jpg`,
-  title: `Shopping Cart`,
-  description: `Srishti in a cart`,
-}, {
-  src: `/Gallery/img11.jpg`,
-  title: `DataPulse pitching`,
-  description: `Serious stuff`,
-}, {
-  src: `/Gallery/img10.jpg`,
-  title: `Bhai Log`,
-  description: `Muscles and Masti`,
-}, {
-  src: `/Gallery/img12.jpg`,
-  title: `Jcs in Audi`,
-  description: `Fun in silence`,
-},
- {
-  src: `/Gallery/img13.jpg`,
-  title: `Bullying Ishani`,
-  description: `Haww Kashish`,
-}, {
-  src: `/Gallery/img14.jpg`,
-  title: `CnC Team`,
-  description: `Corp and Cur`,
-},{
-  src: `/Gallery/img15.jpg`,
-  title: `Genesis`,
-  description: `CC Summit Times`,
-},{
-  src: `/Gallery/img16.jpg`,
-  title: `Shridhar sir`,
-  description: `I LOVE MANIPAL`,
-},{
-  src: `/Gallery/img17.jpg`,
-  title: `DataPulse Judging`,
-  description: `Elysium Day 2`,
-},{
-  src: `/Gallery/img18.jpg`,
-  title: `Hardwired`,
-  description: `Elysium Day 2`,
-},{
-  src: `/Gallery/img19.jpg`,
-  title: `NextTech`,
-  description: `Elysium Day 1`,
-},{
-  src: `/Gallery/img20.jpg`,
-  title: `Tech Eden`,
-  description: `Speakers at Tech Eden`,
-},{
-  src: `/Gallery/img21.jpg`,
-  title: `Group photo`,
-  description: `Elysium Day 2`,
-},{
-  src: `/Gallery/img22.jpg`,
-  title: `Elysium`,
-  description: `ATL Lab`,
-},{
-  src: `/Gallery/img23.jpg`,
-  title: `Reeti Riwaaz`,
-  description: `Group photo`,
-},{
-  src: `/Gallery/img24.jpg`,
-  title: `Reeti Riwaaz`,
-  description: `JCs in Reeti Riwaaz`,
-},{
-  src: `/Gallery/img25.jpg`,
-  title: `Reeti Riwaaz`,
-  description: `Dashing Team JC`,
-},
-  ]
+/* ================================================================
+   IMAGE DATA — real photos from /Gallery/
+   Categories: flagship | workshops | celebrations | team
+   ================================================================ */
+const CATEGORIES = [
+  { key: 'flagship',     label: 'Elysium' },
+  { key: 'workshops',    label: 'Workshops' },
+  { key: 'celebrations', label: 'Fun Moments' },
+  { key: 'team',         label: 'Team Moments' },
+]
+
+const photos = [
+  { id: 1,  src: '/Gallery/img1.jpg',  cat: 'team',         caption: 'Executive Committee',  description: 'ECs 24-25' },
+  { id: 2,  src: '/Gallery/img2.jpg',  cat: 'flagship',     caption: 'Elysium',              description: 'Team Elysium' },
+  { id: 3,  src: '/Gallery/img3.jpg',  cat: 'team',         caption: 'Pyaare JCs',           description: 'JCs 24-25' },
+  { id: 4,  src: '/Gallery/img4.jpg',  cat: 'flagship',     caption: 'Elysium in the Hostel',description: 'Elysium 4 the win' },
+  { id: 5,  src: '/Gallery/img5.jpg',  cat: 'team',         caption: 'EC Reel Shoot',        description: 'The team for EC reel 24-25' },
+  { id: 6,  src: '/Gallery/img6.jpg',  cat: 'workshops',    caption: 'CCs in HardWired',     description: 'CCs on Top' },
+  { id: 7,  src: '/Gallery/img7.jpg',  cat: 'workshops',    caption: 'Gyaan Session',        description: 'Shashwat bhaiya giving Gyaan' },
+  { id: 8,  src: '/Gallery/img8.jpg',  cat: 'celebrations', caption: 'ATL Lab Masti',        description: 'JC masti in ATL Lab' },
+  { id: 9,  src: '/Gallery/img9.jpg',  cat: 'celebrations', caption: 'Shopping Cart',        description: 'Srishti in a cart' },
+  { id: 10, src: '/Gallery/img10.jpg', cat: 'celebrations', caption: 'Bhai Log',             description: 'Muscles and Masti' },
+  { id: 11, src: '/Gallery/img11.jpg', cat: 'flagship',     caption: 'DataPulse Pitching',   description: 'Serious stuff' },
+  { id: 12, src: '/Gallery/img12.jpg', cat: 'team',         caption: 'JCs in Audi',          description: 'Fun in silence' },
+  { id: 13, src: '/Gallery/img13.jpg', cat: 'celebrations', caption: 'Bullying Ishani',      description: 'Haww Kashish' },
+  { id: 14, src: '/Gallery/img14.jpg', cat: 'team',         caption: 'CnC Team',             description: 'Corp and Cur' },
+  { id: 15, src: '/Gallery/img15.jpg', cat: 'team',         caption: 'Genesis',              description: 'CC Summit Times' },
+  { id: 16, src: '/Gallery/img16.jpg', cat: 'flagship',     caption: 'Shridhar Sir',         description: 'I LOVE MANIPAL' },
+  { id: 17, src: '/Gallery/img17.jpg', cat: 'flagship',     caption: 'DataPulse Judging',    description: 'Elysium Day 2' },
+  { id: 18, src: '/Gallery/img18.jpg', cat: 'workshops',    caption: 'HardWired',            description: 'Elysium Day 2' },
+  { id: 19, src: '/Gallery/img19.jpg', cat: 'flagship',     caption: 'NextTech',             description: 'Elysium Day 1' },
+  { id: 20, src: '/Gallery/img20.jpg', cat: 'workshops',    caption: 'Tech Eden',            description: 'Speakers at Tech Eden' },
+  { id: 21, src: '/Gallery/img21.jpg', cat: 'flagship',     caption: 'Group Photo',          description: 'Elysium Day 2' },
+  { id: 22, src: '/Gallery/img22.jpg', cat: 'flagship',     caption: 'Elysium at ATL Lab',   description: 'ATL Lab Session' },
+  { id: 23, src: '/Gallery/img23.jpg', cat: 'celebrations', caption: 'Reeti Riwaaz',         description: 'Group photo' },
+  { id: 24, src: '/Gallery/img24.jpg', cat: 'celebrations', caption: 'Reeti Riwaaz',         description: 'JCs in Reeti Riwaaz' },
+  { id: 25, src: '/Gallery/img25.jpg', cat: 'team',         caption: 'Dashing Team JC',      description: 'Reeti Riwaaz' },
+]
+
+/* filmstrip = photos duplicated for seamless loop */
+const stripPhotos = [...photos, ...photos]
 
 function Gallery() {
-  const [selected, setSelected] = useState(null)
+  const [activeFilter, setActiveFilter] = useState('all')
+  const [lightboxIndex, setLightboxIndex] = useState(null) // index into visiblePhotos
+  const cardRefs = useRef([])
 
-  const imageVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.02, duration: 0.5 },
-    }),
+  /* ---- filtered list ---- */
+  const visiblePhotos = activeFilter === 'all'
+    ? photos
+    : photos.filter(p => p.cat === activeFilter)
+
+  /* ---- scroll-reveal via IntersectionObserver ---- */
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('show')
+            io.unobserve(e.target)
+          }
+        })
+      },
+      { threshold: 0.12 }
+    )
+    cardRefs.current.forEach(el => { if (el) io.observe(el) })
+    return () => io.disconnect()
+  }, [activeFilter]) // re-run when filter changes (new DOM)
+
+  /* ---- lightbox keyboard nav ---- */
+  const closeLightbox = useCallback(() => setLightboxIndex(null), [])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (lightboxIndex === null) return
+      if (e.key === 'Escape')      closeLightbox()
+      if (e.key === 'ArrowLeft')   setLightboxIndex(i => (i - 1 + visiblePhotos.length) % visiblePhotos.length)
+      if (e.key === 'ArrowRight')  setLightboxIndex(i => (i + 1) % visiblePhotos.length)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightboxIndex, visiblePhotos.length, closeLightbox])
+
+  /* ---- helpers ---- */
+  const countFor = (key) =>
+    key === 'all' ? photos.length : photos.filter(p => p.cat === key).length
+
+  const lbPhoto = lightboxIndex !== null ? visiblePhotos[lightboxIndex] : null
+
+  const handleFilterChange = (key) => {
+    setActiveFilter(key)
+    setLightboxIndex(null)
+    // reset show classes so new cards animate in
+    cardRefs.current = []
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-950 via-black to-purple-950 text-white py-24 px-4 sm:px-6 lg:px-12">
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-4xl md:text-5xl py-12 font-bold text-center text-purple-100 font-cambo"
-      >
-        Our Gallery
-      </motion.h2>
+    <div className="gallery-page">
 
-      {/* Masonry Columns */}
-      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-        {imageData.map((img, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-2xl break-inside-avoid group transition duration-300 cursor-pointer"
-            onClick={() => setSelected(img)}
+      {/* ── Ambient blobs ── */}
+      <div className="g-ambient" aria-hidden="true">
+        <div className="g-blob g-blob-1" />
+        <div className="g-blob g-blob-2" />
+        <div className="g-blob g-blob-3" />
+      </div>
+
+      {/* ── Hero ── */}
+      <header className="g-hero">
+        <div className="g-eyebrow">✦ Moments in Motion</div>
+        <h1 className="g-title">GALLERY</h1>
+        <p className="g-subtitle">
+          A running frame of the talks, builds, celebrations and late-night
+          sessions that make IEEE WIE MUJ what it is — captured one shutter
+          click at a time.
+        </p>
+      </header>
+
+      {/* ── Filmstrip ── */}
+      <div className="g-filmstrip-wrap" aria-hidden="true">
+        <div className="g-filmstrip">
+          {stripPhotos.map((p, i) => (
+            <img key={i} src={p.src} loading="lazy" alt="" />
+          ))}
+        </div>
+      </div>
+
+      {/* ── Filter bar ── */}
+      <div className="g-filter-bar" role="toolbar" aria-label="Filter gallery by category">
+        {[{ key: 'all', label: 'All Moments' }, ...CATEGORIES].map((c) => (
+          <button
+            key={c.key}
+            className={`g-chip${activeFilter === c.key ? ' active' : ''}`}
+            onClick={() => handleFilterChange(c.key)}
+            aria-pressed={activeFilter === c.key}
           >
-            <img
-              src={img.src}
-              alt={img.title}
-              loading="lazy"
-              className="w-full h-auto object-cover rounded-2xl transform transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
-              style={{ height: `${200 + (i % 3) * 60}px` }}
-            />
-          </motion.div>
+            {c.label}
+            <span className="g-count">{countFor(c.key)}</span>
+          </button>
         ))}
       </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
+      {/* ── Masonry grid ── */}
+      <main className="g-grid" id="gallery-grid">
+        {visiblePhotos.map((p, i) => (
+          <div
+            key={`${p.id}-${activeFilter}`}
+            ref={el => { cardRefs.current[i] = el }}
+            className="g-card"
+            onClick={() => setLightboxIndex(i)}
+            role="button"
+            tabIndex={0}
+            aria-label={`Open ${p.caption}`}
+            onKeyDown={(e) => { if (e.key === 'Enter') setLightboxIndex(i) }}
           >
-            <motion.div
-              className="bg-purple-900 rounded-2xl p-6 w-full sm:max-w-md md:max-w-xl lg:max-w-3xl text-white relative"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img
-                src={selected.src}
-                alt={selected.title}
-                className="w-full rounded-xl mb-4 max-h-[80vh] object-contain"
-              />
-              <h3 className="text-lg sm:text-xl font-bold mb-2">{selected.title}</h3>
-              <p className="text-purple-100 text-sm">{selected.description}</p>
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-3 right-4 text-white text-2xl hover:text-purple-400"
-              >
-                &times;
-              </button>
-            </motion.div>
-          </motion.div>
+            <img src={p.src} loading="lazy" alt={p.caption} />
+            <div className="g-card-zoom" aria-hidden="true">⤢</div>
+            <div className="g-card-overlay">
+              <div className="g-card-tag">
+                {CATEGORIES.find(c => c.key === p.cat)?.label}
+              </div>
+              <div className="g-card-caption">{p.caption}</div>
+            </div>
+          </div>
+        ))}
+      </main>
+
+      {/* ── Lightbox ── */}
+      <div
+        className={`g-lightbox${lbPhoto ? ' open' : ''}`}
+        id="gallery-lightbox"
+        onClick={(e) => { if (e.target === e.currentTarget) closeLightbox() }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image lightbox"
+      >
+        {lbPhoto && (
+          <div className="g-lb-inner">
+            <button
+              className="g-lb-close"
+              onClick={closeLightbox}
+              aria-label="Close lightbox"
+            >✕</button>
+
+            <button
+              className="g-lb-nav g-lb-prev"
+              onClick={() => setLightboxIndex(i => (i - 1 + visiblePhotos.length) % visiblePhotos.length)}
+              aria-label="Previous image"
+            >‹</button>
+
+            <img src={lbPhoto.src} alt={lbPhoto.caption} />
+
+            <button
+              className="g-lb-nav g-lb-next"
+              onClick={() => setLightboxIndex(i => (i + 1) % visiblePhotos.length)}
+              aria-label="Next image"
+            >›</button>
+
+            <div className="g-lb-meta">
+              {lbPhoto.caption}
+              {lbPhoto.description && ` — ${lbPhoto.description}`}
+              <span style={{ opacity: 0.55, marginLeft: 10 }}>
+                {lightboxIndex + 1} / {visiblePhotos.length}
+              </span>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
+      </div>
+
+      {/* ── Footer strip ── */}
+      <footer className="g-footer">
+        © 2026 IEEE Women in Engineering — Manipal University Jaipur.
+        All frames, all filters, all real.
+      </footer>
+
     </div>
   )
 }
