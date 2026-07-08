@@ -12,33 +12,6 @@ export default function Home() {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const blogData = [
-    {
-      id: 3,
-      title: "🌱 Data Cleaning Techniques Every Analyst Should Know 📊",
-      author: "Chinmayee Khanna",
-      imageUrl: "/blog11.jpeg",
-      readMoreUrl:
-        "https://medium.com/@ieee.wiemuj/data-cleaning-techniques-every-analyst-should-know-0a9ab0adbb50",
-    },
-    {
-      id: 2,
-      title: "🌟 What Happens When Systems Fail-And Humans Take Over 🌟",
-      author: "Ashita Saxena",
-      imageUrl: "/blog10.jpeg",
-      readMoreUrl:
-        "https://medium.com/@ieee.wiemuj/what-happens-when-systems-fail-and-humans-take-over-8120ed4c2ae5",
-    },
-    {
-      id: 1,
-      title: "🌐 Exploring the Metaverse: Your Guide to the Virtual Universe ✨",
-      author: "Shreya Singh",
-      imageUrl: "/blog9.jpeg",
-      readMoreUrl:
-        "https://medium.com/@ieee.wiemuj/exploring-the-metaverse-your-guide-to-the-virtual-universe-5dace13f5716",
-    },
-  ];
-
   const eventData = [
     {
       id: 104,
@@ -182,46 +155,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* BLOGS */}
-      <section className="py-20 px-6 md:px-20 bg-black">
-        <h2
-          className="text-4xl font-bold text-center text-purple-200 mb-12"
-          data-aos="fade-up"
-        >
-          Blogs
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8" data-aos="fade-up">
-          {blogData.map((blog) => (
-            <motion.div
-              key={blog.id}
-              className="bg-purple-900/40 rounded-xl p-6 border border-purple-700 shadow-md hover:shadow-purple-500/40 transition-all"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="relative w-full  mb-4 rounded overflow-hidden">
-                <img
-                  src={blog.imageUrl}
-                  alt={blog.title}
-                  className=" w-full h-full px-2 object-cover"
-                />
-              </div>
-              <h3 className="text-xl text-purple-100 font-semibold mb-2">
-                {blog.title}
-              </h3>
-              <p className="text-purple-400 text-sm mb-2">
-                By <span className="font-medium">{blog.author}</span>
-              </p>
-              <a
-                href={blog.readMoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-purple-300 hover:text-purple-100 underline"
-              >
-                Read more
-              </a>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* EVENTS */}
       <section className="py-20 px-6 md:px-20 bg-black" data-aos="fade-up">
