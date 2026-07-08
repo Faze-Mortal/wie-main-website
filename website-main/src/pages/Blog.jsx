@@ -73,12 +73,12 @@ function BlogCard({ blog }) {
           backgroundImage: `url(${blog.imageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(2px) brightness(0.5)",
+          filter: "blur(5px) brightness(0.5)",
           transform: "scale(1.15)",
           zIndex: 0,
         }} />
 
-        {/* full image shows, no crop */}
+        {/* Actual poster — contain so full image shows, no crop */}
         <img
           src={blog.imageUrl}
           alt={`Blog ${blog.id}`}
@@ -210,9 +210,17 @@ export default function Blog() {
       <div style={{ position: "absolute", top: "40%", right: "5%", width: "400px", height: "400px", background: "rgba(192,38,211,0.1)", borderRadius: "50%", filter: "blur(100px)", pointerEvents: "none", animation: "pinkGlow 6s ease-in-out 2s infinite" }} />
       <div style={{ position: "absolute", bottom: "5%", left: "30%", width: "500px", height: "500px", background: "rgba(244,114,182,0.06)", borderRadius: "50%", filter: "blur(120px)", pointerEvents: "none", animation: "pinkGlow 7s ease-in-out 1s infinite" }} />
 
-      <div style={{ textAlign: "center", marginBottom: "2.5rem", position: "relative", zIndex: 10 }}>
-        <h1 style={{ fontSize: "3rem", fontWeight: "700", margin: 0, background: "linear-gradient(to right,#f9a8d4,#f472b6,#e879f9,#f9a8d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Our Blog
+      <div style={{ textAlign: "center", marginBottom: "3rem", position: "relative", zIndex: 10 }}>
+        <h1 style={{
+          fontSize: "3.5rem", fontWeight: "800", margin: 0,
+          background: "linear-gradient(90deg, #f9a8d4, #f472b6, #e879f9, #c026d3, #f472b6, #f9a8d4)",
+          backgroundSize: "200% auto",
+          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+          animation: "titleShimmer 4s linear infinite",
+          fontFamily: "'Montserrat', sans-serif",
+          letterSpacing: "-0.02em",
+        }}>
+          Our Blogs
         </h1>
         <p style={{ color: "rgba(244,114,182,0.65)", marginTop: "0.6rem", fontSize: "0.75rem", letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "'Montserrat', sans-serif", fontWeight: "500" }}>
           Stories · Insights · Ideas
