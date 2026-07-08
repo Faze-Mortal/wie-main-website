@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?...');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Cambo&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import "tailwindcss";
+
 
 
 
@@ -267,12 +269,30 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @keyframes glint {
-  0% { transform: translateX(-150%); }
-  100% { transform: translateX(150%); }
+  0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(150%);
+  }
 }
->>>>>>> 7ca9aa357b4f05d2da9a2a405d3d2d6cfa3816ba
+
+
+.eventss {
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(88, 28, 135, 0.8), rgba(0, 0, 0, 0.7), rgba(88, 28, 135, 0.8));
+  background-size: 60px 60px, 60px 60px, 100% 100%;
+}
