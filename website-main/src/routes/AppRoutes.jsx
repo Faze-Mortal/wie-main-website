@@ -14,7 +14,7 @@ export default function AppRoutes() {
 
   return (
 
-    <Routes location={location} key={location.pathname}>
+    <Routes location={location}>
       <Route path="/" element={<Home />} />
       <Route path="/events" element={<Events />} />
       <Route path="/team" element={<Team />} />
