@@ -18,7 +18,7 @@
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
-  background: transparent;
+  background: var(--gb);
   color: var(--gtxt);
   font-family: 'Inter', sans-serif;
 }

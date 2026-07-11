@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useScrollStore } from '../store/useScrollStore';
+import Silk from './Silk';
 import HeroPhase from './phases/HeroPhase';
 import AboutPhase from './phases/AboutPhase';
 import EventsPhase from './phases/EventsPhase';
@@ -9,6 +10,17 @@ import { useGSAP } from '@gsap/react';
 
 import BlogsPhase from './phases/BlogsPhase';
 import GalleryPhase from './phases/GalleryPhase';
+import PillNav from './PillNav';
+import wieLogo from '../assets/wie_logo.png';
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Events', href: '/events' },
+  { label: 'Our Team', href: '/team' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' }
+];
 
 // PhaseOrchestrator owns the master list of phases
 const PHASES = [
@@ -28,7 +40,8 @@ const PhaseOrchestrator = () => {
   
   const phaseRefs = useRef([]);
   const tlRef = useRef(null);
-  
+  const pillNavRef = useRef(null);
+
   useGSAP(() => {
     if (tlRef.current) {
       tlRef.current.kill();
@@ -64,6 +77,36 @@ const PhaseOrchestrator = () => {
       tl.fromTo(current, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.98, duration: 0.15, ease: 'none' }, 0.85);
     }
 
+    // 4. PillNav Positioning and Animation
+    if (pillNavRef.current) {
+      if (currentPhase === 0) {
+        // Stays top-left throughout Hero phase
+        gsap.set(pillNavRef.current, { left: '2rem', xPercent: 0, scale: 1 });
+      } else if (currentPhase === 1) {
+        // Moves to center AFTER the entry crossfade (0.15 -> 0.35)
+        tl.fromTo(pillNavRef.current, 
+          { left: '2rem', xPercent: 0 }, 
+          { left: '50%', xPercent: -50, duration: 0.20, ease: 'power2.out' }, 
+          0.15
+        );
+        // Pop animation concurrently with the move
+        tl.fromTo(pillNavRef.current, 
+          { scale: 0.9 }, 
+          { scale: 1, duration: 0.20, ease: 'back.out(1.5)' }, 
+          0.15
+        );
+      } else {
+        // Already centered for phases 2 and beyond
+        gsap.set(pillNavRef.current, { left: '50%', xPercent: -50 });
+        
+        // Quick standalone pop animation on phase entry (removed clearProps: 'scale' to prevent GSAP from stripping xPercent)
+        gsap.fromTo(pillNavRef.current, 
+          { scale: 0.9 }, 
+          { scale: 1, duration: 0.4, ease: 'back.out(1.5)' }
+        );
+      }
+    }
+
     tlRef.current = tl;
     tl.progress(useScrollStore.getState().phaseProgress);
 
@@ -77,13 +120,16 @@ const PhaseOrchestrator = () => {
     return () => unsubscribe();
   }, [currentPhase]);
   
-  
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
   useEffect(() => {
     return () => {
       console.time('PhaseOrchestrator unmount');
       // Adding a synchronous wait just in case to ensure we capture the whole teardown phase,
       // but standard console.time/timeEnd around the unmount should give us a good idea.
-            console.timeEnd('PhaseOrchestrator unmount');
+      if (pillNavRef.current) {} // just a dummy
+      console.timeEnd('PhaseOrchestrator unmount');
     };
   }, []);
 
@@ -99,7 +145,23 @@ const PhaseOrchestrator = () => {
     };
   }, [isScrollLocked]);
 
-    useEffect(() => {
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(motionQuery.matches);
+    const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
+    motionQuery.addEventListener('change', handleMotionChange);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      motionQuery.removeEventListener('change', handleMotionChange);
+    };
+  }, []);
+
+  useEffect(() => {
     if (PHASES.length === 0) return;
 
     const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
@@ -149,6 +211,45 @@ const PhaseOrchestrator = () => {
         aria-hidden="true" 
       />
       
+      {/* Fixed Background Layer */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none">
+        {prefersReducedMotion ? (
+          <div 
+            className="w-full h-full" 
+            style={{ background: 'linear-gradient(to bottom right, #10002b, #3c096c)' }} 
+          />
+        ) : !isMobile ? (
+          <Silk 
+            speed={2.4} 
+            scale={0.6} 
+            color="#3c096c" 
+            noiseIntensity={0.3} 
+            rotation={0.4} 
+          />
+        ) : (
+          <div 
+            className="w-full h-full" 
+            style={{ background: 'radial-gradient(circle at center, #240046, #10002b)' }} 
+          />
+        )}
+      </div>
+
+      <div 
+        ref={pillNavRef} 
+        className="fixed z-[60] pointer-events-auto"
+        style={{ top: '2rem', left: '50%', transform: 'translateX(-50%)' }}
+      >
+         <PillNav 
+            logo={wieLogo}
+            items={navItems}
+            activeHref="/"
+            baseColor="#10002b"
+            pillColor="#3c096c"
+            pillTextColor="#e0aaff"
+            hoveredPillTextColor="#e0aaff"
+         />
+      </div>
+
       <div className="fixed inset-0 w-full h-full overflow-hidden">
         {PHASES.map((PhaseComponent, index) => {
           const isMounted = Math.abs(index - currentPhase) <= 1; // Mount N-1, N, N+1

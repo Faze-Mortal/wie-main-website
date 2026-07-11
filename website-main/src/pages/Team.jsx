@@ -228,7 +228,7 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         className="w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-xl shadow-[0_0_10px_rgba(217,70,239,0.15)] group-hover:shadow-[0_0_25px_rgba(217,70,239,0.5)] group-hover:-translate-y-1 transition-shadow duration-500"
       >
         {/* Front Face (Unrevealed) */}
-        <div className="absolute inset-0 p-4 flex flex-col items-center justify-center  w-full h-full [backface-visibility:hidden] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
+        <div className="absolute inset-0 p-4 flex flex-col items-center justify-center bg-[#070114] w-full h-full [backface-visibility:hidden] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
           {/* Outer Frame Corners */}
           <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
@@ -555,8 +555,15 @@ export default function Team() {
   };
 
   return (
-    <div className="relative min-h-screen bg-transparent text-white py-24 px-4 md:px-8 overflow-hidden z-0">
+    <div className="relative min-h-screen bg-[#0a0216] text-white py-24 px-4 md:px-8 overflow-hidden z-0">
       {/* Page-wide Ambient Grid */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[linear-gradient(rgba(147,51,234,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+      
+      {/* Massive Ambient Glow Orbs */}
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-600/15 blur-[150px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-fuchsia-600/15 blur-[180px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-purple-900/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
       <div className="max-w-[1400px] mx-auto relative z-10">
 
         {/* Faculty */}

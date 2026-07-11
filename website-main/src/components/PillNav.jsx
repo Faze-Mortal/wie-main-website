@@ -1,7 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useScrollStore } from '../store/useScrollStore';
-import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './PillNav.css';
@@ -20,87 +17,6 @@ const PillNav = ({
   onMobileMenuClick,
   initialLoadAnimation = true
 }) => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-  const currentPhase = useScrollStore(state => state.currentPhase);
-  const pillNavWrapperRef = useRef(null);
-  const tlRef = useRef(null);
-
-  useGSAP(() => {
-    if (!isHome || !pillNavWrapperRef.current) {
-      gsap.set(pillNavWrapperRef.current, { left: '50%', xPercent: -50, scale: 1 });
-      return;
-    }
-
-    if (tlRef.current) tlRef.current.kill();
-    const tl = gsap.timeline({ paused: true });
-
-    if (currentPhase === 0) {
-      gsap.set(pillNavWrapperRef.current, { left: '2rem', xPercent: 0, scale: 1 });
-    } else if (currentPhase === 1) {
-      tl.fromTo(pillNavWrapperRef.current, 
-        { left: '2rem', xPercent: 0 }, 
-        { left: '50%', xPercent: -50, duration: 0.20, ease: 'power2.out' }, 
-        0.15
-      );
-      tl.fromTo(pillNavWrapperRef.current, 
-        { scale: 0.9 }, 
-        { scale: 1, duration: 0.20, ease: 'back.out(1.5)' }, 
-        0.15
-      );
-    } else {
-      gsap.set(pillNavWrapperRef.current, { left: '50%', xPercent: -50 });
-      gsap.fromTo(pillNavWrapperRef.current, 
-        { scale: 0.9 }, 
-        { scale: 1, duration: 0.4, ease: 'back.out(1.5)' }
-      );
-    }
-
-    tlRef.current = tl;
-    tl.progress(useScrollStore.getState().phaseProgress);
-
-    const unsubscribe = useScrollStore.subscribe((state) => {
-      if (tlRef.current) {
-        tlRef.current.progress(state.phaseProgress);
-      }
-    });
-    return () => unsubscribe();
-  }, [currentPhase, isHome]);
-
-  const lastScrollYRef = useRef(0);
-  const scrollTweenRef = useRef(null);
-
-  useEffect(() => {
-    if (isHome || !pillNavWrapperRef.current) return;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollYRef.current;
-      
-      if (currentScrollY < 50) {
-        if (scrollTweenRef.current) scrollTweenRef.current.kill();
-        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
-      } else if (isScrollingDown && currentScrollY - lastScrollYRef.current > 5) {
-        if (scrollTweenRef.current) scrollTweenRef.current.kill();
-        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: -150, opacity: 0, duration: 0.3, ease: 'power2.out' });
-      } else if (!isScrollingDown && lastScrollYRef.current - currentScrollY > 5) {
-        if (scrollTweenRef.current) scrollTweenRef.current.kill();
-        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
-      }
-
-      lastScrollYRef.current = currentScrollY;
-    };
-
-    gsap.set(pillNavWrapperRef.current, { yPercent: 0, opacity: 1 });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTweenRef.current) scrollTweenRef.current.kill();
-      if (pillNavWrapperRef.current) gsap.set(pillNavWrapperRef.current, { yPercent: 0, opacity: 1 });
-    };
-  }, [isHome]);
-
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const circleRefs = useRef([]);
@@ -307,8 +223,7 @@ const PillNav = ({
   };
 
   return (
-    <div ref={pillNavWrapperRef} className="fixed z-[60] pointer-events-auto" style={{ top: '2rem' }}>
-      <div className="pill-nav-container">
+    <div className="pill-nav-container">
       <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
         {isRouterLink(items?.[0]?.href) ? (
           <Link
@@ -429,7 +344,6 @@ const PillNav = ({
           ))}
         </ul>
       </div>
-    </div>
     </div>
   );
 };

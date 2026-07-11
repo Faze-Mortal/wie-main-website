@@ -168,7 +168,7 @@ export default function Blog() {
   return (
     <div style={{
       position: "relative", minHeight: "100vh",
-      background: "transparent",
+      background: "linear-gradient(135deg, #06000f 0%, #180022 40%, #0e0018 70%, #06000f 100%)",
       color: "white", padding: "5rem 2rem 5rem",
       fontFamily: "'Montserrat', sans-serif",
       overflow: "hidden",
@@ -197,6 +197,18 @@ export default function Blog() {
         }
       `}</style>
 
+      <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.08, pointerEvents: "none" }} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="tri" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <polygon points="30,5 55,50 5,50" fill="none" stroke="#f472b6" strokeWidth="0.8" />
+            <polygon points="0,0 25,45 -25,45" fill="none" stroke="#a855f7" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#tri)" />
+      </svg>
+      <div style={{ position: "absolute", top: "-5%", left: "5%", width: "550px", height: "550px", background: "rgba(244,114,182,0.08)", borderRadius: "50%", filter: "blur(120px)", pointerEvents: "none", animation: "pinkGlow 5s ease-in-out infinite" }} />
+      <div style={{ position: "absolute", top: "40%", right: "5%", width: "400px", height: "400px", background: "rgba(192,38,211,0.1)", borderRadius: "50%", filter: "blur(100px)", pointerEvents: "none", animation: "pinkGlow 6s ease-in-out 2s infinite" }} />
+      <div style={{ position: "absolute", bottom: "5%", left: "30%", width: "500px", height: "500px", background: "rgba(244,114,182,0.06)", borderRadius: "50%", filter: "blur(120px)", pointerEvents: "none", animation: "pinkGlow 7s ease-in-out 1s infinite" }} />
 
       <div style={{ textAlign: "center", marginBottom: "3rem", position: "relative", zIndex: 10 }}>
         <h1 style={{
