@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useScrollStore } from '../store/useScrollStore';
-import Silk from './Silk';
 import HeroPhase from './phases/HeroPhase';
 import AboutPhase from './phases/AboutPhase';
 import EventsPhase from './phases/EventsPhase';
@@ -78,9 +77,7 @@ const PhaseOrchestrator = () => {
     return () => unsubscribe();
   }, [currentPhase]);
   
-  const [isMobile, setIsMobile] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
+  
   useEffect(() => {
     return () => {
       console.time('PhaseOrchestrator unmount');
@@ -102,23 +99,7 @@ const PhaseOrchestrator = () => {
     };
   }, [isScrollLocked]);
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(motionQuery.matches);
-    const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
-    motionQuery.addEventListener('change', handleMotionChange);
-
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-      motionQuery.removeEventListener('change', handleMotionChange);
-    };
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     if (PHASES.length === 0) return;
 
     const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
@@ -168,31 +149,6 @@ const PhaseOrchestrator = () => {
         aria-hidden="true" 
       />
       
-      {/* Fixed Background Layer */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none">
-        {prefersReducedMotion ? (
-          <div 
-            className="w-full h-full" 
-            style={{ background: 'linear-gradient(to bottom right, #10002b, #3c096c)' }} 
-          />
-        ) : !isMobile ? (
-          <Silk 
-            speed={2.4} 
-            scale={0.6} 
-            color="#3c096c" 
-            noiseIntensity={0.3} 
-            rotation={0.4} 
-          />
-        ) : (
-          <div 
-            className="w-full h-full" 
-            style={{ background: 'radial-gradient(circle at center, #240046, #10002b)' }} 
-          />
-        )}
-      </div>
-
-      
-
       <div className="fixed inset-0 w-full h-full overflow-hidden">
         {PHASES.map((PhaseComponent, index) => {
           const isMounted = Math.abs(index - currentPhase) <= 1; // Mount N-1, N, N+1

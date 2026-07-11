@@ -67,6 +67,40 @@ const PillNav = ({
     return () => unsubscribe();
   }, [currentPhase, isHome]);
 
+  const lastScrollYRef = useRef(0);
+  const scrollTweenRef = useRef(null);
+
+  useEffect(() => {
+    if (isHome || !pillNavWrapperRef.current) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollYRef.current;
+      
+      if (currentScrollY < 50) {
+        if (scrollTweenRef.current) scrollTweenRef.current.kill();
+        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
+      } else if (isScrollingDown && currentScrollY - lastScrollYRef.current > 5) {
+        if (scrollTweenRef.current) scrollTweenRef.current.kill();
+        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: -150, opacity: 0, duration: 0.3, ease: 'power2.out' });
+      } else if (!isScrollingDown && lastScrollYRef.current - currentScrollY > 5) {
+        if (scrollTweenRef.current) scrollTweenRef.current.kill();
+        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    gsap.set(pillNavWrapperRef.current, { yPercent: 0, opacity: 1 });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTweenRef.current) scrollTweenRef.current.kill();
+      if (pillNavWrapperRef.current) gsap.set(pillNavWrapperRef.current, { yPercent: 0, opacity: 1 });
+    };
+  }, [isHome]);
+
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const circleRefs = useRef([]);
