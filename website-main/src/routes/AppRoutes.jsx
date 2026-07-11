@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import Home from "../pages/Home";
-import Events from "../pages/Events";
+import Events from "../pages/NewEvents/App";
 import About from "../pages/About";
 import Team from "../pages/Team";
 import Gallery from "../pages/Gallery";
