@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const EmailIcon = () => <i className="las la-envelope text-xl mt-1" />;
 const LocationIcon = () => <i className="las la-map-marker-alt text-xl mt-1" />;
 
-const FooterPhase = () => {
+const SiteFooter = () => {
   const currentYear = 2026;
 
   const navLinks = [
@@ -88,4 +88,4 @@ const FooterPhase = () => {
   );
 };
 
-export default FooterPhase;
+export default SiteFooter;
