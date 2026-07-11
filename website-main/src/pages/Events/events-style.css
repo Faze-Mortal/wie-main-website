@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+.events-page-wrapper {
 /* ================================================================
    EVENTVERSE — COMPLETE CSS DESIGN SYSTEM
    style.css  |  Vite project
@@ -6,12 +9,11 @@
 /* ───────────────────────────────────────────────────────────────
    1. GOOGLE FONTS
 ─────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
 /* ───────────────────────────────────────────────────────────────
    2. DESIGN TOKENS
 ─────────────────────────────────────────────────────────────── */
-:root {
+.events-page-wrapper {
   /* Neon */
   --neon-pink:   #ff2d78;
   --neon-purple: #9b2bff;
@@ -77,15 +79,15 @@
 /* ───────────────────────────────────────────────────────────────
    3. RESET & BASE
 ─────────────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.events-page-wrapper *, .events-page-wrapper *::before, .events-page-wrapper *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
+.events-page-wrapper {
   scroll-behavior: smooth;
   font-size: 16px;
   min-height: 100%;
 }
 
-body {
+.events-page-wrapper {
   font-family: var(--f-inter);
   /* transparent so the fixed Silk canvas shows through */
   background: transparent;
@@ -98,7 +100,7 @@ body {
 /* ── Silk canvas is injected by silk.js as the first child of body ──
    It already carries  position:fixed; inset:0; z-index:-1; width:100vw; height:100vh
    via inline style.  These rules add a CSS fallback. ── */
-#silk-canvas {
+.events-page-wrapper #silk-canvas {
   position: fixed !important;
   inset: 0 !important;
   width: 100vw !important;
@@ -108,15 +110,15 @@ body {
   pointer-events: none !important;
 }
 
-a    { text-decoration: none; color: inherit; }
-ul   { list-style: none; }
-img  { display: block; max-width: 100%; }
+.events-page-wrapper a { text-decoration: none; color: inherit; }
+.events-page-wrapper ul { list-style: none; }
+.events-page-wrapper img { display: block; max-width: 100%; }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--dark-void); }
-::-webkit-scrollbar-thumb { background: var(--dark-elevated); border-radius: var(--r-pill); }
-::-webkit-scrollbar-thumb:hover { background: var(--hero-glow); }
+/* ::-webkit-scrollbar { width: 5px; } (removed to prevent global scrollbar leakage) */
+/* ::-webkit-scrollbar-track { background: var(--dark-void); } (removed to prevent global scrollbar leakage) */
+/* ::-webkit-scrollbar-thumb { background: var(--dark-elevated); border-radius: var(--r-pill); } (removed to prevent global scrollbar leakage) */
+/* ::-webkit-scrollbar-thumb:hover { background: var(--hero-glow); } (removed to prevent global scrollbar leakage) */
 
 
 /* ───────────────────────────────────────────────────────────────
@@ -1213,4 +1215,5 @@ body,
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+}
 }

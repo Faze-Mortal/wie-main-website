@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { previousEvents } from '../data/previousEvents';
-import { reinitCapsuleTilt } from '../lib/effects';
+import allEvents from '../eventsData';
+import { reinitCapsuleTilt } from '../../lib/effects';
 import {
   exploreEventCard,
   exploreEventsHeading,
   getExploreCardDelay,
   PREMIUM_EASE,
   SCROLL_VIEWPORT,
-} from './animations/animationVariants';
+} from '../../components/animations/animationVariants';
 
 export default function ExploreEvents() {
   const shouldReduceMotion = useReducedMotion();
@@ -34,7 +34,7 @@ export default function ExploreEvents() {
         </header>
 
         <div className="events-grid" id="events-grid" role="list" aria-label="Previous events">
-          {previousEvents.map((ev, index) => (
+          {allEvents.map((ev, index) => (
             <motion.div
               key={ev.id}
               className="event-reveal-wrapper reveal-wrapper"
@@ -66,7 +66,7 @@ export default function ExploreEvents() {
                 <div className="event-info">
                   <h3 className="event-title">{ev.title}</h3>
                   <span className="event-meta-top">
-                    {ev.date}
+                    {ev.date}{ev.year ? `, ${ev.year}` : ''}
                   </span>
                   <span className="event-meta-location">{ev.location}</span>
                 </div>

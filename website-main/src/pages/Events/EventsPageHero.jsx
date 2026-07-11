@@ -6,40 +6,40 @@ import {
   heroSubtitle,
   heroTitle,
   PREMIUM_EASE,
-} from './animations/animationVariants';
+} from '../../components/animations/animationVariants';
 
 const deckCards = [
   {
     className: 'deck-card front-card',
-    src: '/posters/poster1.jpg',
+    src: '/Events/poster1.jpg',
     alt: 'Elite Grand Championship',
     label: 'Bring Elite Grand Championship to front',
     title: 'HerVerdict',
   },
   {
     className: 'deck-card bg-card-1',
-    src: '/posters/poster2.jpg',
+    src: '/Events/poster2.jpg',
     alt: 'Neon Pulse Festival',
     label: 'Bring Neon Pulse Festival to front',
     title: 'Vision IAS',
   },
   {
     className: 'deck-card bg-card-2',
-    src: '/posters/poster3.jpg',
+    src: '/Events/poster3.jpg',
     alt: 'Future Tech Summit',
     label: 'Bring Future Tech Summit to front',
     title: 'The Deal Room',
   },
   {
     className: 'deck-card bg-card-3',
-    src: '/posters/poster4.jpg',
+    src: '/Events/poster4.jpg',
     alt: 'Global Arts Expo',
     label: 'Bring Global Arts Expo to front',
     title: 'Swara',
   },
   {
     className: 'deck-card bg-card-4',
-    src: '/posters/poster5.jpg',
+    src: '/Events/poster5.jpg',
     alt: 'World Championship Series',
     label: 'Bring World Championship Series to front',
     title: 'Swara',
@@ -50,8 +50,8 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   const motionProps = shouldReduceMotion
-    ? { initial: false as const }
-    : { initial: 'hidden' as const, animate: 'visible' as const };
+    ? { initial: false }
+    : { initial: 'hidden', animate: 'visible' };
 
   return (
     <section id="hero" className="hero" aria-label="Hero section">

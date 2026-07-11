@@ -6,65 +6,30 @@ import {
   PREMIUM_EASE,
   SCROLL_VIEWPORT,
   viewAllLink,
-} from './animations/animationVariants';
+} from '../../components/animations/animationVariants';
 
-const popularEvents = [
-  {
-    id: 'pop-card-1',
-    className: 'pop-card pop-card--sm pop-card--pink',
-    imgClass: 'pop-card__img pop-card__img--1',
-    poster: '/posters/poster1.jpg',
-    alt: 'HerVerdict poster',
-    label: 'HerVerdict',
-    title: 'HerVerdict',
-    date: 'Jul 18, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-2',
-    className: 'pop-card pop-card--sm pop-card--purple',
-    imgClass: 'pop-card__img pop-card__img--2',
-    poster: '/posters/poster2.jpg',
-    alt: 'Vision IAS poster',
-    label: 'Vision IAS',
-    title: 'Vision IAS',
-    date: 'Jul 22, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-center',
-    className: 'pop-card pop-card--center pop-card--blue',
-    imgClass: 'pop-card__img pop-card__img--3',
-    poster: '/posters/poster3.jpg',
-    alt: 'The Deal Room poster',
-    label: 'The Deal Room — Number 1 this week',
-    title: 'The Deal Room',
-    date: 'Jul 26, 2026',
-    isCenter: true,
-  },
-  {
-    id: 'pop-card-4',
-    className: 'pop-card pop-card--sm pop-card--cyan',
-    imgClass: 'pop-card__img pop-card__img--4',
-    poster: '/posters/poster4.jpg',
-    alt: 'Swara poster',
-    label: 'Swara',
-    title: 'Swara',
-    date: 'Aug 3, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-5',
-    className: 'pop-card pop-card--sm pop-card--violet',
-    imgClass: 'pop-card__img pop-card__img--5',
-    poster: '/posters/poster5.jpg',
-    alt: 'Swara poster',
-    label: 'Swara',
-    title: 'Swara',
-    date: 'Aug 10, 2026',
-    isCenter: false,
-  },
+import allEvents from '../eventsData';
+
+const latestClasses = [
+  { cardClass: 'pop-card pop-card--sm pop-card--pink', imgClass: 'pop-card__img pop-card__img--1', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--purple', imgClass: 'pop-card__img pop-card__img--2', isCenter: false },
+  { cardClass: 'pop-card pop-card--center pop-card--blue', imgClass: 'pop-card__img pop-card__img--3', isCenter: true },
+  { cardClass: 'pop-card pop-card--sm pop-card--cyan', imgClass: 'pop-card__img pop-card__img--4', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--violet', imgClass: 'pop-card__img pop-card__img--5', isCenter: false },
 ];
+
+const popularEvents = allEvents.slice(0, 5).map((event, index) => ({
+  id: event.id,
+  className: latestClasses[index].cardClass,
+  imgClass: latestClasses[index].imgClass,
+  poster: event.image,
+  alt: event.title,
+  label: event.title + (latestClasses[index].isCenter ? ' — Number 1 this week' : ''),
+  title: event.title,
+  date: event.date + (event.year ? ', ' + event.year : ''),
+  location: event.location,
+  isCenter: latestClasses[index].isCenter,
+}));
 
 export default function LatestEvents() {
   const shouldReduceMotion = useReducedMotion();
