@@ -6,41 +6,90 @@ import './Gallery.css'
    Categories: flagship | workshops | celebrations | team
    ================================================================ */
 const CATEGORIES = [
-  { key: 'flagship',     label: 'Elysium' },
-  { key: 'workshops',    label: 'Workshops' },
-  { key: 'celebrations', label: 'Fun Moments' },
-  { key: 'team',         label: 'Team Moments' },
-]
+  { key: 'moments', label: 'Moments' },
+  { key: 'fun-moments', label: 'Fun Moments' },
+  { key: 'elysium', label: 'Elysium' },
+  { key: 'cc-summit', label: 'CC Summit' },
+  { key: 'group-photo', label: 'Group Photo' },
+  { key: 'reeti-riwaz', label: 'Reeti Riwaz' },
 
+]
 export const galleryPhotos = [
-  { id: 1,  src: '/Gallery/img1.jpg',  cat: 'team',         caption: 'Executive Committee',  description: 'ECs 24-25' },
-  { id: 2,  src: '/Gallery/img2.jpg',  cat: 'flagship',     caption: 'Elysium',              description: 'Team Elysium' },
-  { id: 3,  src: '/Gallery/img3.jpg',  cat: 'team',         caption: 'Pyaare JCs',           description: 'JCs 24-25' },
-  { id: 4,  src: '/Gallery/img4.jpg',  cat: 'flagship',     caption: 'Elysium in the Hostel',description: 'Elysium 4 the win' },
-  { id: 5,  src: '/Gallery/img5.jpg',  cat: 'team',         caption: 'EC Reel Shoot',        description: 'The team for EC reel 24-25' },
-  { id: 6,  src: '/Gallery/img6.jpg',  cat: 'workshops',    caption: 'CCs in HardWired',     description: 'CCs on Top' },
-  { id: 7,  src: '/Gallery/img7.jpg',  cat: 'workshops',    caption: 'Gyaan Session',        description: 'Shashwat bhaiya giving Gyaan' },
-  { id: 8,  src: '/Gallery/img8.jpg',  cat: 'celebrations', caption: 'ATL Lab Masti',        description: 'JC masti in ATL Lab' },
-  { id: 9,  src: '/Gallery/img9.jpg',  cat: 'celebrations', caption: 'Shopping Cart',        description: 'Srishti in a cart' },
-  { id: 10, src: '/Gallery/img10.jpg', cat: 'celebrations', caption: 'Bhai Log',             description: 'Muscles and Masti' },
-  { id: 11, src: '/Gallery/img11.jpg', cat: 'flagship',     caption: 'DataPulse Pitching',   description: 'Serious stuff' },
-  { id: 12, src: '/Gallery/img12.jpg', cat: 'team',         caption: 'JCs in Audi',          description: 'Fun in silence' },
-  { id: 13, src: '/Gallery/img13.jpg', cat: 'celebrations', caption: 'Bullying Ishani',      description: 'Haww Kashish' },
-  { id: 14, src: '/Gallery/img14.jpg', cat: 'team',         caption: 'CnC Team',             description: 'Corp and Cur' },
-  { id: 15, src: '/Gallery/img15.jpg', cat: 'team',         caption: 'Genesis',              description: 'CC Summit Times' },
-  { id: 16, src: '/Gallery/img16.jpg', cat: 'flagship',     caption: 'Shridhar Sir',         description: 'I LOVE MANIPAL' },
-  { id: 17, src: '/Gallery/img17.jpg', cat: 'flagship',     caption: 'DataPulse Judging',    description: 'Elysium Day 2' },
-  { id: 18, src: '/Gallery/img18.jpg', cat: 'workshops',    caption: 'HardWired',            description: 'Elysium Day 2' },
-  { id: 19, src: '/Gallery/img19.jpg', cat: 'flagship',     caption: 'NextTech',             description: 'Elysium Day 1' },
-  { id: 20, src: '/Gallery/img20.jpg', cat: 'workshops',    caption: 'Tech Eden',            description: 'Speakers at Tech Eden' },
-  { id: 21, src: '/Gallery/img21.jpg', cat: 'flagship',     caption: 'Group Photo',          description: 'Elysium Day 2' },
-  { id: 22, src: '/Gallery/img22.jpg', cat: 'flagship',     caption: 'Elysium at ATL Lab',   description: 'ATL Lab Session' },
-  { id: 23, src: '/Gallery/img23.jpg', cat: 'celebrations', caption: 'Reeti Riwaaz',         description: 'Group photo' },
-  { id: 24, src: '/Gallery/img24.jpg', cat: 'celebrations', caption: 'Reeti Riwaaz',         description: 'JCs in Reeti Riwaaz' },
-  { id: 25, src: '/Gallery/img25.jpg', cat: 'team',         caption: 'Dashing Team JC',      description: 'Reeti Riwaaz' },
-]
-
-/* filmstrip = photos duplicated for seamless loop */
+  { id: 1, src: '/Gallery/IMG-1.jpg', cat: 'elysium', caption: 'Elysium Family', description: 'Elyisum day 2' },
+  { id: 2, src: '/Gallery/IMG-2.JPG', cat: 'reeti-riwaaz', caption: 'Tradition Together', description: 'reet riwaz 2025' },
+  { id: 3, src: '/Gallery/IMG-3.JPG', cat: 'fun-moments', caption: 'Making Memories', description: 'fun moments' },
+  { id: 4, src: '/Gallery/IMG-4.JPG', cat: 'group-photo', caption: 'Panel Perspectives', description: 'confluence panel group photo' },
+  { id: 5, src: '/Gallery/IMG-5.JPG', cat: 'moments', caption: 'The Final Night', description: 'last night-desk of tenure' },
+  { id: 6, src: '/Gallery/IMG-6.jpg', cat: 'elysium', caption: 'The Beginning', description: 'Elysium 1.0' },
+  { id: 7, src: '/Gallery/IMG-7.jpg', cat: 'ieee-summit', caption: 'Summit Success', description: 'IEEE submit of 2025' },
+  { id: 8, src: '/Gallery/IMG-8.jpg', cat: 'fun-moments', caption: 'Pure Joy', description: 'moments' },
+  { id: 9, src: '/Gallery/IMG-9.jpg', cat: 'elysium', caption: 'Night Vibes', description: 'last night pump of elysium 20' },
+  { id: 10, src: '/Gallery/IMG-10.jpg', cat: 'group-photo', caption: 'Ideas in Motion', description: "Elysium's confluence panel" },
+  { id: 11, src: '/Gallery/IMG-11.jpg', cat: 'fun-moments', caption: 'Picture Perfect', description: 'moments' },
+  { id: 12, src: '/Gallery/IMG-12.jpg', cat: 'group-photo', caption: 'A Warm Farewell', description: "confluence's panel see off" },
+  { id: 13, src: '/Gallery/IMG-13.jpg', cat: 'moments', caption: 'Together We Learn', description: 'induleged particpit(moment)' },
+  { id: 14, src: '/Gallery/IMG-14.jpg', cat: 'fun-moments', caption: 'Smiles All Around', description: 'momement' },
+  { id: 15, src: '/Gallery/IMG-15.jpg', cat: 'elysium', caption: 'Her Verdict', description: 'her verdict(elysium 2.0)' },
+  { id: 16, src: '/Gallery/IMG-16.jpg', cat: 'fun-moments', caption: 'Beyond the Event', description: 'fun' },
+  { id: 17, src: '/Gallery/IMG-17.jpg', cat: 'moments', caption: 'Event Highlights', description: 'her verdict(elysium 2.0)' },
+  { id: 18, src: '/Gallery/IMG-18.jpg', cat: 'fun-moments', caption: 'Captured Moments', description: 'fun' },
+  { id: 19, src: '/Gallery/IMG-19.jpg', cat: 'moments', caption: 'Celebrating Together', description: 'her verdict(elysium 2.0)' },
+  { id: 20, src: '/Gallery/IMG-20.JPG', cat: 'elysium', caption: 'Center Stage', description: "elysium's flex drop" },
+  { id: 21, src: '/Gallery/IMG-21.jpg', cat: 'fun-moments', caption: 'Team Spirit', description: 'fun moments' },
+  { id: 22, src: '/Gallery/IMG-22.jpg', cat: 'moments', caption: 'Unforgettable Moments', description: 'fun moments(uwu)' },
+  { id: 23, src: '/Gallery/IMG-23.jpg', cat: 'reeti-riwaaz', caption: 'A Grand Finale', description: 'moments' },
+  { id: 24, src: '/Gallery/IMG-24.jpg', cat: 'group-photo', caption: 'CC Summit', description: 'Reeti riwaz 2025 group photo closing' },
+  { id: 25, src: '/Gallery/IMG-25.jpg', cat: 'group-photo', caption: 'Moments That Matter', description: 'cc ssumbit group photo' },
+  { id: 26, src: '/Gallery/IMG-26.jpg', cat: 'moments', caption: 'Forever Together', description: 'fun' },
+  { id: 27, src: '/Gallery/IMG-27.jpg', cat: 'cc-summit', caption: 'WIE at CC Summit', description: 'moments' },
+  { id: 28, src: '/Gallery/IMG-28.jpg', cat: 'group-photo', caption: 'Through the Lens', description: 'cc sumbit group photo of wie' },
+  { id: 29, src: '/Gallery/IMG-29.jpg', cat: 'fun-moments', caption: 'Friends Forever', description: 'moments' },
+  { id: 30, src: '/Gallery/IMG-30.jpg', cat: 'synphere', caption: 'Synphere Nights', description: 'fun moments' },
+  { id: 31, src: '/Gallery/IMG-31.jpg', cat: 'group-photo', caption: 'NWW Family', description: 'wie group photo synphere night photo' },
+  { id: 32, src: '/Gallery/IMG-32.jpg', cat: 'group-photo', caption: 'Shared Smiles', description: 'nww group photo' },
+  { id: 33, src: '/Gallery/IMG-33.jpg', cat: 'nww', caption: 'Innovation Together', description: 'moments' },
+  { id: 34, src: '/Gallery/IMG-34.jpg', cat: 'moments', caption: 'One More Memory', description: 'nww' },
+  { id: 35, src: '/Gallery/IMG-35.jpg', cat: 'moments', caption: 'Snapshots of Joy', description: 'moments' },
+  { id: 36, src: '/Gallery/IMG-36.jpg', cat: 'fun-moments', caption: 'Just WIE Things', description: 'moments' },
+  { id: 37, src: '/Gallery/IMG-37.jpg', cat: 'croptopia', caption: 'Croptopia', description: 'fun' },
+  { id: 38, src: '/Gallery/IMG-38.jpg', cat: 'moments', caption: 'Circle of Strength', description: "croptopia's desk" },
+  { id: 39, src: '/Gallery/IMG-39.jpg', cat: 'cc-summit', caption: 'A New Beginning', description: 'circle of distrcution' },
+  { id: 40, src: '/Gallery/IMG-40.jpg', cat: 'fun-moments', caption: 'Unscripted', description: 'first cc celebbration' },
+  { id: 41, src: '/Gallery/IMG-41.jpg', cat: 'fun-moments', caption: 'Living the Moment', description: 'fun mo' },
+  { id: 42, src: '/Gallery/IMG-42.jpg', cat: 'cc-meet', caption: 'Committee Connect', description: 'fun moments' },
+  { id: 43, src: '/Gallery/IMG-43.jpg', cat: 'moments', caption: 'Cherished Memories', description: 'cc meet' },
+  { id: 44, src: '/Gallery/IMG-44.jpg', cat: 'promptopia', caption: 'Promptopia', description: 'moments' },
+  { id: 45, src: '/Gallery/IMG-45.jpg', cat: 'group-photo', caption: 'The WIE Family', description: "promptopia's group photo" },
+  { id: 46, src: '/Gallery/IMG-46.jpg', cat: 'moments', caption: 'Together Always', description: 'moments' },
+  { id: 47, src: '/Gallery/IMG-47.jpg', cat: 'elysium', caption: 'Confluence United', description: 'moments' },
+  { id: 48, src: '/Gallery/IMG-48.jpg', cat: 'group-photo', caption: 'One Frame', description: 'confluencs group photo' },
+  { id: 49, src: '/Gallery/IMG-49.jpg', cat: 'moments', caption: 'Every Smile Counts', description: 'moments' },
+  { id: 50, src: '/Gallery/IMG-50.jpg', cat: 'moments', caption: 'Creating Memories', description: 'moments' },
+  { id: 51, src: '/Gallery/IMG-51.jpg', cat: 'moments', caption: 'Executive Excellence', description: 'moments' },
+  { id: 52, src: '/Gallery/IMG-52.jpg', cat: 'group-photo', caption: 'The Grand Finale', description: "Ec's group photo's" },
+  { id: 53, src: '/Gallery/IMG-53.jpg', cat: 'elysium', caption: 'Voices That Matter', description: "Elysium's closign" },
+  { id: 54, src: '/Gallery/IMG-54.jpg', cat: 'group-photo', caption: 'Together Again', description: 'her verdit group photo' },
+  { id: 55, src: '/Gallery/IMG-55.jpg', cat: 'elysium', caption: 'Opening the Dialogue', description: 'moments' },
+  { id: 56, src: '/Gallery/IMG-56.jpg', cat: 'elysium', caption: 'The Journey Begins', description: 'confluence opening cermony' },
+  { id: 57, src: '/Gallery/IMG-57.jpg', cat: 'moments', caption: 'Golden Memories', description: "Elysium's opening cermony" },
+  { id: 58, src: '/Gallery/IMG-58.jpg', cat: 'fun-moments', caption: 'Laugh Out Loud', description: 'moments' },
+  { id: 59, src: '/Gallery/IMG-59.jpg', cat: 'elysium', caption: 'Honouring Excellence', description: 'fun' },
+  { id: 60, src: '/Gallery/IMG-60.jpg', cat: 'elysium', caption: 'Inspiring Voices', description: 'felistation of confluence Raghav gerg' },
+  { id: 61, src: '/Gallery/IMG-61.jpg', cat: 'moments', caption: 'Picture This', description: "confluencs aishveria's speech" },
+  { id: 62, src: '/Gallery/IMG-62.jpg', cat: 'elysium', caption: 'Lighting Up the Night', description: 'moments' },
+  { id: 63, src: '/Gallery/IMG-63.jpg', cat: 'moments', caption: 'The Journey Continues', description: "elyesium's night pump" },
+  { id: 64, src: '/Gallery/IMG-64.jpg', cat: 'moments', caption: 'One More Click', description: 'moments' },
+  { id: 65, src: '/Gallery/IMG-65.jpg', cat: 'moments', caption: 'Crowd Conquest', description: 'moments' },
+  { id: 66, src: '/Gallery/IMG-66.jpg', cat: 'group-photo', caption: 'Good Times', description: 'crowd conquest group photo' },
+  { id: 67, src: '/Gallery/IMG-67.jpg', cat: 'moments', caption: 'Captured Forever', description: 'fun moments' },
+  { id: 68, src: '/Gallery/IMG-68.jpg', cat: 'fun-moments', caption: 'Endless Smiles', description: 'moments' },
+  { id: 69, src: '/Gallery/IMG-69.jpg', cat: 'fun-moments', caption: 'Simply Unforgettable', description: 'fun moments ono' },
+  { id: 70, src: '/Gallery/IMG-70.jpg', cat: 'moments', caption: 'A Heartfelt Farewell', description: 'fun moments' },
+  { id: 71, src: '/Gallery/IMG-71.jpg', cat: 'fun-moments', caption: 'Happiness in Frame', description: 'ec farwell' },
+  { id: 72, src: '/Gallery/IMG-72.jpg', cat: 'moments', caption: 'Until Next Time', description: 'fun moments' },
+  { id: 73, src: '/Gallery/IMG-73.jpg', cat: 'moments', caption: 'Late Night Memories', description: 'farewell' },
+  { id: 74, src: '/Gallery/IMG-74.jpg', cat: 'moments', caption: 'One Team, One Journey', description: 'movements' }
+];
 const stripPhotos = [...galleryPhotos, ...galleryPhotos]
 
 function Gallery() {
@@ -76,9 +125,9 @@ function Gallery() {
   useEffect(() => {
     const onKey = (e) => {
       if (lightboxIndex === null) return
-      if (e.key === 'Escape')      closeLightbox()
-      if (e.key === 'ArrowLeft')   setLightboxIndex(i => (i - 1 + visiblePhotos.length) % visiblePhotos.length)
-      if (e.key === 'ArrowRight')  setLightboxIndex(i => (i + 1) % visiblePhotos.length)
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === 'ArrowLeft') setLightboxIndex(i => (i - 1 + visiblePhotos.length) % visiblePhotos.length)
+      if (e.key === 'ArrowRight') setLightboxIndex(i => (i + 1) % visiblePhotos.length)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -154,10 +203,15 @@ function Gallery() {
             <img src={p.src} loading="lazy" alt={p.caption} />
             <div className="g-card-zoom" aria-hidden="true">⤢</div>
             <div className="g-card-overlay">
-              <div className="g-card-tag">
-                {CATEGORIES.find(c => c.key === p.cat)?.label}
+              <div className="g-card-info">
+                <div className="g-card-tag">
+                  {CATEGORIES.find(c => c.key === p.cat)?.label ?? p.cat}
+                </div>
+                <div className="g-card-caption">{p.caption}</div>
+                {p.description && (
+                  <div className="g-card-desc">{p.description}</div>
+                )}
               </div>
-              <div className="g-card-caption">{p.caption}</div>
             </div>
           </div>
         ))}
