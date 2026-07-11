@@ -103,7 +103,7 @@ export default function Events() {
             <div className="ev-section__label ev-spotlight__label">
               <span className="ev-dot-live" /> ON AIR NOW
             </div>
-          
+
           </div>
           <div className="ev-spotlight">
             <div className="ev-spotlight__visual">

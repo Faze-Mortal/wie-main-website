@@ -1,0 +1,9 @@
+/* Hide scrollbar on the blog page while keeping scroll functional */
+.blog-page-root {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge */
+}
+
+.blog-page-root::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari / Opera */
+}
