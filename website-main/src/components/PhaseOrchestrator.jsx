@@ -10,17 +10,6 @@ import { useGSAP } from '@gsap/react';
 
 import BlogsPhase from './phases/BlogsPhase';
 import GalleryPhase from './phases/GalleryPhase';
-import PillNav from './PillNav';
-import wieLogo from '../assets/wie_logo.png';
-
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Events', href: '/events' },
-  { label: 'Our Team', href: '/team' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' }
-];
 
 // PhaseOrchestrator owns the master list of phases
 const PHASES = [
@@ -40,8 +29,7 @@ const PhaseOrchestrator = () => {
   
   const phaseRefs = useRef([]);
   const tlRef = useRef(null);
-  const pillNavRef = useRef(null);
-
+  
   useGSAP(() => {
     if (tlRef.current) {
       tlRef.current.kill();
@@ -77,36 +65,6 @@ const PhaseOrchestrator = () => {
       tl.fromTo(current, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.98, duration: 0.15, ease: 'none' }, 0.85);
     }
 
-    // 4. PillNav Positioning and Animation
-    if (pillNavRef.current) {
-      if (currentPhase === 0) {
-        // Stays top-left throughout Hero phase
-        gsap.set(pillNavRef.current, { left: '2rem', xPercent: 0, scale: 1 });
-      } else if (currentPhase === 1) {
-        // Moves to center AFTER the entry crossfade (0.15 -> 0.35)
-        tl.fromTo(pillNavRef.current, 
-          { left: '2rem', xPercent: 0 }, 
-          { left: '50%', xPercent: -50, duration: 0.20, ease: 'power2.out' }, 
-          0.15
-        );
-        // Pop animation concurrently with the move
-        tl.fromTo(pillNavRef.current, 
-          { scale: 0.9 }, 
-          { scale: 1, duration: 0.20, ease: 'back.out(1.5)' }, 
-          0.15
-        );
-      } else {
-        // Already centered for phases 2 and beyond
-        gsap.set(pillNavRef.current, { left: '50%', xPercent: -50 });
-        
-        // Quick standalone pop animation on phase entry (removed clearProps: 'scale' to prevent GSAP from stripping xPercent)
-        gsap.fromTo(pillNavRef.current, 
-          { scale: 0.9 }, 
-          { scale: 1, duration: 0.4, ease: 'back.out(1.5)' }
-        );
-      }
-    }
-
     tlRef.current = tl;
     tl.progress(useScrollStore.getState().phaseProgress);
 
@@ -128,8 +86,7 @@ const PhaseOrchestrator = () => {
       console.time('PhaseOrchestrator unmount');
       // Adding a synchronous wait just in case to ensure we capture the whole teardown phase,
       // but standard console.time/timeEnd around the unmount should give us a good idea.
-      if (pillNavRef.current) {} // just a dummy
-      console.timeEnd('PhaseOrchestrator unmount');
+            console.timeEnd('PhaseOrchestrator unmount');
     };
   }, []);
 
@@ -234,21 +191,7 @@ const PhaseOrchestrator = () => {
         )}
       </div>
 
-      <div 
-        ref={pillNavRef} 
-        className="fixed z-[60] pointer-events-auto"
-        style={{ top: '2rem', left: '50%', transform: 'translateX(-50%)' }}
-      >
-         <PillNav 
-            logo={wieLogo}
-            items={navItems}
-            activeHref="/"
-            baseColor="#10002b"
-            pillColor="#3c096c"
-            pillTextColor="#e0aaff"
-            hoveredPillTextColor="#e0aaff"
-         />
-      </div>
+      
 
       <div className="fixed inset-0 w-full h-full overflow-hidden">
         {PHASES.map((PhaseComponent, index) => {
