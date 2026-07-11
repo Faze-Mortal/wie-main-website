@@ -12,7 +12,7 @@ const CATEGORIES = [
   { key: 'team',         label: 'Team Moments' },
 ]
 
-const photos = [
+export const galleryPhotos = [
   { id: 1,  src: '/Gallery/img1.jpg',  cat: 'team',         caption: 'Executive Committee',  description: 'ECs 24-25' },
   { id: 2,  src: '/Gallery/img2.jpg',  cat: 'flagship',     caption: 'Elysium',              description: 'Team Elysium' },
   { id: 3,  src: '/Gallery/img3.jpg',  cat: 'team',         caption: 'Pyaare JCs',           description: 'JCs 24-25' },
@@ -41,7 +41,7 @@ const photos = [
 ]
 
 /* filmstrip = photos duplicated for seamless loop */
-const stripPhotos = [...photos, ...photos]
+const stripPhotos = [...galleryPhotos, ...galleryPhotos]
 
 function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -50,8 +50,8 @@ function Gallery() {
 
   /* ---- filtered list ---- */
   const visiblePhotos = activeFilter === 'all'
-    ? photos
-    : photos.filter(p => p.cat === activeFilter)
+    ? galleryPhotos
+    : galleryPhotos.filter(p => p.cat === activeFilter)
 
   /* ---- scroll-reveal via IntersectionObserver ---- */
   useEffect(() => {
@@ -86,7 +86,7 @@ function Gallery() {
 
   /* ---- helpers ---- */
   const countFor = (key) =>
-    key === 'all' ? photos.length : photos.filter(p => p.cat === key).length
+    key === 'all' ? galleryPhotos.length : galleryPhotos.filter(p => p.cat === key).length
 
   const lbPhoto = lightboxIndex !== null ? visiblePhotos[lightboxIndex] : null
 

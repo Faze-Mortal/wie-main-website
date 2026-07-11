@@ -1288,7 +1288,7 @@ const pastYears = useMemo(() => {
         </div> */}
       </div>
 
-      <style jsx>{`
+      <style>{`
         .perspective-1500px {
           perspective: 1500px;
         }
