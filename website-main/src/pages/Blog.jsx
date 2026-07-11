@@ -1,11 +1,10 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import "./Blog.css";
 
-/*BLOG DATA */
-const blogData = [
-  { id: 14, excerpt: "The next global conflict may never be declared — it could already be unfolding behind your screen.", imageUrl: "/blog14.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-silent-war-nations-battling-in-cyberspace-09bfb57daf9a" },
-  { id: 13, excerpt: "A blurry orange ring that changed astronomy forever — discover the technology that made the impossible visible.", imageUrl: "/blog13.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/beyond-the-event-horizon-how-technology-helped-humanity-capture-a-black-hole-98f20b5f8cf2" },
-  { id: 12, excerpt: "What if the future of global power isn't decided by weapons — but by a single qubit?", imageUrl: "/blog12.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-invisible-arms-race-how-quantum-computing-could-change-global-power-3bc1e65b904c" },
+export const blogData = [
+  { id: 14, title: "The Silent War: Nations Battling in Cyberspace", excerpt: "The next global conflict may never be declared — it could already be unfolding behind your screen.", imageUrl: "/blog14.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-silent-war-nations-battling-in-cyberspace-09bfb57daf9a" },
+  { id: 13, title: "Beyond the Event Horizon", excerpt: "A blurry orange ring that changed astronomy forever — discover the technology that made the impossible visible.", imageUrl: "/blog13.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/beyond-the-event-horizon-how-technology-helped-humanity-capture-a-black-hole-98f20b5f8cf2" },
+  { id: 12, title: "The Invisible Arms Race: How Quantum Computing Could Change Global Power", excerpt: "What if the future of global power isn't decided by weapons — but by a single qubit?", imageUrl: "/blog12.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-invisible-arms-race-how-quantum-computing-could-change-global-power-3bc1e65b904c" },
   { id: 11, excerpt: "Master essential techniques to clean messy data and turn raw numbers into reliable, actionable insights.", imageUrl: "/blog11.jpeg", readMoreUrl: "https://medium.com/@ieee.wiemuj/data-cleaning-techniques-every-analyst-should-know-0a9ab0adbb50" },
   { id: 10, excerpt: "When technology hits its limits, human intuition steps in — explore the critical moments that define man vs machine.", imageUrl: "/blog10.jpeg", readMoreUrl: "https://medium.com/@ieee.wiemuj/what-happens-when-systems-fail-and-humans-take-over-8120ed4c2ae5" },
   { id: 9, excerpt: "Step into the metaverse — a beginner's guide to virtual worlds redefining how we live, work and connect.", imageUrl: "/blog9.jpeg", readMoreUrl: "https://medium.com/@ieee.wiemuj/exploring-the-metaverse-your-guide-to-the-virtual-universe-5dace13f5716" },
@@ -394,8 +393,13 @@ export default function Blog() {
   const handleDone = useCallback(() => setSplashDone(true), []);
 
   return (
-    <>
-      {/* ── Global CSS ── */}
+    <div style={{
+      position: "relative", minHeight: "100vh",
+      background: "transparent",
+      color: "white", padding: "5rem 2rem 5rem",
+      fontFamily: "'Montserrat', sans-serif",
+      overflow: "hidden",
+    }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
@@ -450,18 +454,16 @@ export default function Blog() {
         @media (max-width:480px)  { .blog-grid { grid-template-columns:1fr!important; } }
       `}</style>
 
-      {/* ── Collage splash ── */}
-      {!splashDone && <CollageSplash onDone={handleDone} />}
 
-      {/* ── Blog page — only mounts AFTER splash unmounts.
-          Guarantees zero bleed-through of fixed aurora/stars through the splash. */}
-      {splashDone && (
-        <div style={{
-          position: "relative", minHeight: "100vh",
-          background: "linear-gradient(135deg,#06000f 0%,#180022 40%,#0e0018 70%,#06000f 100%)",
-          color: "white", fontFamily: "'Montserrat',sans-serif", overflowX: "hidden",
-          // Instant reveal — OUR BLOGS was visible in splash at same center position.
-          // Background/stars pop in alongside it; they were hidden by splash overlay.
+      <div style={{ textAlign: "center", marginBottom: "3rem", position: "relative", zIndex: 10 }}>
+        <h1 style={{
+          fontSize: "3.5rem", fontWeight: "800", margin: 0,
+          background: "linear-gradient(90deg, #f9a8d4, #f472b6, #e879f9, #c026d3, #f472b6, #f9a8d4)",
+          backgroundSize: "200% auto",
+          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+          animation: "titleShimmer 4s linear infinite",
+          fontFamily: "'Montserrat', sans-serif",
+          letterSpacing: "-0.02em",
         }}>
 
 
