@@ -101,11 +101,7 @@ function Gallery() {
     <div className="gallery-page">
 
       {/* ── Ambient blobs ── */}
-      <div className="g-ambient" aria-hidden="true">
-        <div className="g-blob g-blob-1" />
-        <div className="g-blob g-blob-2" />
-        <div className="g-blob g-blob-3" />
-      </div>
+
 
       {/* ── Hero ── */}
       <header className="g-hero">
