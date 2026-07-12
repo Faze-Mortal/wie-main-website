@@ -18,44 +18,23 @@ export const blogData = [
   { id: 1, excerpt: "The internet is evolving — from centralized giants to a decentralized future. Here's what Web 3.0 means for us.", imageUrl: "/blog1.jpg", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-decentralized-web-e348bf6829d2" },
 ];
 
-/* 
-   COLLAGE LAYOUT
-   14 images arranged as a frame around the dark center.
-   - Left column  (5): posters on left side, stacked with overlap
-   - Right column (5): posters on right side
-   - Top center   (2): posters peeking from top
-   - Bottom center(2): posters peeking from bottom
-   pos   = CSS position properties (top/bottom/left/right)
-   w     = image width (vw units keep it responsive)
-   rot   = rotation in degrees (resting state)
-   ex/ey = exit direction in vw/vh (where image flies to)
-   er    = extra rotation added on exit
-   dl    = exit transition delay in ms (stagger effect)
- */
 const COLLAGE = [
-  // Left column — fly out left
   { bi: 0, pos: { top: '-2%', left: '0%' }, w: '14vw', rot: -9, ex: -130, ey: -80, er: -20, dl: 0 },
   { bi: 1, pos: { top: '17%', left: '1%' }, w: '12vw', rot: 5, ex: -135, ey: 0, er: 14, dl: 70 },
   { bi: 2, pos: { top: '36%', left: '0%' }, w: '13vw', rot: -5, ex: -135, ey: 0, er: -14, dl: 140 },
   { bi: 3, pos: { top: '55%', left: '1%' }, w: '12vw', rot: 7, ex: -135, ey: 0, er: 18, dl: 100 },
   { bi: 4, pos: { top: '74%', left: '0%' }, w: '14vw', rot: -6, ex: -130, ey: 80, er: -18, dl: 190 },
-  // Right column — fly out right
   { bi: 5, pos: { top: '-2%', right: '0%' }, w: '14vw', rot: 8, ex: 130, ey: -80, er: 20, dl: 20 },
   { bi: 6, pos: { top: '17%', right: '1%' }, w: '12vw', rot: -5, ex: 135, ey: 0, er: -14, dl: 50 },
   { bi: 7, pos: { top: '36%', right: '0%' }, w: '13vw', rot: 5, ex: 135, ey: 0, er: 14, dl: 130 },
   { bi: 8, pos: { top: '55%', right: '1%' }, w: '12vw', rot: -7, ex: 135, ey: 0, er: -18, dl: 90 },
   { bi: 9, pos: { top: '74%', right: '0%' }, w: '14vw', rot: 6, ex: 130, ey: 80, er: 18, dl: 170 },
-  // Top center — fly out upward
   { bi: 10, pos: { top: '-6%', left: '29%' }, w: '13vw', rot: -4, ex: -15, ey: -135, er: -10, dl: 30 },
   { bi: 11, pos: { top: '-6%', left: '54%' }, w: '12vw', rot: 5, ex: 15, ey: -135, er: 12, dl: 40 },
-  // Bottom center — fly out downward
   { bi: 12, pos: { bottom: '-6%', left: '29%' }, w: '13vw', rot: 4, ex: -15, ey: 135, er: 10, dl: 220 },
   { bi: 13, pos: { bottom: '-6%', left: '54%' }, w: '12vw', rot: -5, ex: 15, ey: 135, er: -12, dl: 250 },
 ];
 
-/* 
-   CSS STARS  — pure divs, no JS loop, compositor-threaded
- */
 const CSS_STARS = Array.from({ length: 26 }, (_, i) => ({
   left: `${(i * 37 % 93) + 3}%`,
   top: `${(i * 61 % 91) + 3}%`,
@@ -64,21 +43,17 @@ const CSS_STARS = Array.from({ length: 26 }, (_, i) => ({
   del: `${(i % 6) * 0.5}s`,
 }));
 
-/*COLLAGE SPLASH */
 function CollageSplash({ onDone }) {
-  const [phase, setPhase] = useState("hidden"); // hidden → visible → exiting
+  const [phase, setPhase] = useState("hidden");
 
   useEffect(() => {
-    // Small delay so browser paints "hidden" state first, then transitions in
     const t1 = setTimeout(() => setPhase("visible"), 60);
-    // Auto-trigger exit after 2.8s
     const t2 = setTimeout(() => setPhase("exiting"), 2800);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   useEffect(() => {
     if (phase !== "exiting") return;
-    // Wait for the longest exit transition (max delay 250ms + 650ms anim = 900ms)
     const t = setTimeout(onDone, 950);
     return () => clearTimeout(t);
   }, [phase, onDone]);
@@ -99,10 +74,9 @@ function CollageSplash({ onDone }) {
         cursor: "pointer",
       }}
     >
-      {/* ── Poster images ── */}
       {COLLAGE.map((item, i) => {
         const blog = blogData[item.bi];
-        const { bi: _bi, pos, w, rot, ex, ey, er, dl } = item;
+        const { pos, w, rot, ex, ey, er, dl } = item;
 
         const transform = isExiting
           ? `rotate(${rot + er}deg) translate(${ex}vw,${ey}vh) scale(0.2)`
@@ -129,13 +103,11 @@ function CollageSplash({ onDone }) {
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               loading="eager"
             />
-            {/* Subtle pink tint to unify palette */}
             <div style={{ position: "absolute", inset: 0, background: "rgba(244,114,182,0.05)" }} />
           </div>
         );
       })}
 
-      {/* ── Dark radial vignette so center text is readable ── */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
         background: "radial-gradient(ellipse 46% 56% at 50% 50%, rgba(6,0,15,0.94) 0%, rgba(6,0,15,0.72) 42%, rgba(6,0,15,0.25) 72%, transparent 100%)",
@@ -143,10 +115,6 @@ function CollageSplash({ onDone }) {
         transition: isExiting ? "opacity 0.5s ease" : "none",
       }} />
 
-      {/* ── OUR BLOGS + subtitle + hint — ONE single fixed container.
-          No separate sibling divs → no z-index bleed-through.
-          Outer div: handles scale-in entry + stays visible during exit.
-          Inner div: subtitle fades out on exit independently.              */}
       <div style={{
         position: "fixed",
         top: "50%", left: "50%",
@@ -161,7 +129,6 @@ function CollageSplash({ onDone }) {
         zIndex: 10002,
         textAlign: "center",
       }}>
-        {/* 'OUR BLOGS' stays at full opacity even as images fly (never fades) */}
         <h1 style={{
           fontSize: "clamp(2.8rem,6.5vw,6rem)", fontWeight: "800", margin: 0,
           background: "linear-gradient(90deg,#f9a8d4,#f472b6,#e879f9,#c026d3,#f472b6,#f9a8d4)",
@@ -176,7 +143,6 @@ function CollageSplash({ onDone }) {
           OUR BLOGS
         </h1>
 
-        {/* Fades out fast on exit while outer div (OUR BLOGS) stays visible. */}
         <div style={{
           opacity: isExiting ? 0 : 1,
           transition: isExiting ? "opacity 0.22s ease" : "opacity 0.65s ease 0.5s",
@@ -208,7 +174,6 @@ function CollageSplash({ onDone }) {
   );
 }
 
-/*BLOG CARD  — spotlight via CSS vars (no setState on move) */
 function BlogCard({ blog, index }) {
   const [hovered, setHovered] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -216,7 +181,6 @@ function BlogCard({ blog, index }) {
   const cardRef = useRef(null);
   const wrapRef = useRef(null);
 
-  // Self-contained IntersectionObserver — disconnects after first trigger
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
@@ -232,9 +196,7 @@ function BlogCard({ blog, index }) {
     const rect = cardRef.current.getBoundingClientRect();
     const mx = (e.clientX - rect.left) / rect.width;
     const my = (e.clientY - rect.top) / rect.height;
-    // Tilt via React state (only on hover, acceptable)
     setTilt({ x: (my - 0.5) * 13, y: -(mx - 0.5) * 13 });
-    // Spotlight via DOM direct — zero re-render
     cardRef.current.style.setProperty("--mx", `${mx * 100}%`);
     cardRef.current.style.setProperty("--my", `${my * 100}%`);
   };
@@ -275,23 +237,18 @@ function BlogCard({ blog, index }) {
           willChange: "transform,opacity",
         }}
       >
-        {/* Blurred backdrop */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${blog.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center", filter: "blur(14px) brightness(0.32)", transform: "scale(1.12)", zIndex: 0 }} />
-        {/* Poster */}
         <img
           src={blog.imageUrl} alt={`Blog ${blog.id}`}
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block", pointerEvents: "none", transition: "transform 0.45s ease", transform: hovered ? "scale(1.04)" : "scale(1)", zIndex: 1 }}
           loading="lazy"
         />
-        {/* Neon border on hover */}
         {hovered && <div style={{ position: "absolute", inset: -1, borderRadius: "15px", zIndex: 10, pointerEvents: "none", border: "1.5px solid rgba(244,114,182,0.85)", boxShadow: "0 0 16px rgba(244,114,182,0.45)", animation: "neonPulse 1.4s ease-in-out infinite" }} />}
-        {/* Shimmer */}
         {hovered && (
           <div style={{ position: "absolute", inset: 0, zIndex: 6, pointerEvents: "none", borderRadius: "14px", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: 0, left: "-100%", width: "55%", height: "100%", background: "linear-gradient(105deg,transparent,rgba(255,255,255,0.06),transparent)", animation: "shimmerSweep 1.3s ease-in-out infinite" }} />
           </div>
         )}
-        {/* Excerpt overlay */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "2rem 0.9rem 0.95rem", background: "linear-gradient(to top,rgba(6,0,15,0.97) 0%,rgba(6,0,15,0.7) 55%,transparent 100%)", opacity: hovered ? 1 : 0, transform: hovered ? "translateY(0)" : "translateY(10px)", transition: "opacity 0.3s ease,transform 0.3s ease", zIndex: 7 }}>
           <p style={{ fontSize: "0.7rem", color: "rgba(255,210,240,0.88)", margin: "0 0 0.5rem", lineHeight: "1.6", fontFamily: "'Montserrat',sans-serif", fontWeight: "400" }}>{blog.excerpt}</p>
           <span style={{ fontSize: "0.68rem", color: "#f9a8d4", fontFamily: "'Montserrat',sans-serif", fontWeight: "600", letterSpacing: "0.04em" }}>Read on Medium &rarr;</span>
@@ -301,14 +258,9 @@ function BlogCard({ blog, index }) {
   );
 }
 
-/* HERO TITLE  — centered, ambient, persistent 
-// Hero title — no scroll effects, no props.
-// Sits at viewport center — same pixel position as collage splash title.
-// The glow + orbit rings make it feel like it was always there.*/
 function HeroTitle() {
   return (
     <div style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
-      {/* Ambient bloom — wide soft glow behind the text, breathing slowly */}
       <div style={{
         position: "absolute", top: "50%", left: "50%",
         transform: "translate(-50%, -50%)",
@@ -328,7 +280,6 @@ function HeroTitle() {
         animation: "titleShimmer 4s linear infinite",
         fontFamily: "'Montserrat',sans-serif",
         letterSpacing: "-0.01em",
-        // Same glow as in the splash — continuity
         filter: "drop-shadow(0 0 28px rgba(244,114,182,0.55))",
       }}>
         OUR BLOGS
@@ -347,7 +298,6 @@ function HeroTitle() {
   );
 }
 
-// Scroll hint — fades out on scroll
 function ScrollHint() {
   const ref = useRef(null);
   useEffect(() => {
@@ -365,7 +315,6 @@ function ScrollHint() {
   );
 }
 
-// "N Articles" strip — slides in when scrolled
 function ArticleStrip() {
   const ref = useRef(null);
   useEffect(() => {
@@ -387,7 +336,6 @@ function ArticleStrip() {
   );
 }
 
-/*MAIN BLOG PAGE*/
 export default function Blog() {
   const [splashDone, setSplashDone] = useState(false);
   const handleDone = useCallback(() => setSplashDone(true), []);
@@ -395,10 +343,10 @@ export default function Blog() {
   return (
     <div style={{
       position: "relative", minHeight: "100vh",
-      background: "transparent",
+      background: "#06000f",
       color: "white", padding: "5rem 2rem 5rem",
       fontFamily: "'Montserrat', sans-serif",
-      overflow: "hidden",
+      overflowX: "hidden",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
@@ -406,12 +354,6 @@ export default function Blog() {
         @keyframes titleShimmer {
           0%   { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
-        }
-        @keyframes titleGlitch {
-          0%,78%,100% { filter:none; }
-          79%  { filter:hue-rotate(22deg) brightness(1.25); transform:translateX(-3px); }
-          81%  { filter:hue-rotate(-18deg) brightness(0.92); transform:translateX(3px); }
-          83%  { filter:none; transform:translateX(0); }
         }
         @keyframes hintPulse {
           0%,100% { opacity:.35; }
@@ -441,10 +383,6 @@ export default function Blog() {
           from { transform:rotate(0deg); }
           to   { transform:rotate(360deg); }
         }
-        @keyframes blogReveal {
-          from { opacity:0; transform:translateY(18px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
 
         ::-webkit-scrollbar       { width:0; background:transparent; }
         * { scrollbar-width: none; }
@@ -454,25 +392,17 @@ export default function Blog() {
         @media (max-width:480px)  { .blog-grid { grid-template-columns:1fr!important; } }
       `}</style>
 
+      {/* ── Conditional Splash Screen ── */}
+      {!splashDone ? (
+        <CollageSplash onDone={handleDone} />
+      ) : (
+        <div style={{ position: "relative", zIndex: 10 }}>
 
-      <div style={{ textAlign: "center", marginBottom: "3rem", position: "relative", zIndex: 10 }}>
-        <h1 style={{
-          fontSize: "3.5rem", fontWeight: "800", margin: 0,
-          background: "linear-gradient(90deg, #f9a8d4, #f472b6, #e879f9, #c026d3, #f472b6, #f9a8d4)",
-          backgroundSize: "200% auto",
-          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          animation: "titleShimmer 4s linear infinite",
-          fontFamily: "'Montserrat', sans-serif",
-          letterSpacing: "-0.02em",
-        }}>
-
-
-
-          {/* CSS-only aurora blobs — zero JS */}
+          {/* Background Ambient Layers */}
           <div style={{ position: "fixed", top: "-5%", left: "4%", width: "440px", height: "440px", background: "rgba(244,114,182,0.07)", borderRadius: "50%", filter: "blur(90px)", pointerEvents: "none", animation: "pinkGlow 5s ease-in-out infinite", zIndex: 1 }} />
           <div style={{ position: "fixed", top: "35%", right: "2%", width: "340px", height: "340px", background: "rgba(192,38,211,0.08)", borderRadius: "50%", filter: "blur(80px)", pointerEvents: "none", animation: "pinkGlow 6s ease-in-out 2s infinite", zIndex: 1 }} />
 
-          {/* CSS-only stars — no canvas, no RAF */}
+          {/* Twinkling Stars */}
           <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
             {CSS_STARS.map((s, i) => (
               <div key={i} style={{
@@ -484,7 +414,7 @@ export default function Blog() {
             ))}
           </div>
 
-          {/* Triangle grid SVG — static, rendered once */}
+          {/* Static SVG Triangle Grid */}
           <svg style={{ position: "fixed", inset: 0, width: "100%", height: "100%", opacity: 0.055, pointerEvents: "none", zIndex: 1 }} xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="tri" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -494,18 +424,15 @@ export default function Blog() {
             <rect width="100%" height="100%" fill="url(#tri)" />
           </svg>
 
-          {/* ── Hero: OUR BLOGS at exact viewport center, orbit rings around it ──
-            Same position as collage splash → feels permanently "always there".    */}
+          {/* ── Hero Centerpiece with Orbiting Rings ── */}
           <div style={{
             position: "relative", zIndex: 10,
             height: "100vh",
             display: "flex", flexDirection: "column",
             alignItems: "center", justifyContent: "center",
           }}>
-            {/* Orbit rings surround the title (OUR BLOGS is the star, rings orbit it) */}
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-
-              {/* Outer ring — large, slow */}
+              {/* Outer slow ring */}
               <div style={{
                 position: "absolute",
                 width: "clamp(340px,44vw,680px)", height: "clamp(340px,44vw,680px)",
@@ -517,7 +444,7 @@ export default function Blog() {
                 <div style={{ position: "absolute", top: "-5px", left: "50%", transform: "translateX(-50%)", width: "10px", height: "10px", borderRadius: "50%", background: "#f472b6", boxShadow: "0 0 12px #f472b6, 0 0 24px rgba(244,114,182,0.5)" }} />
               </div>
 
-              {/* Inner ring — smaller, faster, reverse */}
+              {/* Inner fast ring */}
               <div style={{
                 position: "absolute",
                 width: "clamp(260px,34vw,520px)", height: "clamp(260px,34vw,520px)",
@@ -529,17 +456,15 @@ export default function Blog() {
                 <div style={{ position: "absolute", bottom: "-4px", left: "50%", transform: "translateX(-50%)", width: "7px", height: "7px", borderRadius: "50%", background: "#c026d3", boxShadow: "0 0 10px #c026d3" }} />
               </div>
 
-              {/* OUR BLOGS — the center / star of the orbit system */}
               <HeroTitle />
             </div>
 
-            {/* Scroll hint pinned to bottom of hero */}
             <div style={{ position: "absolute", bottom: "2.5rem" }}>
               <ScrollHint />
             </div>
           </div>
 
-          {/* ── Blog grid ── */}
+          {/* ── Main Blog Articles Grid ── */}
           <div style={{ position: "relative", zIndex: 10, maxWidth: "1280px", margin: "2rem auto 6rem", padding: "0 2rem" }}>
             <ArticleStrip />
             <div
@@ -551,8 +476,9 @@ export default function Blog() {
               ))}
             </div>
           </div>
+
         </div>
       )}
-    </>
+    </div>
   );
 }
