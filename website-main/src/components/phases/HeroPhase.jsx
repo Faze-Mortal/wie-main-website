@@ -31,49 +31,49 @@ const HeroPhase = () => {
     const tl = gsap.timeline();
 
     // 1. Mirror-crack background assets fade in
-    tl.to([bgGlass1Ref.current, bgGlass2Ref.current], { 
-      opacity: 1, 
-      duration: 0.8, 
-      ease: 'power2.out' 
-    })
-    // 2. IEEE WIE logo text reveals
-    .to(ieeeWieTextRef.current, { 
-      opacity: 1, 
-      y: 0, 
-      duration: 0.8, 
-      ease: 'power2.out' 
-    }, "-=0.4")
-    // 3. Left-side text block reveals
-    .to(textBlockRef.current, { 
-      opacity: 1, 
-      x: 0, 
-      duration: 0.8, 
-      ease: 'power2.out' 
-    }, "-=0.5")
-    // 4. Our Impact Journey (header + path + nodes stagger)
-    .to('.impact-header', { opacity: 1, duration: 0.5, ease: 'power1.out' }, "-=0.4")
-    .to('.impact-path', { opacity: 1, duration: 0.5, ease: 'power1.out' }, "-=0.2")
-    .to('.impact-node', { 
-      opacity: 1, 
-      scale: 1, 
-      duration: 0.6, 
-      stagger: 0.15, 
-      ease: 'back.out(1.5)' 
-    }, "-=0.3")
-    // 4.5 Social icons fade up
-    .to(socialIconsRef.current, {
+    tl.to([bgGlass1Ref.current, bgGlass2Ref.current], {
       opacity: 1,
-      y: 0,
       duration: 0.8,
       ease: 'power2.out'
-    }, "-=0.2")
-    // 5. Top-right flag/logo asset reveals
-    .to(topFlagRef.current, { 
-      opacity: 1, 
-      scale: 1, 
-      duration: 0.8, 
-      ease: 'power2.out' 
-    }, "-=0.2");
+    })
+      // 2. IEEE WIE logo text reveals
+      .to(ieeeWieTextRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, "-=0.4")
+      // 3. Left-side text block reveals
+      .to(textBlockRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, "-=0.5")
+      // 4. Our Impact Journey (header + path + nodes stagger)
+      .to('.impact-header', { opacity: 1, duration: 0.5, ease: 'power1.out' }, "-=0.4")
+      .to('.impact-path', { opacity: 1, duration: 0.5, ease: 'power1.out' }, "-=0.2")
+      .to('.impact-node', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'back.out(1.5)'
+      }, "-=0.3")
+      // 4.5 Social icons fade up
+      .to(socialIconsRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, "-=0.2")
+      // 5. Top-right flag/logo asset reveals
+      .to(topFlagRef.current, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, "-=0.2");
 
   }, [currentPhase]);
 

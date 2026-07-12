@@ -83,91 +83,118 @@
 .g-hero {
   position: relative;
   z-index: 1;
-  padding: 100px 6vw 50px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  overflow: hidden;
+  padding: 0 6vw;
+  margin-top: -6rem;
+  padding-top: 6rem;
 }
 
-.g-eyebrow {
-  display: inline-flex;
+.g-hero-content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gacc2);
-  border: 1px solid var(--gbrd);
-  padding: 6px 16px;
-  border-radius: 999px;
-  margin-bottom: 26px;
-  background: rgba(255, 255, 255, 0.02);
+  gap: 1.5rem;
+}
+
+/* Infinity Sign Styles */
+.g-infinity-container {
+  width: 120px;
+  height: 60px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.g-infinity-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgba(139, 47, 201, 0.6));
+}
+
+.g-infinity-path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 1.5;
+}
+
+.g-infinity-glow {
+  fill: none;
+  stroke: url(#gradient); /* We'll fallback to a solid color since gradient isn't defined in SVG */
+  stroke: var(--gacc2); /* Cyan glow */
+  stroke-width: 2.5;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  stroke-linecap: round;
+  animation: drawInfinity 4s linear infinite;
+  filter: drop-shadow(0 0 5px var(--gacc2)) drop-shadow(0 0 15px var(--gprim-lt));
+}
+
+@keyframes drawInfinity {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -200;
+  }
 }
 
 .g-title {
   font-family: 'Space Grotesk', 'Cambo', sans-serif;
   font-weight: 700;
-  font-size: clamp(48px, 9vw, 110px);
-  line-height: 0.95;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1;
   background: linear-gradient(120deg, #fff 10%, var(--gprim-lt) 55%, var(--gacc) 90%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  letter-spacing: -2px;
-  margin: 0 auto;
+  letter-spacing: 4px;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .g-subtitle {
   max-width: 560px;
-  margin: 22px auto 0;
+  margin: 0;
   color: var(--gtxt-m);
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
-/* ---------- filmstrip ---------- */
-.g-filmstrip-wrap {
-  position: relative;
-  z-index: 1;
-  padding: 36px 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  overflow: hidden;
-}
-
-.g-filmstrip {
+/* Scroll hint */
+.g-scroll-hint {
   display: flex;
-  gap: 14px;
-  width: max-content;
-  animation: g-scroll-strip 80s linear infinite;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(185,162,204,0.5);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4rem;
 }
 
-.g-filmstrip:hover {
-  animation-play-state: paused;
+.g-scroll-arrow {
+  display: block;
+  animation: g-bounce 2s ease-in-out infinite;
+  font-size: 18px;
 }
 
-.g-filmstrip img {
-  height: 120px;
-  width: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid var(--gbrd);
-  filter: grayscale(35%) brightness(0.8);
-  transition: filter 0.3s;
-  flex-shrink: 0;
+@keyframes g-bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
 }
 
-.g-filmstrip img:hover {
-  filter: none;
-}
-
-@keyframes g-scroll-strip {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
 
 /* ---------- filter bar ---------- */
 .g-filter-bar {
@@ -287,12 +314,10 @@
   position: absolute;
   inset: 0;
   /* Gradient only covers the bottom ~55% — top of image stays fully visible */
-  background: linear-gradient(
-    to top,
-    rgba(14, 4, 22, 0.97) 0%,
-    rgba(14, 4, 22, 0.72) 32%,
-    rgba(14, 4, 22, 0.0)  56%
-  );
+  background: linear-gradient(to top,
+      rgba(14, 4, 22, 0.97) 0%,
+      rgba(14, 4, 22, 0.72) 32%,
+      rgba(14, 4, 22, 0.0) 56%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

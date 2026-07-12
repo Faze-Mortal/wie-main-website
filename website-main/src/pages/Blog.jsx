@@ -344,7 +344,9 @@ export default function Blog() {
     <div style={{
       position: "relative", minHeight: "100vh",
       background: "#06000f",
-      color: "white", padding: "5rem 2rem 5rem",
+      color: "white",
+      padding: "0 0 5rem",
+      marginTop: "-6rem",
       fontFamily: "'Montserrat', sans-serif",
       overflowX: "hidden",
     }}>

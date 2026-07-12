@@ -24,7 +24,7 @@ const GalleryPhase = () => {
 
     const tl = gsap.timeline({ paused: true });
     tl.set({}, {}, 1.0);
-    
+
     tl.to(headingRef.current, { opacity: 1, y: 0, duration: 0.1 }, 0.15);
     tl.to(galleryRef.current, { opacity: 1, y: 0, duration: 0.1 }, 0.25);
 
