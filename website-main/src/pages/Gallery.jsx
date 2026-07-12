@@ -153,6 +153,7 @@ function Gallery() {
 
       {/* ── Hero ── */}
       <header className="g-hero">
+        <div className="g-hero-bottom-light" aria-hidden="true" />
         <div className="g-hero-content">
           <h1 className="g-title">GALLERY</h1>
           <div className="g-infinity-container">
