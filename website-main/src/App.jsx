@@ -15,7 +15,7 @@ const navItems = [
   { label: 'Our Team', href: '/team' },
   { label: 'About Us', href: '/about' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' }
+  { label: 'Blogs', href: '/blog' }
 ];
 
 function AppLayout() {

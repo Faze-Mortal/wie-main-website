@@ -13,7 +13,7 @@ const SiteFooter = () => {
     { path: "/team", label: "Our Team" },
     { path: "/about", label: "About Us" },
     { path: "/gallery", label: "Gallery" },
-    { path: "/blog", label: "Blog" },
+    { path: "/blog", label: "Blogs" },
   ];
 
   return (
