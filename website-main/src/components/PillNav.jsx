@@ -75,20 +75,14 @@ const PillNav = ({
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollYRef.current;
       
-      if (currentScrollY < 50) {
+      if (currentScrollY <= 100) {
         if (scrollTweenRef.current) scrollTweenRef.current.kill();
         scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
-      } else if (isScrollingDown && currentScrollY - lastScrollYRef.current > 5) {
+      } else {
         if (scrollTweenRef.current) scrollTweenRef.current.kill();
         scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: -150, opacity: 0, duration: 0.3, ease: 'power2.out' });
-      } else if (!isScrollingDown && lastScrollYRef.current - currentScrollY > 5) {
-        if (scrollTweenRef.current) scrollTweenRef.current.kill();
-        scrollTweenRef.current = gsap.to(pillNavWrapperRef.current, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
       }
-
-      lastScrollYRef.current = currentScrollY;
     };
 
     gsap.set(pillNavWrapperRef.current, { yPercent: 0, opacity: 1 });

@@ -6,8 +6,15 @@ import { useGSAP } from '@gsap/react';
 import { useScrollStore } from '../../store/useScrollStore';
 import { galleryPhotos } from '../../pages/Gallery';
 
-// Slice the first 15 photos and map to { src, alt } as expected by DomeGallery
-const galleryImages = galleryPhotos.slice(0, 15).map(photo => ({
+// Filter for "Fun Moments" category (cat: 'fun-moments')
+const funMomentsPhotos = galleryPhotos.filter(photo => photo.cat === 'fun-moments');
+
+// Since there are only 9 'fun-moments' photos, duplicate them to ensure a smooth, gapless marquee loop (~15+ needed)
+const marqueePhotos = funMomentsPhotos.length < 15 && funMomentsPhotos.length > 0
+  ? [...funMomentsPhotos, ...funMomentsPhotos]
+  : funMomentsPhotos;
+
+const galleryImages = marqueePhotos.map(photo => ({
   src: photo.src,
   alt: photo.caption
 }));
