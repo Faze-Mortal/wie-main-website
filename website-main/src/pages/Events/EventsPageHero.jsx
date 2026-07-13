@@ -11,38 +11,38 @@ import {
 const deckCards = [
   {
     className: 'deck-card front-card',
-    src: '/Events/poster1.jpg',
+    src: '/Events/poster1.webp',
     alt: 'Elite Grand Championship',
     label: 'Bring Elite Grand Championship to front',
     title: 'HerVerdict',
   },
   {
     className: 'deck-card bg-card-1',
-    src: '/Events/poster2.jpg',
+    src: '/Events/poster2.webp',
     alt: 'Neon Pulse Festival',
     label: 'Bring Neon Pulse Festival to front',
     title: 'Vision IAS',
   },
   {
     className: 'deck-card bg-card-2',
-    src: '/Events/dealroom.jpeg',
-    alt: 'The Deal Room',
-    label: 'The Deal Room',
+    src: '/Events/poster3.webp',
+    alt: 'Future Tech Summit',
+    label: 'Bring Future Tech Summit to front',
     title: 'The Deal Room',
   },
   {
     className: 'deck-card bg-card-3',
-    src: '/Events/poster4.jpeg',
+    src: '/Events/poster4.webp',
     alt: 'Global Arts Expo',
     label: 'Bring Global Arts Expo to front',
     title: 'Swara',
   },
   {
     className: 'deck-card bg-card-4',
-    src: '/Events/cyber_odyssey.jpeg',
-    alt: 'Cyber Odyssey',
-    label: 'Cyber Odyssey',
-    title: 'Cyber Odyssey',
+    src: '/Events/poster5.webp',
+    alt: 'World Championship Series',
+    label: 'Bring World Championship Series to front',
+    title: 'Swara',
   },
 ];
 

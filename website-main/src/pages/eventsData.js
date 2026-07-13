@@ -2,7 +2,7 @@ const allEvents = [
   {
     "id": 104,
     "title": "Crown Conquest",
-    "image": "/Events/crownconquest.jpeg",
+    "image": "/Events/crownconquest.webp",
     "date": "13 March",
     "year": "2026",
     "isPast": false,
@@ -13,7 +13,7 @@ const allEvents = [
   {
     "id": 103,
     "title": "HerVerdict",
-    "image": "/Events/herverdict.jpeg",
+    "image": "/Events/herverdict.webp",
     "date": "11 February",
     "year": "2026",
     "isPast": true,
@@ -24,7 +24,7 @@ const allEvents = [
   {
     "id": 102,
     "title": "VisionIAS Career Guidance Session",
-    "image": "/Events/visionias2.jpeg",
+    "image": "/Events/visionias2.webp",
     "date": "11 February",
     "year": "2026",
     "isPast": true,
@@ -35,7 +35,7 @@ const allEvents = [
   {
     "id": 101,
     "title": "The Deal Room | ELYSIUM 2.0",
-    "image": "/Events/dealroom.jpeg",
+    "image": "/Events/dealroom.webp",
     "date": "11 February",
     "year": "2026",
     "isPast": true,
@@ -46,7 +46,7 @@ const allEvents = [
   {
     "id": 100,
     "title": "SWARA: Echoes of Indian Classical Heritage",
-    "image": "/Events/swara.jpeg",
+    "image": "/Events/swara.webp",
     "date": "10 February",
     "year": "2026",
     "isPast": true,
@@ -57,7 +57,7 @@ const allEvents = [
   {
     "id": 99,
     "title": "The Confluence | ELYSIUM 2.0",
-    "image": "/Events/confluence.jpeg",
+    "image": "/Events/confluence.webp",
     "date": "10 February",
     "year": "2026",
     "isPast": true,
@@ -68,7 +68,7 @@ const allEvents = [
   {
     "id": 98,
     "title": "Promptopia 2.0",
-    "image": "/Events/promptopia2.jpeg",
+    "image": "/Events/promptopia2.webp",
     "date": "31 January",
     "year": "2026",
     "isPast": true,
@@ -79,7 +79,7 @@ const allEvents = [
   {
     "id": 97,
     "title": "WIEnter of Code",
-    "image": "/Events/wienterofcode.jpeg",
+    "image": "/Events/wienterofcode.webp",
     "date": "26–31 December",
     "year": "2025",
     "isPast": true,
@@ -90,7 +90,7 @@ const allEvents = [
   {
     "id": 96,
     "title": "Bits n Brews 7.0 – Alumni Talk Series",
-    "image": "/Events/bnb7.jpeg",
+    "image": "/Events/bnb7.webp",
     "date": "24 October",
     "year": "2025",
     "isPast": true,
@@ -101,7 +101,7 @@ const allEvents = [
   {
     "id": 95,
     "title": "The Circle of Deception: Where Logic Meets Lies!",
-    "image": "/Events/deception.jpeg",
+    "image": "/Events/deception.webp",
     "date": "9 October",
     "year": "2025",
     "isPast": true,
@@ -112,7 +112,7 @@ const allEvents = [
   {
     "id": 94,
     "title": "Bits n Brews 6.0",
-    "image": "/Events/bnb6.jpg",
+    "image": "/Events/bnb6.webp",
     "date": "19 July",
     "year": "2025",
     "isPast": true,
@@ -123,7 +123,7 @@ const allEvents = [
   {
     "id": 93,
     "title": "Cyber Arena",
-    "image": "/Events/cyberarena.jpg",
+    "image": "/Events/cyberarena.webp",
     "date": "30 June - 2 July",
     "year": "2025",
     "isPast": true,
@@ -134,7 +134,7 @@ const allEvents = [
   {
     "id": 92,
     "title": "BrandIT 2.0",
-    "image": "/Events/brandit2.0.jpg",
+    "image": "/Events/brandit2.0.webp",
     "date": "18 June",
     "year": "2025",
     "isPast": true,
@@ -145,7 +145,7 @@ const allEvents = [
   {
     "id": 91,
     "title": "HardWired",
-    "image": "/Events/hardwired.jpg",
+    "image": "/Events/hardwired.webp",
     "date": "5 April",
     "year": "2025",
     "isPast": true,
@@ -156,7 +156,7 @@ const allEvents = [
   {
     "id": 90,
     "title": "Artemis: Mental Health Check-In",
-    "image": "/Events/artemis.jpg",
+    "image": "/Events/artemis.webp",
     "date": "5 April",
     "year": "2025",
     "isPast": true,
@@ -167,7 +167,7 @@ const allEvents = [
   {
     "id": 89,
     "title": "Pandora: AR/VR Workshop for Innovators",
-    "image": "/Events/pandora.jpg",
+    "image": "/Events/pandora.webp",
     "date": "5 April",
     "year": "2025",
     "isPast": true,
@@ -178,7 +178,7 @@ const allEvents = [
   {
     "id": 88,
     "title": "Binary Bloom: Web3 Development Indulgence",
-    "image": "/Events/binarybloom.jpg",
+    "image": "/Events/binarybloom.webp",
     "date": "5 April",
     "year": "2025",
     "isPast": true,
@@ -189,7 +189,7 @@ const allEvents = [
   {
     "id": 87,
     "title": "DataPulse: Mock Quant Datathon",
-    "image": "/Events/datapulse.jpg",
+    "image": "/Events/datapulse.webp",
     "date": "4-5 April",
     "year": "2025",
     "isPast": true,
@@ -200,7 +200,7 @@ const allEvents = [
   {
     "id": 86,
     "title": "FutureSync: 3D Printing and Robotics Session",
-    "image": "/Events/futuresync.jpg",
+    "image": "/Events/futuresync.webp",
     "date": "4 April",
     "year": "2025",
     "isPast": true,
@@ -211,7 +211,7 @@ const allEvents = [
   {
     "id": 85,
     "title": "NextTech: Computing Session",
-    "image": "/Events/nexttech.jpg",
+    "image": "/Events/nexttech.webp",
     "date": "4 April",
     "year": "2025",
     "isPast": true,
@@ -222,7 +222,7 @@ const allEvents = [
   {
     "id": 84,
     "title": "TechEden: A Premier Tech Symposium",
-    "image": "/Events/techeden.jpg",
+    "image": "/Events/techeden.webp",
     "date": "4 April",
     "year": "2025",
     "isPast": true,
@@ -233,7 +233,7 @@ const allEvents = [
   {
     "id": 83,
     "title": "Promptopia",
-    "image": "/Events/promptopia.jpg",
+    "image": "/Events/promptopia.webp",
     "date": "21 February",
     "year": "2025",
     "isPast": true,
@@ -244,7 +244,7 @@ const allEvents = [
   {
     "id": 82,
     "title": "VisionIAS",
-    "image": "/Events/visionias.jpg",
+    "image": "/Events/visionias.webp",
     "date": "25 January",
     "year": "2025",
     "isPast": true,
@@ -255,7 +255,7 @@ const allEvents = [
   {
     "id": 81,
     "title": "BITS N' BREWS 5.0",
-    "image": "/Events/bits5.jpg",
+    "image": "/Events/bits5.webp",
     "date": "11 January",
     "year": "2025",
     "isPast": true,
@@ -266,7 +266,7 @@ const allEvents = [
   {
     "id": 80,
     "title": "CODER'S CRUSADE",
-    "image": "/Events/coders_crusade.jpg",
+    "image": "/Events/coders_crusade.webp",
     "date": "27 November",
     "year": "2024",
     "isPast": true,
@@ -343,7 +343,7 @@ const allEvents = [
   {
     "id": 73,
     "title": "Networking Night With WIE",
-    "image": "/Events/networkwithwie2.0.jpeg",
+    "image": "/Events/networkwithwie2.0.webp",
     "date": "6 October",
     "year": "2024",
     "isPast": true,
@@ -376,7 +376,7 @@ const allEvents = [
   {
     "id": 70,
     "title": "Cyber Grid",
-    "image": "/Events/cybergrid.jpg",
+    "image": "/Events/cybergrid.webp",
     "date": "28-31 August",
     "year": "2024",
     "isPast": true,
@@ -387,7 +387,7 @@ const allEvents = [
   {
     "id": 69,
     "title": "BrandIT",
-    "image": "/Events/brandIT.jpg",
+    "image": "/Events/brandIT.webp",
     "date": "3-5 August",
     "year": "2024",
     "isPast": true,
@@ -398,7 +398,7 @@ const allEvents = [
   {
     "id": 68,
     "title": "LeetFleet",
-    "image": "/Events/leetfleet.jpg",
+    "image": "/Events/leetfleet.webp",
     "date": "20 july",
     "year": "2024",
     "isPast": true,
@@ -409,7 +409,7 @@ const allEvents = [
   {
     "id": 67,
     "title": "TechClash",
-    "image": "/Events/techClash.jpg",
+    "image": "/Events/techClash.webp",
     "date": "28-30 june",
     "year": "2024",
     "isPast": true,
@@ -431,7 +431,7 @@ const allEvents = [
   {
     "id": 65,
     "title": "BITS N' BREWS EPISODE 2",
-    "image": "/Events/bnbep2.jpg",
+    "image": "/Events/bnbep2.webp",
     "date": "31 March",
     "year": "2024",
     "isPast": true,
@@ -442,7 +442,7 @@ const allEvents = [
   {
     "id": 64,
     "title": "EMPOWHER",
-    "image": "/Events/Empowher.jpg",
+    "image": "/Events/Empowher.webp",
     "date": "4-10 March",
     "year": "2024",
     "isPast": true,
@@ -519,7 +519,7 @@ const allEvents = [
   {
     "id": 57,
     "title": "Elohim",
-    "image": "/Events/genesis_elohim.jpg",
+    "image": "/Events/genesis_elohim.webp",
     "date": "25 September",
     "year": "2023",
     "isPast": true,
@@ -530,7 +530,7 @@ const allEvents = [
   {
     "id": 56,
     "title": "Ballistic 3.0",
-    "image": "/Events/ballistic_3.0.jpeg",
+    "image": "/Events/ballistic_3.0.webp",
     "date": "23-24 September",
     "year": "2023",
     "isPast": true,
@@ -541,7 +541,7 @@ const allEvents = [
   {
     "id": 55,
     "title": "Network with WIE 2.0",
-    "image": "/Events/networkwithwie2.0.jpeg",
+    "image": "/Events/networkwithwie2.0.webp",
     "date": "23 September",
     "year": "2023",
     "isPast": true,
@@ -552,7 +552,7 @@ const allEvents = [
   {
     "id": 54,
     "title": "Tech Summit",
-    "image": "/Events/techsummit01.jpeg",
+    "image": "/Events/techsummit01.webp",
     "date": "23 September",
     "year": "2023",
     "isPast": true,
@@ -563,7 +563,7 @@ const allEvents = [
   {
     "id": 53,
     "title": "Breacout 4.0",
-    "image": "/Events/breacout4.jpeg",
+    "image": "/Events/breacout4.webp",
     "date": "23 September",
     "year": "2023",
     "isPast": true,
@@ -574,7 +574,7 @@ const allEvents = [
   {
     "id": 52,
     "title": "Lights Camera Auction",
-    "image": "/Events/lca3.jpeg",
+    "image": "/Events/lca3.webp",
     "date": "22-23 September",
     "year": "2023",
     "isPast": true,
@@ -585,7 +585,7 @@ const allEvents = [
   {
     "id": 51,
     "title": "CODE-IT-ON 2.0",
-    "image": "/Events/codeiton2.0.jpeg",
+    "image": "/Events/codeiton2.0.webp",
     "date": "22 September",
     "year": "2023",
     "isPast": true,
@@ -596,7 +596,7 @@ const allEvents = [
   {
     "id": 50,
     "title": "Digital Graffiti",
-    "image": "/Events/digitalgraffiti.jpeg",
+    "image": "/Events/digitalgraffiti.webp",
     "date": "20 September",
     "year": "2023",
     "isPast": true,
@@ -607,7 +607,7 @@ const allEvents = [
   {
     "id": 49,
     "title": "CSS Combat",
-    "image": "/Events/CSSCombat.jpeg",
+    "image": "/Events/CSSCombat.webp",
     "date": "4 January",
     "year": "2023",
     "isPast": true,
@@ -640,7 +640,7 @@ const allEvents = [
   {
     "id": 46,
     "title": "Tech Flix",
-    "image": "/Events/Techflix.jpg.jpeg",
+    "image": "/Events/Techflix.webp.webp",
     "date": "18 July",
     "year": "2023",
     "isPast": true,
@@ -651,7 +651,7 @@ const allEvents = [
   {
     "id": 45,
     "title": "Hands On Hustle",
-    "image": "/Events/Hands in Hustle.jpeg",
+    "image": "/Events/Hands in Hustle.webp",
     "date": "24 June",
     "year": "2023",
     "isPast": true,
@@ -662,7 +662,7 @@ const allEvents = [
   {
     "id": 44,
     "title": "BitBlitz",
-    "image": "/Events/BITBLITZ.jpg",
+    "image": "/Events/BITBLITZ.webp",
     "date": "12 June",
     "year": "2023",
     "isPast": true,
@@ -673,7 +673,7 @@ const allEvents = [
   {
     "id": 43,
     "title": "The Next Dimension",
-    "image": "/Events/The_Next_Dimension.jpeg",
+    "image": "/Events/The_Next_Dimension.webp",
     "date": "1 April",
     "year": "2023",
     "isPast": true,
@@ -695,7 +695,7 @@ const allEvents = [
   {
     "id": 41,
     "title": "Hack{Her}",
-    "image": "/Events/HackHer.jpeg",
+    "image": "/Events/HackHer.webp",
     "date": "17-18 February",
     "year": "2023",
     "isPast": true,
@@ -706,7 +706,7 @@ const allEvents = [
   {
     "id": 40,
     "title": "Ready, Set, VFX 2.0",
-    "image": "/Events/ready_set_vfx_2.jpeg",
+    "image": "/Events/ready_set_vfx_2.webp",
     "date": "13-22 January",
     "year": "2023",
     "isPast": true,
@@ -717,7 +717,7 @@ const allEvents = [
   {
     "id": 39,
     "title": "CSS Combat",
-    "image": "/Events/CSSCombat.jpeg",
+    "image": "/Events/CSSCombat.webp",
     "date": "4 January",
     "year": "2023",
     "isPast": true,
@@ -739,7 +739,7 @@ const allEvents = [
   {
     "id": 37,
     "title": "Tech Summit",
-    "image": "/Events/TechSummit.jpeg",
+    "image": "/Events/TechSummit.webp",
     "date": "9 October",
     "year": "2022",
     "isPast": true,
@@ -761,7 +761,7 @@ const allEvents = [
   {
     "id": 35,
     "title": "Tech Talk",
-    "image": "/Events/TechTalk.jpeg",
+    "image": "/Events/TechTalk.webp",
     "date": "9 October",
     "year": "2022",
     "isPast": true,
@@ -838,7 +838,7 @@ const allEvents = [
   {
     "id": 28,
     "title": "Intro to Git, GitHub and Open-Source",
-    "image": "/Events/git.jpeg",
+    "image": "/Events/git.webp",
     "date": "27 September",
     "year": "2022",
     "isPast": true,
@@ -849,7 +849,7 @@ const allEvents = [
   {
     "id": 27,
     "title": "Roadmap to DSA",
-    "image": "/Events/dsa.jpeg",
+    "image": "/Events/dsa.webp",
     "date": "3 September",
     "year": "2022",
     "isPast": true,
@@ -860,7 +860,7 @@ const allEvents = [
   {
     "id": 26,
     "title": "Power Hour 1.0: Mrs. Deepa Sayal",
-    "image": "/Events/power_hour_1.jpeg",
+    "image": "/Events/power_hour_1.webp",
     "date": "12 August",
     "year": "2022",
     "isPast": true,
@@ -871,7 +871,7 @@ const allEvents = [
   {
     "id": 25,
     "title": "Fundamentals of Kotlin and Android Components",
-    "image": "/Events/kotlin.jpeg",
+    "image": "/Events/kotlin.webp",
     "date": "6 August",
     "year": "2022",
     "isPast": true,
@@ -904,7 +904,7 @@ const allEvents = [
   {
     "id": 22,
     "title": "HerStory: Ms. Eshita Kapoor",
-    "image": "/Events/wit_eshita.jpg",
+    "image": "/Events/wit_eshita.webp",
     "date": "26 June",
     "year": "2021",
     "isPast": true,
@@ -915,7 +915,7 @@ const allEvents = [
   {
     "id": 21,
     "title": "HerStory: Ms. Anagha Sivadas",
-    "image": "/Events/wit_anagha.jpg",
+    "image": "/Events/wit_anagha.webp",
     "date": "10 July",
     "year": "2021",
     "isPast": true,
@@ -926,7 +926,7 @@ const allEvents = [
   {
     "id": 20,
     "title": "HerStory: Ms. Ananya Smirti",
-    "image": "/Events/wit_ananya.jpg",
+    "image": "/Events/wit_ananya.webp",
     "date": "29 August",
     "year": "2021",
     "isPast": true,
@@ -937,7 +937,7 @@ const allEvents = [
   {
     "id": 19,
     "title": "HerStory: Ms. Nitya Jagadam",
-    "image": "/Events/wit_nitya.jpg",
+    "image": "/Events/wit_nitya.webp",
     "date": "23 January",
     "year": "2022",
     "isPast": true,
@@ -948,7 +948,7 @@ const allEvents = [
   {
     "id": 18,
     "title": "Breacout",
-    "image": "/Events/breacout.jpg",
+    "image": "/Events/breacout.webp",
     "date": "21 August",
     "year": "2021",
     "isPast": true,
@@ -959,7 +959,7 @@ const allEvents = [
   {
     "id": 17,
     "title": "Learn <Open Source>",
-    "image": "/Events/open_source.jpg",
+    "image": "/Events/open_source.webp",
     "date": "19 September",
     "year": "2021",
     "isPast": true,
@@ -970,7 +970,7 @@ const allEvents = [
   {
     "id": 16,
     "title": "Ready, Set, VFX",
-    "image": "/Events/ready_set_vfx.jpg",
+    "image": "/Events/ready_set_vfx.webp",
     "date": "25 September",
     "year": "2021",
     "isPast": true,
@@ -981,7 +981,7 @@ const allEvents = [
   {
     "id": 15,
     "title": "Financial Planning for Young Professionals",
-    "image": "/Events/financial_planning.jpg",
+    "image": "/Events/financial_planning.webp",
     "date": "28 May",
     "year": "2021",
     "isPast": true,
@@ -992,7 +992,7 @@ const allEvents = [
   {
     "id": 14,
     "title": "Basics of Java",
-    "image": "/Events/java_oops.jpg",
+    "image": "/Events/java_oops.webp",
     "date": "22 May",
     "year": "2021",
     "isPast": true,
@@ -1003,7 +1003,7 @@ const allEvents = [
   {
     "id": 13,
     "title": "Roadmap to Competitive Programming",
-    "image": "/Events/competitive_programming.jpeg",
+    "image": "/Events/competitive_programming.webp",
     "date": "24 January",
     "year": "2021",
     "isPast": true,
@@ -1014,7 +1014,7 @@ const allEvents = [
   {
     "id": 12,
     "title": "D2: DESIGN DISRUPT",
-    "image": "/Events/d2d.jpg",
+    "image": "/Events/d2d.webp",
     "date": "14-16 July",
     "year": "2021",
     "isPast": true,
@@ -1025,7 +1025,7 @@ const allEvents = [
   {
     "id": 11,
     "title": "Road to Sucess: From MUJ to Walmart",
-    "image": "/Events/road_to_success.jpg",
+    "image": "/Events/road_to_success.webp",
     "date": "7 August",
     "year": "2021",
     "isPast": true,
@@ -1036,7 +1036,7 @@ const allEvents = [
   {
     "id": 10,
     "title": "Data Science: Face Detection",
-    "image": "/Events/data science workshop.jpeg",
+    "image": "/Events/data science workshop.webp",
     "date": "19 August",
     "year": "2021",
     "isPast": true,
@@ -1047,7 +1047,7 @@ const allEvents = [
   {
     "id": 9,
     "title": "Digital Marketing",
-    "image": "/Events/Digital Marketing.jpeg",
+    "image": "/Events/Digital Marketing.webp",
     "date": "26 August",
     "year": "2021",
     "isPast": true,
@@ -1058,7 +1058,7 @@ const allEvents = [
   {
     "id": 8,
     "title": "Financial Stability",
-    "image": "/Events/Financial Stability.JPG",
+    "image": "/Events/Financial Stability.webp",
     "date": "17 October",
     "year": "2020",
     "isPast": true,
@@ -1069,7 +1069,7 @@ const allEvents = [
   {
     "id": 7,
     "title": "Interactive Session and Q&A",
-    "image": "/Events/Interactive session.jpg",
+    "image": "/Events/Interactive session.webp",
     "date": "5 September",
     "year": "2020",
     "isPast": true,
@@ -1080,7 +1080,7 @@ const allEvents = [
   {
     "id": 6,
     "title": "LEAD'HER'SHIP",
-    "image": "/Events/Leadhership.jpeg",
+    "image": "/Events/Leadhership.webp",
     "date": "7 March",
     "year": "2021",
     "isPast": true,
@@ -1091,7 +1091,7 @@ const allEvents = [
   {
     "id": 5,
     "title": "40 Hours of Web Dev",
-    "image": "/Events/progate.jpeg",
+    "image": "/Events/progate.webp",
     "date": "30 October",
     "year": "2020",
     "isPast": true,
@@ -1102,7 +1102,7 @@ const allEvents = [
   {
     "id": 4,
     "title": "Writer's Unblock",
-    "image": "/Events/Writing Event.jpg",
+    "image": "/Events/Writing Event.webp",
     "date": "1-10 September",
     "year": "2020",
     "isPast": true,
@@ -1113,7 +1113,7 @@ const allEvents = [
   {
     "id": 3,
     "title": "Machine Learning",
-    "image": "/Events/machinelearning.JPG",
+    "image": "/Events/machinelearning.webp",
     "date": "7 August",
     "year": "2020",
     "isPast": true,
@@ -1124,7 +1124,7 @@ const allEvents = [
   {
     "id": 2,
     "title": "Cryptocurrency and Blockchain",
-    "image": "/Events/Cryptocurrency.JPG",
+    "image": "/Events/Cryptocurrency.webp",
     "date": "12 September",
     "year": "2020",
     "isPast": true,
@@ -1135,7 +1135,7 @@ const allEvents = [
   {
     "id": 1,
     "title": "ROBOTECHS",
-    "image": "/Events/Robotech.JPG",
+    "image": "/Events/Robotech.webp",
     "date": "31 August",
     "year": "2020",
     "isPast": true,
