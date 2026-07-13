@@ -17,10 +17,10 @@ const AboutPhase = () => {
     gsap.set(card3Ref.current, { opacity: 0, x: -60, y: 20 });
 
     const tl = gsap.timeline({ paused: true });
-    
+
     // Force the timeline to be exactly 1 second long so phaseProgress 0->1 maps 1:1
     tl.set({}, {}, 1.0);
-    
+
     // Cards stagger in to be more noticeable and deliberate, animating opacity and translation
     tl.to(card1Ref.current, { opacity: 1, x: 0, y: 0, duration: 0.07 }, 0.15);
     tl.to(card2Ref.current, { opacity: 1, x: 0, y: 0, duration: 0.07 }, 0.30);
@@ -53,20 +53,20 @@ const AboutPhase = () => {
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-12">
         <div ref={card1Ref} className="w-full max-w-sm">
-          <TiltedInfoCard 
+          <TiltedInfoCard
             title="About WIE"
-            text="Global network of IEEE members dedicated to promoting women engineers and scientists."
+            text="A global community dedicated to empowering women in engineering and technology by fostering innovation, leadership, and meaningful professional connections."
             background="linear-gradient(135deg, var(--dark-amethyst-2, #10002b) 0%, var(--indigo-velvet, #3c096c) 100%)"
             cardWidth="100%"
             cardHeight="240px"
             containerHeight="260px"
           />
         </div>
-        
+
         <div ref={card2Ref} className="w-full max-w-sm">
-          <TiltedInfoCard 
+          <TiltedInfoCard
             title="IEEE's Vision"
-            text="To facilitate recruitment and retention of women in technical disciplines globally."
+            text="To inspire, support, and empower women in technical fields by fostering professional growth, meaningful connections, and lifelong learning."
             background="linear-gradient(135deg, var(--indigo-ink, #0b001a) 0%, var(--royal-violet, #7b2cbf) 100%)"
             cardWidth="100%"
             cardHeight="240px"
@@ -75,9 +75,9 @@ const AboutPhase = () => {
         </div>
 
         <div ref={card3Ref} className="w-full max-w-sm">
-          <TiltedInfoCard 
+          <TiltedInfoCard
             title="IEEE WIE MUJ"
-            text="Empowering college girls passionate about tech through mentorship and collaboration."
+            text="Building an inclusive community at MUJ that empowers aspiring engineers through impactful events, mentorship, technical learning, and collaborative opportunities."
             background="linear-gradient(135deg, var(--indigo-velvet, #3c096c) 0%, var(--mauve-magic, #c77dff) 100%)"
             cardWidth="100%"
             cardHeight="240px"
