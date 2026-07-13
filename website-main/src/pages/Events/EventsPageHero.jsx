@@ -25,24 +25,24 @@ const deckCards = [
   },
   {
     className: 'deck-card bg-card-2',
-    src: '/Events/poster3.jpg',
-    alt: 'Future Tech Summit',
-    label: 'Bring Future Tech Summit to front',
+    src: '/Events/dealroom.jpeg',
+    alt: 'The Deal Room',
+    label: 'The Deal Room',
     title: 'The Deal Room',
   },
   {
     className: 'deck-card bg-card-3',
-    src: '/Events/poster4.jpg',
+    src: '/Events/poster4.jpeg',
     alt: 'Global Arts Expo',
     label: 'Bring Global Arts Expo to front',
     title: 'Swara',
   },
   {
     className: 'deck-card bg-card-4',
-    src: '/Events/poster5.jpg',
-    alt: 'World Championship Series',
-    label: 'Bring World Championship Series to front',
-    title: 'Swara',
+    src: '/Events/cyber_odyssey.jpeg',
+    alt: 'Cyber Odyssey',
+    label: 'Cyber Odyssey',
+    title: 'Cyber Odyssey',
   },
 ];
 
