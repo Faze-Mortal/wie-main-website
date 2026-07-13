@@ -5,11 +5,11 @@ import { useScrollStore } from '../../store/useScrollStore';
 import TiltCard from '../TiltCard';
 
 const events = [
-  { id: 101, title: "The Deal Room", date: "11 February", imageSrc: "/Events/dealroom.jpeg", aspectRatio: "1/1.414" },
-  { id: 2, title: "HerVerdict", date: "11 February", imageSrc: "/Events/herverdict.jpeg", aspectRatio: "1/1.414" },
-  { id: 1, title: "Crown Conquest", date: "13 March", imageSrc: "/Events/crownconquest.jpeg", aspectRatio: "1/1.414" },
-  { id: 3, title: "VisionIAS", date: "11 February", imageSrc: "/Events/visionias.jpg", aspectRatio: "4/5" },
-  { id: 100, title: "Swara", date: "10 February", imageSrc: "/Events/swara.jpeg", aspectRatio: "1/1.414" }
+  { id: 101, title: "The Deal Room", date: "11 February", imageSrc: "/Events/dealroom.webp", aspectRatio: "1/1.414" },
+  { id: 2, title: "HerVerdict", date: "11 February", imageSrc: "/Events/herverdict.webp", aspectRatio: "1/1.414" },
+  { id: 1, title: "Crown Conquest", date: "13 March", imageSrc: "/Events/crownconquest.webp", aspectRatio: "1/1.414" },
+  { id: 3, title: "VisionIAS", date: "11 February", imageSrc: "/Events/visionias.webp", aspectRatio: "4/5" },
+  { id: 100, title: "Swara", date: "10 February", imageSrc: "/Events/swara.webp", aspectRatio: "1/1.414" }
 ];
 
 const EventsPhase = () => {

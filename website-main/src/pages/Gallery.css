@@ -458,6 +458,8 @@
   transform: scale(0.95);
   transition: transform 0.35s ease;
   object-fit: contain;
+  margin: 0 auto;
+  display: block;
 }
 
 .g-lightbox.open img {
