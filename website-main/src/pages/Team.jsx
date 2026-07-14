@@ -4,27 +4,40 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import TeamIntro from "../components/TeamIntro";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Faculty & Advisory data
-const Faculty = [
-  { id: 1, name: "Dr. Mahesh Jangid", designation: "Branch Counselor (IEEE MUJ)", img: "/Team/faculty/mahesh.avif", instagram: "https://www.instagram.com/mahesh_seelak", linkedin: "" },
-  { id: 2, name: "Dr Sunita Singhal", designation: "Faculty Coordinator,(IEEE WIE)", img: "/Team/faculty/sunita.avif", instagram: "", linkedin: "" },
-  { id: 3, name: "Ms. Juhi Singh", designation: "Faculty Advisory (IEEE WIE)", img: "/Team/faculty/juhi.avif", instagram: "", linkedin: "" },
-  { id: 4, name: "Dr. Rishav Dubey", designation: "Faculty Advisory,(IEEE WIE)", img: "/Team/faculty/rishav.webp", instagram: "", linkedin: "" },
-];
+// Advisory data
 
 const Advisory = [
-  { id: 1, name: "Ananta Taneja", designation: "Advisory, IEEE WIE MUJ", img: "/Team/faculty/ananta.avif", instagram: "https://www.instagram.com/at_1920_28?igsh=OGQ5ZDc2ODk2ZA%3D%3D", linkedin: "https://www.linkedin.com/in/ananta-t-690431211/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
+  { id: 1, name: "Kashish Kumar", designation: "Advisory, IEEE WIE MUJ", img: "/teams/EC/advisory.webp", instagram: "https://www.instagram.com/kashish._kumar_?utm_source=qr", linkedin: "http://linkedin.com/in/kashish-kumar-527ba72b3" }
 ];
 
 // Executive Committee Data
 const executiveCommittee = [
   {
+    "id": 54,
+    "name": "Palakshi Sirsat",
+    "designation": "Chairperson",
+    "img": "/teams/EC/Palakshi Sirsat.jpg",
+    "instagram": "https://www.instagram.com/palakshiiii_?igsh=MXdld3ptcnc4bXNzOQ==",
+    "linkedin": "https://www.linkedin.com/in/palakshi-sirsat-8185b4351?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": ""
+  },
+  {
+    "id": 53,
+    "name": "Kshiti Singh",
+    "designation": "Vice Chairperson",
+    "img": "/teams/EC/Kshiti Singh.JPG",
+    "instagram": "https://www.instagram.com/kshitisingh._?igsh=MWFwbG1ubWZ0N21xeA==",
+    "linkedin": "https://www.linkedin.com/in/kshiti-singh-6515b8319?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "github": ""
+  },
+  {
     "id": 49,
     "name": "Akshat Raheja",
-    "designation": "Gen Sec",
+    "designation": "General Secretary",
     "img": "/teams/EC/Akshat Raheja.png",
     "instagram": "https://www.instagram.com/akshat_raheja06/",
     "linkedin": "https://www.linkedin.com/in/akshat-raheja06",
@@ -40,15 +53,6 @@ const executiveCommittee = [
     "github": ""
   },
   {
-    "id": 51,
-    "name": "Vaibhav Kumar",
-    "designation": "Technical Secretary",
-    "img": "/teams/EC/Vaibhav Kumar.jpeg",
-    "instagram": "https://www.instagram.com/vbv.kr/",
-    "linkedin": "https://www.linkedin.com/in/vaibhav-kumar-b8817038a/",
-    "github": ""
-  },
-  {
     "id": 52,
     "name": "Sarath Mohanraj",
     "designation": "Treasurer",
@@ -58,31 +62,22 @@ const executiveCommittee = [
     "github": "https://github.com/sarathTechie"
   },
   {
-    "id": 53,
-    "name": "Kshiti singh",
-    "designation": "Vice Chairperson",
-    "img": "/teams/EC/Kshiti Singh.JPG",
-    "instagram": "https://www.instagram.com/kshitisingh._?igsh=MWFwbG1ubWZ0N21xeA==",
-    "linkedin": "https://www.linkedin.com/in/kshiti-singh-6515b8319?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-    "github": ""
-  },
-  {
-    "id": 54,
-    "name": "Palakshi Sirsat",
-    "designation": "Chairperson",
-    "img": "/teams/EC/Palakshi Sirsat.jpg",
-    "instagram": "https://www.instagram.com/palakshiiii_?igsh=MXdld3ptcnc4bXNzOQ==",
-    "linkedin": "https://www.linkedin.com/in/palakshi-sirsat-8185b4351?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    "github": ""
-  },
-  {
     "id": 55,
-    "name": "Shivangi kotnala",
+    "name": "Shivangi Kotnala",
     "designation": "Human Resource Director",
     "img": "/teams/EC/SHIVANGI KOTNALA.jpeg",
     "instagram": "https://www.instagram.com/_simplyshivangi_?igsh=a2xyb2t1ZnJ4NGJh&utm_source=qr",
     "linkedin": "https://www.linkedin.com/in/shivangi-kotnala-41a4b3359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     "github": "https://github.com/shivangi-kotnala"
+  },
+  {
+    "id": 51,
+    "name": "Vaibhav Kumar",
+    "designation": "Technical Secretary",
+    "img": "/teams/EC/Vaibhav Kumar.jpeg",
+    "instagram": "https://www.instagram.com/vbv.kr/",
+    "linkedin": "https://www.linkedin.com/in/vaibhav-kumar-b8817038a/",
+    "github": ""
   }
 ];
 const coreDepartments = [
@@ -102,7 +97,7 @@ const coreDepartments = [
         "id": 33,
         "name": "Aum Lenka",
         "designation": "Head",
-        "img": "/teams/CC/Aum Lenka.jpg",
+        "img": "/teams/CC/Aum Lenka.jpeg",
         "instagram": "https://www.instagram.com/lnk.dot/",
         "linkedin": "https://www.linkedin.com/in/aum-lenka/",
         "github": "https://github.com/Faze-Mortal"
@@ -199,15 +194,6 @@ const coreDepartments = [
     "department": "Media",
     "members": [
       {
-        "id": 43,
-        "name": "Gaadha Amal Nair",
-        "designation": "Joint Head",
-        "img": "/teams/CC/Gaadha Amal Nair.jpeg",
-        "instagram": "https://www.instagram.com/gaadha_amalnair?igsh=ODJjOXlsNGJoYWNx&utm_source=qr",
-        "linkedin": "https://www.linkedin.com/in/gaadha-amal-nair-255760371?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-        "github": ""
-      },
-      {
         "id": 44,
         "name": "Krishna Tripathi",
         "designation": "Head",
@@ -215,15 +201,6 @@ const coreDepartments = [
         "instagram": "https://www.instagram.com/tripathi_ji1884?igsh=MTRsZWptb3NzejBsZA==",
         "linkedin": "https://www.linkedin.com/in/krishna-tripathi-8513a3217?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         "github": ""
-      },
-      {
-        "id": 45,
-        "name": "Ananya Kedia",
-        "designation": "Head",
-        "img": "/teams/CC/Ananya Kedia.jpg",
-        "instagram": "https://www.instagram.com/ananyaa.kedia?igsh=MWUyaXJ1bWh0aGFsZA%3D%3D&utm_source=qr",
-        "linkedin": "https://in.linkedin.com/in/ananya-kedia-848829348",
-        "github": "https://github.com/ananyak09"
       },
       {
         "id": 46,
@@ -235,6 +212,29 @@ const coreDepartments = [
         "github": ""
       },
       {
+        "id": 51,
+        "name": "Yashika Agarwal",
+        "designation": "Senior Coordinator",
+        "img": "/teams/CC/Yashika Agarwal.jpg",
+        "instagram": "https://www.instagram.com/yashika_agarwal22?igsh=ZDAyMXN4d2lqaTJj",
+        "linkedin": "https://www.linkedin.com/in/yashika-agarwal-070ab03a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 52,
+        "name": "Naman Saini",
+        "designation": "Senior Coordinator",
+        "img": "/teams/CC/Naman Saini.jpeg",
+        "instagram": "https://www.instagram.com/saininaman_0001?igsh=ZWgzOTZwN3B0M3gx&utm_source=qr",
+        "linkedin": "",
+        "github": ""
+      }
+    ]
+  },
+  {
+    "department": "Social Media",
+    "members": [
+      {
         "id": 47,
         "name": "Nehal Sharma",
         "designation": "Senior Coordinator",
@@ -242,6 +242,24 @@ const coreDepartments = [
         "instagram": "https://www.instagram.com/nehall.08?igsh=czZra21yZjF3aHp6",
         "linkedin": "https://www.linkedin.com/in/nehal-sharma-6a554a3a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         "github": "https://github.com/nehallsharma002-gif"
+      },
+      {
+        "id": 45,
+        "name": "Ananya Kedia",
+        "designation": "Head",
+        "img": "/teams/CC/Ananya Kedia.jpg",
+        "instagram": "https://www.instagram.com/ananyaa.kedia?igsh=MWUyaXJ1bWh0aGFsZA%3D%3D&utm_source=qr",
+        "linkedin": "https://in.linkedin.com/in/ananya-kedia-848829348",
+        "github": "https://github.com/ananyak09"
+      },
+      {
+        "id": 43,
+        "name": "Gaadha Amal Nair",
+        "designation": "Joint Head",
+        "img": "/teams/CC/Gaadha Amal Nair.jpeg",
+        "instagram": "https://www.instagram.com/gaadha_amalnair?igsh=ODJjOXlsNGJoYWNx&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/gaadha-amal-nair-255760371?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
       },
       {
         "id": 48,
@@ -271,28 +289,10 @@ const coreDepartments = [
         "github": ""
       },
       {
-        "id": 51,
-        "name": "Yashika Agarwal",
-        "designation": "Senior Coordinator",
-        "img": "/teams/CC/Yashika Agarwal.jpg",
-        "instagram": "https://www.instagram.com/yashika_agarwal22?igsh=ZDAyMXN4d2lqaTJj",
-        "linkedin": "https://www.linkedin.com/in/yashika-agarwal-070ab03a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-        "github": ""
-      },
-      {
-        "id": 52,
-        "name": "Naman Saini",
-        "designation": "Senior Coordinator",
-        "img": "/teams/CC/Naman Saini.jpeg",
-        "instagram": "https://www.instagram.com/saininaman_0001?igsh=ZWgzOTZwN3B0M3gx&utm_source=qr",
-        "linkedin": "",
-        "github": ""
-      },
-      {
         "id": 53,
         "name": "Yashu Suresh Pandey",
         "designation": "Senior Coordinator",
-        "img": "/teams/CC/Yashu Suresh Pandey.jpg",
+        "img": "/teams/CC/Yashu Pandey.jpeg",
         "instagram": "https://www.instagram.com/yashu_pandey04/",
         "linkedin": "https://www.linkedin.com/in/yashu-pandey-9b9685414?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
         "github": "https://github.com/yashupandey29"
@@ -460,6 +460,15 @@ const coreDepartments = [
         "instagram": "https://www.instagram.com/shoury4mz?igsh=NTIwZ3E2cHgwZTl3&utm_source=qr",
         "linkedin": "https://www.linkedin.com/in/shouryam-sharma-8839843a0?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
         "github": ""
+      },
+      {
+        "id": 82,
+        "name": "Presha Gusain",
+        "designation": "Senior Coordinator",
+        "img": "/teams/CC/Presha Gusain.jpeg",
+        "instagram": "https://www.instagram.com/preshagusain__?igsh=aTVidHV5ZDBwam05",
+        "linkedin": "https://www.linkedin.com/in/presha-gusain-7198863a6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
       }
     ]
   },
@@ -580,20 +589,6 @@ const coreDepartments = [
         "github": ""
       }
     ]
-  },
-  {
-    "department": "Marketing",
-    "members": [
-      {
-        "id": 82,
-        "name": "Presha Gusain",
-        "designation": "Senior Coordinator",
-        "img": "/teams/CC/Presha Gusain.jpeg",
-        "instagram": "https://www.instagram.com/preshagusain__?igsh=aTVidHV5ZDBwam05",
-        "linkedin": "https://www.linkedin.com/in/presha-gusain-7198863a6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-        "github": ""
-      }
-    ]
   }
 ];
 
@@ -669,6 +664,9 @@ const CoreCard = ({ member, isCarousel }) => {
         src={img}
         alt={name}
         className="w-full h-64 object-cover rounded-xl border border-gray-600 mb-4 transition-all duration-300 filter-none grayscale-0 saturate-100 contrast-100 group-hover:border-purple-400"
+        style={{
+          objectPosition: name === "Aum Lenka" ? "top" : undefined
+        }}
       />
       <h3 className="text-lg font-semibold text-purple-100 mb-1 text-center">{name}</h3>
       <p className="text-purple-300 text-xs mb-4 text-center">{designation}</p>
@@ -683,7 +681,7 @@ const CoreCard = ({ member, isCarousel }) => {
 
 const ExecutiveCard = ({ member, innerRef, textRef }) => {
   return (
-    <div 
+    <div
       className="relative w-full flex-shrink-0 md:flex-1 md:max-w-[160px] lg:max-w-[170px] h-[380px] group perspective-[1500px]"
     >
       <div
@@ -694,10 +692,10 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         <div className="absolute inset-0 p-4 flex flex-col items-center justify-center  w-full h-full [backface-visibility:hidden] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
           {/* Outer Frame Corners */}
           <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
-             <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
-             <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tr-xl"></div>
-             <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-bl-xl"></div>
-             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-br-xl"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tr-xl"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-bl-xl"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-br-xl"></div>
           </div>
 
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(217,70,239,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]"></div>
@@ -715,29 +713,33 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
             loading="eager"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+            style={{
+              objectPosition: (member.name === "Kshiti Singh" || member.name === "Akshat Raheja") ? "center 15%" : undefined,
+              scale: (member.name === "Vaibhav Kumar" || member.name === "Sarath Mohanraj") ? "1.35" : undefined,
+            }}
           />
-          
+
           {/* Outer Frame Corners (Float on top) */}
           <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
-             <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-tl-xl"></div>
-             <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-tr-xl"></div>
-             <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-bl-xl"></div>
-             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-br-xl"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-tl-xl"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-tr-xl"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-bl-xl"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-br-xl"></div>
           </div>
-          
+
           {/* Dark Vignette Base */}
           <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#0d0221] via-[#0d0221]/90 to-transparent pointer-events-none z-10"></div>
-          
+
           {/* Text/Footer Section */}
           <div className="absolute bottom-0 inset-x-0 w-full flex flex-col justify-end items-center pb-4 px-3 md:px-4 pointer-events-none z-20">
             <div ref={textRef} className="opacity-0 translate-y-4 pointer-events-auto flex flex-col items-center text-center w-full">
               <h3 className="text-[13px] md:text-sm font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mb-1 whitespace-normal break-words leading-tight">{member.name}</h3>
               <p className="text-fuchsia-400 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] text-[10px] md:text-[11px] font-mono tracking-wider mb-2 whitespace-normal break-words leading-tight">{member.designation}</p>
-              
+
               <div className="flex gap-3 text-purple-200 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mt-1">
-                {member.instagram && <a href={member.instagram} onClick={(e)=>e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaInstagram size={15} /></a>}
-                {member.linkedin && <a href={member.linkedin} onClick={(e)=>e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaLinkedin size={15} /></a>}
-                {member.github && <a href={member.github} onClick={(e)=>e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaGithub size={15} /></a>}
+                {member.instagram && <a href={member.instagram} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaInstagram size={15} /></a>}
+                {member.linkedin && <a href={member.linkedin} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaLinkedin size={15} /></a>}
+                {member.github && <a href={member.github} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaGithub size={15} /></a>}
               </div>
             </div>
           </div>
@@ -748,11 +750,13 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
 };
 
 export default function Team() {
+  const [introComplete, setIntroComplete] = useState(false);
   const execSectionRef = useRef(null);
   const cardInnerRefs = useRef([]);
   const cardTextRefs = useRef([]);
 
   useGSAP(() => {
+    if (!introComplete) return;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const tl = gsap.timeline({
@@ -775,7 +779,7 @@ export default function Team() {
         ease: "power2.out",
         overwrite: "auto"
       }, 0);
-      
+
       tl.to(cardTextRefs.current, {
         y: 0,
         opacity: 1,
@@ -785,13 +789,13 @@ export default function Team() {
         overwrite: "auto"
       }, 0.2);
     }
-  }, { scope: execSectionRef });
+  }, { scope: execSectionRef, dependencies: [introComplete] });
 
   const DepartmentCarousel = ({ dept }) => {
     const initialMembers = dept.members;
     // Pad array if fewer than 7 members to create a safe off-screen buffer runway
-    const members = initialMembers.length < 7 
-      ? [...initialMembers, ...initialMembers.map((m, i) => ({...m, id: m.id + "_pad" + i}))]
+    const members = initialMembers.length < 7
+      ? [...initialMembers, ...initialMembers.map((m, i) => ({ ...m, id: m.id + "_pad" + i }))]
       : initialMembers;
 
     const n = members.length;
@@ -833,58 +837,58 @@ export default function Team() {
           if (!card) return;
           const dist = (i - currentIndex + n) % n;
           const pos = getPosition(dist, isMobile);
-          
+
           if (immediate) {
-             gsap.set(card, { 
-                x: pos.x, 
-                scale: pos.scale, 
-                opacity: pos.opacity, 
-                zIndex: pos.zIndex, 
-                rotateY: pos.rotateY,
-                transformOrigin: pos.transformOrigin
-             });
-             const inner = card.querySelector('.carousel-inner');
-             if (inner) gsap.set(inner, { rotationY: pos.isBack ? 180 : 0 });
+            gsap.set(card, {
+              x: pos.x,
+              scale: pos.scale,
+              opacity: pos.opacity,
+              zIndex: pos.zIndex,
+              rotateY: pos.rotateY,
+              transformOrigin: pos.transformOrigin
+            });
+            const inner = card.querySelector('.carousel-inner');
+            if (inner) gsap.set(inner, { rotationY: pos.isBack ? 180 : 0 });
           } else {
-             const oldDist = (i - ((currentIndex - 1 + n) % n) + n) % n;
-             if (!isMobile && oldDist === n - 1 && dist !== 0) {
-                // Animate old edgeLeft offscreen to the left
-                const tl = gsap.timeline();
-                tl.to(card, { x: -750, opacity: 0, duration: 0.3 });
-                tl.set(card, { x: 750, rotateY: 30, transformOrigin: "left center" }, 0.3); // Queue back on the right
-             } else if (!isMobile && dist === 3 && oldDist !== 2) {
-                // New edgeRight entering from hidden
-                const tl = gsap.timeline();
-                tl.set(card, { x: 750, scale: 0.8, opacity: 0, zIndex: 10, rotateY: 30, transformOrigin: "left center" });
-                const inner = card.querySelector('.carousel-inner');
-                if (inner) tl.set(inner, { rotationY: 180 });
-                tl.to(card, { x: pos.x, opacity: pos.opacity, duration: 0.6 }, 0);
-             } else {
-                // Standard internal slot slide
-                const tl = gsap.timeline();
-                tl.to(card, { 
-                   x: pos.x, 
-                   scale: pos.scale, 
-                   opacity: pos.opacity, 
-                   zIndex: pos.zIndex,
-                   rotateY: pos.rotateY,
-                   transformOrigin: pos.transformOrigin,
-                   duration: 0.6 
-                }, 0);
-                
-                const inner = card.querySelector('.carousel-inner');
-                if (inner) {
-                   if (isMobile) {
-                      tl.set(inner, { rotationY: 0 }, 0);
-                   } else {
-                      if (pos.isBack && oldDist !== n-1 && oldDist <= 3) {
-                         tl.to(inner, { rotationY: 180, duration: 0.6 }, 0); // Flip to back
-                      } else if (!pos.isBack && oldDist === 3) {
-                         tl.to(inner, { rotationY: 0, duration: 0.6 }, 0); // Flip to front
-                      }
-                   }
+            const oldDist = (i - ((currentIndex - 1 + n) % n) + n) % n;
+            if (!isMobile && oldDist === n - 1 && dist !== 0) {
+              // Animate old edgeLeft offscreen to the left
+              const tl = gsap.timeline();
+              tl.to(card, { x: -750, opacity: 0, duration: 0.3 });
+              tl.set(card, { x: 750, rotateY: 30, transformOrigin: "left center" }, 0.3); // Queue back on the right
+            } else if (!isMobile && dist === 3 && oldDist !== 2) {
+              // New edgeRight entering from hidden
+              const tl = gsap.timeline();
+              tl.set(card, { x: 750, scale: 0.8, opacity: 0, zIndex: 10, rotateY: 30, transformOrigin: "left center" });
+              const inner = card.querySelector('.carousel-inner');
+              if (inner) tl.set(inner, { rotationY: 180 });
+              tl.to(card, { x: pos.x, opacity: pos.opacity, duration: 0.6 }, 0);
+            } else {
+              // Standard internal slot slide
+              const tl = gsap.timeline();
+              tl.to(card, {
+                x: pos.x,
+                scale: pos.scale,
+                opacity: pos.opacity,
+                zIndex: pos.zIndex,
+                rotateY: pos.rotateY,
+                transformOrigin: pos.transformOrigin,
+                duration: 0.6
+              }, 0);
+
+              const inner = card.querySelector('.carousel-inner');
+              if (inner) {
+                if (isMobile) {
+                  tl.set(inner, { rotationY: 0 }, 0);
+                } else {
+                  if (pos.isBack && oldDist !== n - 1 && oldDist <= 3) {
+                    tl.to(inner, { rotationY: 180, duration: 0.6 }, 0); // Flip to back
+                  } else if (!pos.isBack && oldDist === 3) {
+                    tl.to(inner, { rotationY: 0, duration: 0.6 }, 0); // Flip to front
+                  }
                 }
-             }
+              }
+            }
           }
         });
       };
@@ -895,14 +899,14 @@ export default function Team() {
         if (isPaused || !isVisible) return;
         currentIndex = (currentIndex + 1) % n;
         updateLayout(false);
-        
+
         // Screen reader update
         const liveRegion = document.getElementById(`live-region-${dept.department.replace(/\s+/g, '')}`);
         if (liveRegion) {
           const centerMember = members[(currentIndex + 1) % n];
           if (centerMember) liveRegion.innerText = `${centerMember.name}, ${centerMember.designation}`;
         }
-        
+
         timer = gsap.delayedCall(2, advance);
       };
 
@@ -910,7 +914,7 @@ export default function Team() {
 
       const handleMouseEnter = () => { isPaused = true; };
       const handleMouseLeave = () => { isPaused = false; timer.restart(true); };
-      
+
       const container = containerRef.current;
       container.addEventListener('mouseenter', handleMouseEnter);
       container.addEventListener('mouseleave', handleMouseLeave);
@@ -926,13 +930,13 @@ export default function Team() {
         }
       });
       observer.observe(container);
-      
+
       const handleResize = () => {
-         const newIsMobile = window.innerWidth < 768;
-         if (newIsMobile !== isMobile) {
-            isMobile = newIsMobile;
-            updateLayout(true);
-         }
+        const newIsMobile = window.innerWidth < 768;
+        if (newIsMobile !== isMobile) {
+          isMobile = newIsMobile;
+          updateLayout(true);
+        }
       };
       window.addEventListener('resize', handleResize);
 
@@ -940,14 +944,14 @@ export default function Team() {
       let startX = 0;
       const handleTouchStart = (e) => { startX = e.touches[0].clientX; };
       const handleTouchEnd = (e) => {
-         const endX = e.changedTouches[0].clientX;
-         if (startX - endX > 50) advance(); 
-         else if (endX - startX > 50) { 
-            if (isPaused || !isVisible) return;
-            currentIndex = (currentIndex - 1 + n) % n;
-            updateLayout(false);
-            timer.restart(true);
-         }
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) advance();
+        else if (endX - startX > 50) {
+          if (isPaused || !isVisible) return;
+          currentIndex = (currentIndex - 1 + n) % n;
+          updateLayout(false);
+          timer.restart(true);
+        }
       };
       container.addEventListener('touchstart', handleTouchStart);
       container.addEventListener('touchend', handleTouchEnd);
@@ -986,9 +990,9 @@ export default function Team() {
     return (
       <div className="mb-32">
         <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-12 tracking-wide">{dept.department}</h3>
-        <div 
-           ref={containerRef} 
-           className="relative w-full max-w-screen-xl h-[450px] mx-auto perspective-[1000px] flex items-center justify-center overflow-visible px-20 touch-pan-y group"
+        <div
+          ref={containerRef}
+          className="relative w-full max-w-screen-xl h-[450px] mx-auto perspective-[1000px] flex items-center justify-center overflow-visible px-20 touch-pan-y group"
         >
           <div id={`live-region-${dept.department.replace(/\s+/g, '')}`} className="sr-only" aria-live="polite"></div>
           {members.map((member, i) => (
@@ -999,16 +1003,16 @@ export default function Team() {
               style={{ opacity: 0 }}
             >
               <div className="carousel-inner w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-2xl">
-                 {/* Front Face (Open) */}
-                 <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                   <CoreCard member={member} isCarousel={true} />
-                 </div>
-                 {/* Back Face (Closed) */}
-                 <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-white/5 bg-gradient-to-b from-black/20 to-black/50 border border-fuchsia-500/20 shadow-[0_0_10px_rgba(217,70,239,0.1)] flex items-center justify-center overflow-hidden">
-                    <span className="font-tomorrow-bold text-fuchsia-400 text-sm tracking-[0.25em] text-center px-4 uppercase whitespace-normal break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
-                      CORE COMMITTEE
-                    </span>
-                 </div>
+                {/* Front Face (Open) */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                  <CoreCard member={member} isCarousel={true} />
+                </div>
+                {/* Back Face (Closed) */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-white/5 bg-gradient-to-b from-black/20 to-black/50 border border-fuchsia-500/20 shadow-[0_0_10px_rgba(217,70,239,0.1)] flex items-center justify-center overflow-hidden">
+                  <span className="font-tomorrow-bold text-fuchsia-400 text-sm tracking-[0.25em] text-center px-4 uppercase whitespace-normal break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
+                    CORE COMMITTEE
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -1018,17 +1022,30 @@ export default function Team() {
   };
 
   return (
-    <div className="relative min-h-screen bg-transparent text-white py-24 px-4 md:px-8 overflow-hidden z-0">
+    <div className="relative min-h-screen bg-transparent text-white pt-8 pb-24 px-4 md:px-8 overflow-hidden z-0">
+      <TeamIntro onComplete={() => setIntroComplete(true)} />
       {/* Page-wide Ambient Grid */}
       <div className="max-w-[1400px] mx-auto relative z-10">
 
-        {/* Faculty */}
-        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-16">
-          Faculty
-        </motion.h2>
-        <motion.div className="flex flex-wrap justify-center gap-8 md:gap-10" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          {Faculty.map((member) => <TeamCard key={member.id} member={member} />)}
-        </motion.div>
+
+
+        {/* Executive Committee - Night Market Reveal */}
+        <div ref={execSectionRef} className="mt-12 mb-24 max-w-[1200px] mx-auto">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-16 md:mb-20">
+            Executive Committee
+          </motion.h2>
+
+          <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:flex-nowrap md:justify-center md:items-stretch md:gap-4 px-2 md:px-4 w-full">
+            {executiveCommittee.map((member, index) => (
+              <ExecutiveCard
+                key={member.id}
+                member={member}
+                innerRef={el => cardInnerRefs.current[index] = el}
+                textRef={el => cardTextRefs.current[index] = el}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* Advisory */}
         <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mt-28 mb-16">
@@ -1038,33 +1055,15 @@ export default function Team() {
           {Advisory.map((member) => <TeamCard key={member.id} member={member} />)}
         </motion.div>
 
-        {/* Executive Committee - Night Market Reveal */}
-        <div ref={execSectionRef} className="mt-32 mb-24 max-w-[1200px] mx-auto">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-16 md:mb-20">
-            Executive Committee
-          </motion.h2>
-          
-          <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:flex-nowrap md:justify-center md:items-stretch md:gap-4 px-2 md:px-4 w-full">
-            {executiveCommittee.map((member, index) => (
-              <ExecutiveCard 
-                key={member.id} 
-                member={member} 
-                innerRef={el => cardInnerRefs.current[index] = el}
-                textRef={el => cardTextRefs.current[index] = el}
-              />
-            ))}
-          </div>
-        </div>
-        
         {/* Core Committee - Dynamic Rows/Sliders */}
         <div className="mt-32 mb-16">
-           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-20">
-             Core Committee
-           </motion.h2>
-           
-           {coreDepartments.map((dept, idx) => (
-             <DepartmentCarousel key={idx} dept={dept} />
-           ))}
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-20">
+            Core Committee
+          </motion.h2>
+
+          {coreDepartments.map((dept, idx) => (
+            <DepartmentCarousel key={idx} dept={dept} />
+          ))}
         </div>
 
       </div>

@@ -6,6 +6,7 @@ import AppRoutes from './routes/AppRoutes';
 import ScrollToTop from './routes/ScrollToTop';
 import wieLogo from './assets/wie_logo.png';
 import Silk from './components/Silk';
+import { useScrollStore } from './store/useScrollStore';
 
 import './index.css';
 
@@ -24,6 +25,15 @@ function AppLayout() {
 
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  const teamIntroComplete = useScrollStore(state => state.teamIntroComplete);
+  const setTeamIntroComplete = useScrollStore(state => state.setTeamIntroComplete);
+
+  useEffect(() => {
+    if (location.pathname !== '/team') {
+      setTeamIntroComplete(false);
+    }
+  }, [location.pathname, setTeamIntroComplete]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -65,15 +75,17 @@ function AppLayout() {
         )}
       </div>
 
-      <PillNav 
-        logo={wieLogo}
-        items={navItems}
-        activeHref={location.pathname}
-        baseColor="#10002b"
-        pillColor="#3c096c"
-        pillTextColor="#e0aaff"
-        hoveredPillTextColor="#e0aaff"
-      />
+      <div style={{ visibility: (location.pathname === '/team' && !teamIntroComplete) ? 'hidden' : 'visible', opacity: (location.pathname === '/team' && !teamIntroComplete) ? 0 : 1, transition: 'opacity 0.3s ease' }}>
+        <PillNav 
+          logo={wieLogo}
+          items={navItems}
+          activeHref={location.pathname}
+          baseColor="#10002b"
+          pillColor="#3c096c"
+          pillTextColor="#e0aaff"
+          hoveredPillTextColor="#e0aaff"
+        />
+      </div>
       <main className={`flex-grow ${!isHome ? 'pt-24' : ''}`}>
         <AppRoutes />
       </main>
