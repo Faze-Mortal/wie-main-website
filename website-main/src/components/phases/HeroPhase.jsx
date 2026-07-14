@@ -98,7 +98,7 @@ const HeroPhase = () => {
       {/* Center Right: Glass Break + IEEE WIE Text */}
       <div className="absolute top-[50%] right-[5%] md:right-[10%] -translate-y-1/2 w-[60%] md:w-[45%] h-[80%] z-20 flex items-center justify-center pointer-events-none">
         <img ref={bgGlass1Ref} src={centreRightGlass} alt="Glass Break Texture" className="absolute inset-0 w-full h-full object-cover object-center scale-[1.45] origin-center opacity-0" />
-        <img ref={ieeeWieTextRef} src={ieeeWieText} alt="IEEE WIE" className="relative w-[80%] max-w-xl object-contain z-10 drop-shadow-2xl translate-x-[35%] translate-y-[20%] scale-[3] origin-center opacity-0" />
+        <img ref={ieeeWieTextRef} src={ieeeWieText} alt="IEEE WIE" className="relative w-[80%] max-w-xl object-contain z-10 drop-shadow-2xl translate-x-[35%] translate-y-[20%] scale-[1.3] origin-center opacity-0" />
       </div>
 
       {/* Bottom Left: Glass Break + Social Icons */}
