@@ -21,119 +21,582 @@ const Advisory = [
 
 // Executive Committee Data
 const executiveCommittee = [
-  { id: 1, name: "Kashish Kumar", designation: "Chairperson", img: "/Team/EC/chair.webp", instagram: "https://www.instagram.com/kashish._kumar_?igsh=MWEzZTQ3dnN4emVtNw%3D%3D&utm_source=qr", linkedin: "http://linkedin.com/in/kashish-kumar-527ba72b3" },
-  { id: 2, name: "Guneet Pahwa", designation: "Vice-Chairperson", img: "/Team/EC/vice.webp", instagram: "https://www.instagram.com/guneet_7_?igsh=MXM5emYzMTNhczZkMA==", linkedin: "https://www.linkedin.com/in/guneet-pahwa-350063264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/saumya" },
-  { id: 3, name: "Ishani Arora", designation: "Human Resource Director", img: "/Team/EC/hrd.webp", instagram: "https://www.instagram.com/ishaniiaroraa?igsh=N3M4aGxwbXJuZWI1", linkedin: "https://www.linkedin.com/in/ishani-arora-990959273?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-  { id: 4, name: "Shambhavi Sharma", designation: "Managing Director", img: "/Team/EC/md.webp", instagram: "https://www.instagram.com/shambhavi_0914?igsh=MXIycWE5ZjJubmowMw==", linkedin: "https://www.linkedin.com/in/shambhavi-sharma-855032312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-  { id: 5, name: "Tanishk Mittal", designation: "General Secretary", img: "/Team/EC/gensec.webp", instagram: "https://www.instagram.com/tqnishk.hehe/", linkedin: "https://www.linkedin.com/in/tanishk-mittal-b42719289/", github: "https://github.com/Tanishk109" },
-  { id: 6, name: "Akshit Gupta", designation: "Treasurer", img: "/Team/EC/tres.webp", instagram: "https://www.instagram.com/akshitgupta05?igsh=bXV3OWk3MHc5ZWg3", linkedin: "https://www.linkedin.com/in/akshit-gupta-7a10962b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-  { id: 7, name: "Aarav", designation: "Technical Secretary", img: "/Team/EC/techsec.webp", instagram: "https://instagram.com/aaranay", linkedin: "https://linkedin.com/in/aaranay", github: "https://github.com/AaroAarav" },
+  {
+    "id": 49,
+    "name": "Akshat Raheja",
+    "designation": "Gen Sec",
+    "img": "/teams/EC/Akshat Raheja.png",
+    "instagram": "https://www.instagram.com/akshat_raheja06/",
+    "linkedin": "https://www.linkedin.com/in/akshat-raheja06",
+    "github": ""
+  },
+  {
+    "id": 50,
+    "name": "Ashita Saxena",
+    "designation": "Managing Director",
+    "img": "/teams/EC/Ashita Saxena.jpeg",
+    "instagram": "https://www.instagram.com/ashitaaaa_0808/",
+    "linkedin": "https://www.linkedin.com/in/ashita-saxena-a3178824a/",
+    "github": ""
+  },
+  {
+    "id": 51,
+    "name": "Vaibhav Kumar",
+    "designation": "Technical Secretary",
+    "img": "/teams/EC/Vaibhav Kumar.jpeg",
+    "instagram": "https://www.instagram.com/vbv.kr/",
+    "linkedin": "https://www.linkedin.com/in/vaibhav-kumar-b8817038a/",
+    "github": ""
+  },
+  {
+    "id": 52,
+    "name": "Sarath Mohanraj",
+    "designation": "Treasurer",
+    "img": "/teams/EC/SARATH MOHANRAJ.jpg",
+    "instagram": "https://www.instagram.com/sarathmohanraj?igsh=MTRva3d5cGtjaGhhNg==",
+    "linkedin": "https://www.linkedin.com/in/sarath-mohanraj",
+    "github": "https://github.com/sarathTechie"
+  },
+  {
+    "id": 53,
+    "name": "Kshiti singh",
+    "designation": "Vice Chairperson",
+    "img": "/teams/EC/Kshiti Singh.JPG",
+    "instagram": "https://www.instagram.com/kshitisingh._?igsh=MWFwbG1ubWZ0N21xeA==",
+    "linkedin": "https://www.linkedin.com/in/kshiti-singh-6515b8319?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "github": ""
+  },
+  {
+    "id": 54,
+    "name": "Palakshi Sirsat",
+    "designation": "Chairperson",
+    "img": "/teams/EC/Palakshi Sirsat.jpg",
+    "instagram": "https://www.instagram.com/palakshiiii_?igsh=MXdld3ptcnc4bXNzOQ==",
+    "linkedin": "https://www.linkedin.com/in/palakshi-sirsat-8185b4351?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": ""
+  },
+  {
+    "id": 55,
+    "name": "Shivangi kotnala",
+    "designation": "Human Resource Director",
+    "img": "/teams/EC/SHIVANGI KOTNALA.jpeg",
+    "instagram": "https://www.instagram.com/_simplyshivangi_?igsh=a2xyb2t1ZnJ4NGJh&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/shivangi-kotnala-41a4b3359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "github": "https://github.com/shivangi-kotnala"
+  }
 ];
-
-// Core Committee Departments Data
 const coreDepartments = [
   {
-    department: "Technical Projects",
-    members: [
-      { id: 32, name: "Akshat Kumar", designation: "Head of Technical Projects", img: "/Team/akshatkumar.webp", instagram: "https://www.instagram.com/akshat__sah?igsh=MWxzdTIzZ3RzbGNkbQ==", linkedin:"https://www.linkedin.com/in/akshat-kumar-976978349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", github:"https://github.com/Akshatsah04" },
-      { id: 33, name: "Aarohi Dhand", designation: "Joint Head of Technical Projects", img: "/Team/aarohidhand.webp", instagram: "https://www.instagram.com/aarohi_dhand?igsh=NXVtdzZiMzd3NGk3", linkedin:"https://www.linkedin.com/in/aarohi-dhand-262178310?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"https://github.com/aarohidhand" },
-      { id: 34, name: "Kriti Saraogi", designation: "Senior Coordinator", img: "/Team/kritisaraogi.webp", instagram: "https://www.instagram.com/kritisaraogi?igsh=bzg0emFxNzgyNXp4", linkedin:"http://www.linkedin.com/in/kriti-saraogi-147635324", github:"https://github.com/kriti2307" },
-      { id: 35, name: "Vidhu Gupta", designation: "Senior Coordinator", img: "/Team/vidhugupta.webp", instagram: "https://www.instagram.com/_vidhugupta?igsh=ZjNhN28zeXd1bHVq", linkedin:"https://www.linkedin.com/in/vidhu-gupta-a30586349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"https://github.com/vidhu77" },
-      { id: 36, name: "Sumit Sharma", designation: "Senior Coordinator", img: "/Team/sumitsharma.webp", instagram: "https://www.instagram.com/whoissumitttt?igsh=MXN0cnVreXh2eDEwMA==", linkedin:"https://www.linkedin.com/in/sumit-sharma-36241a339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
+    "department": "Technical Projects",
+    "members": [
+      {
+        "id": 32,
+        "name": "Yash Singh",
+        "designation": "b.tech cse and Senior Coordinator Of Technical Projects",
+        "img": "/teams/CC/Yash Singh.jpeg",
+        "instagram": "https://www.instagram.com/yashs61?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "linkedin": "https://www.linkedin.com/in/yash-singh-56431a374?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/Yashbaghel12"
+      },
+      {
+        "id": 33,
+        "name": "Aparna",
+        "designation": "Btech Cse , Senior coordinator of technical projects",
+        "img": "/teams/CC/Aparna.jpg",
+        "instagram": "https://www.instagram.com/aparna_mishra98?igsh=MWhjYmNsemttZW1qMQ==",
+        "linkedin": "https://www.linkedin.com/in/aparna-4a2486380?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/baparna526-ai"
+      },
+      {
+        "id": 34,
+        "name": "Shaurya Saxena",
+        "designation": "Joint-Head of Technical Projects",
+        "img": "/teams/CC/Shaurya Saxena.jpg",
+        "instagram": "https://www.instagram.com/shaurya_s_16?igsh=MTRnd3Jwd25wYXhwZQ==",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 35,
+        "name": "Dhruv Sahrawat",
+        "designation": "Technical Projects senior coordinator",
+        "img": "/teams/CC/Dhruv Sahrawat.jpeg",
+        "instagram": "https://www.instagram.com/dhruv.17t_t?igsh=MWFubXdvYzlrNGE0OA%3D%3D&utm_source=qr",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 36,
+        "name": "Aum Lenka",
+        "designation": "Head of Technical Projects",
+        "img": "/teams/CC/Aum Lenka.jpg",
+        "instagram": "https://www.instagram.com/lnk.dot/",
+        "linkedin": "https://www.linkedin.com/in/aum-lenka/",
+        "github": "https://github.com/Faze-Mortal"
+      }
     ]
   },
   {
-    department: "Logistics",
-    members: [
-      { id: 37, name: "Akshat Raheja", designation: "Head of Logistics", img: "/Team/akshatraheja.webp", instagram: "https://www.instagram.com/akshat_raheja06?igsh=eTJpejZvYXNwZTJj", linkedin:"https://www.linkedin.com/in/akshat-raheja-a82396306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 38, name: "Ambika Khandelwal", designation: "Joint Head of Logistics", img: "/Team/ambikakhandelwal.webp", instagram: "https://www.instagram.com/ambikakhandelwal_?igsh=MXdiN3AzMHd6aHN6dw==", linkedin:"https://www.linkedin.com/in/ambika-khandelwal-782bb1247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 39, name: "Kushagra Singh", designation: "Senior Coordinator", img: "/Team/kushagrasingh.webp", instagram: "https://www.instagram.com/kushagra.21?igsh=aXg0bXAxMzk0OXk4", linkedin:"https://www.linkedin.com/in/kushagra-singh-12384b297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 40, name: "Sarath Mohanraj", designation: "Senior Coordinator", img: "/Team/sarathmohanraj1.webp", instagram: "https://www.instagram.com/sarathmohanraj?igsh=MTRva3d5cGtjaGhhNg==", linkedin:"https://www.linkedin.com/in/sarath-mohanraj-55aa74335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 41, name: "Ria Gupta", designation: "Senior Coordinator", img: "/Team/riagupta.webp", instagram: "", linkedin:"", github:"" },
-      { id: 42, name: "Ved Salodkar", designation: "Senior Coordinator", img: "/Team/vedsalodkar.webp", instagram: "", linkedin:"", github:"" },
+    "department": "Logistics",
+    "members": [
+      {
+        "id": 37,
+        "name": "Daksh Saxena",
+        "designation": "Logistics, Head of Logistics",
+        "img": "/teams/CC/Daksh Saxena.jpg",
+        "instagram": "https://www.instagram.com/daksh_13_11?igsh=ZTE3eWs5bW9zMWt1",
+        "linkedin": "https://www.linkedin.com/in/daksh-saxena-ab541337b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 38,
+        "name": "Arpit Singh",
+        "designation": "Logistics, Joint Head",
+        "img": "/teams/CC/Arpit Singh.jpg",
+        "instagram": "https://www.instagram.com/arpitsinnghh?igsh=ZnVhdHhybTk0MXhy",
+        "linkedin": "https://www.linkedin.com/in/arpit-singh-3538a138b",
+        "github": ""
+      },
+      {
+        "id": 39,
+        "name": "Ritesh Soni",
+        "designation": "Logistics and Senior Coordinator",
+        "img": "/teams/CC/Ritesh Soni.jpg",
+        "instagram": "https://www.instagram.com/soni._.ritesh?igsh=MXJjajcybG9wcTMweA==",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 40,
+        "name": "Atharv garg",
+        "designation": "logistics and senior coordinator",
+        "img": "/teams/CC/Atharv Garg.png",
+        "instagram": "https://www.instagram.com/atharvgarg4570/",
+        "linkedin": "https://www.linkedin.com/in/atharv-garg-12972036b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/atharvgarg30-hub"
+      },
+      {
+        "id": 41,
+        "name": "Kiana agarwal",
+        "designation": "Senior coordinator logistics",
+        "img": "/teams/CC/Kiana Agarwal.jpeg",
+        "instagram": "https://www.instagram.com/kiana_k_agarwal?igsh=MXhjODVvZ2thNWg1dA%3D%3D&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/kiana-agarwal",
+        "github": "https://github.com/kianaagarwal"
+      },
+      {
+        "id": 42,
+        "name": "Arnav Asrani",
+        "designation": "WIE logistic(Senior Coordinator Logistic)",
+        "img": "/teams/CC/Arnav Asrani.jpeg",
+        "instagram": "https://www.instagram.com/arnav.asrani",
+        "linkedin": "",
+        "github": "https://github.com/arnavasrani"
+      }
     ]
   },
   {
-    department: "Media",
-    members: [
-      { id: 43, name: "Meshwa Sunil Patel", designation: "Head of Media", img: "/Team/meshwapatel.webp", instagram: "https://www.instagram.com/_meshwa_p?igsh=dG13eWFnMnZncmVl&utm_source=qr", linkedin:"http://linkedin.com/in/meshwa-sunil-patel-9b404b292", github:"https://github.com/meshwa-p" },
-      { id: 44, name: "Aakshra Tomar", designation: "Joint Head of Media", img: "/Team/aakshratomar.webp", instagram: "https://www.instagram.com/aakshra_tomar01?igsh=MWY3czZsYmRrMnFqaQ%3D%3D&utm_source=qr", linkedin:"https://www.linkedin.com/in/aakshra-tomar-07637833a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", github:"" },
-      { id: 45, name: "Shreya Bharti", designation: "Senior Coordinator", img: "/Team/shreyabharti.webp", instagram: "https://www.instagram.com/sh_reyyaa12?igsh=cXg5OG1yemZhY205", linkedin:"https://www.linkedin.com/in/shreya-bharti-729690368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 47, name: "Rujul Dani", designation: "Senior Coordinator", img: "/Team/rujuldani.webp", instagram: "", linkedin:"", github:"" },
+    "department": "Media",
+    "members": [
+      {
+        "id": 43,
+        "name": "Krishna Tripathi",
+        "designation": "head of Media",
+        "img": "/teams/CC/Krishna Tripathi.jpg",
+        "instagram": "https://www.instagram.com/tripathi_ji1884?igsh=MTRsZWptb3NzejBsZA==",
+        "linkedin": "https://www.linkedin.com/in/krishna-tripathi-8513a3217?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 44,
+        "name": "Nehal Sharma",
+        "designation": "Senior Coordinator Social Media",
+        "img": "/teams/CC/Nehal Sharma.jpg",
+        "instagram": "https://www.instagram.com/nehall.08?igsh=czZra21yZjF3aHp6",
+        "linkedin": "https://www.linkedin.com/in/nehal-sharma-6a554a3a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/nehallsharma002-gif"
+      },
+      {
+        "id": 45,
+        "name": "Divya Sinha",
+        "designation": "Senior Coordinator(Social Media)",
+        "img": "/teams/CC/Divya Sinha.jpg",
+        "instagram": "https://www.instagram.com/divya._s20/",
+        "linkedin": "https://www.linkedin.com/in/divya-sinha-400159415/",
+        "github": ""
+      },
+      {
+        "id": 46,
+        "name": "Raima Ali",
+        "designation": "Social Media - Senior Coordinator",
+        "img": "/teams/CC/Raima Ali.jpeg",
+        "instagram": "https://www.instagram.com/raimaali.18",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 47,
+        "name": "Spreha Verma",
+        "designation": "SM- Senior coordinator social media",
+        "img": "/teams/CC/Spreha Verma.jpg",
+        "instagram": "https://www.instagram.com/spiaowo?igsh=MTBhMGIwNWVsODRvMA==",
+        "linkedin": "https://www.linkedin.com/in/spreha-verma-017465315?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 48,
+        "name": "Gaadha Amal Nair",
+        "designation": "Social Media Joint Head",
+        "img": "/teams/CC/Gaadha Amal Nair.jpeg",
+        "instagram": "https://www.instagram.com/gaadha_amalnair?igsh=ODJjOXlsNGJoYWNx&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/gaadha-amal-nair-255760371?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
+      },
+      {
+        "id": 49,
+        "name": "Yashika Agarwal",
+        "designation": "IEEE WIE: Senior Coordinator of Media",
+        "img": "/teams/CC/Yashika Agarwal.jpg",
+        "instagram": "https://www.instagram.com/yashika_agarwal22?igsh=ZDAyMXN4d2lqaTJj",
+        "linkedin": "https://www.linkedin.com/in/yashika-agarwal-070ab03a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 50,
+        "name": "Naman Saini",
+        "designation": "Media(Senior Coordinator)",
+        "img": "/teams/CC/Naman Saini.jpeg",
+        "instagram": "https://www.instagram.com/saininaman_0001?igsh=ZWgzOTZwN3B0M3gx&utm_source=qr",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 51,
+        "name": "Tamanna",
+        "designation": "Media and joint head",
+        "img": "/teams/CC/Tamanna.jpg",
+        "instagram": "https://www.instagram.com/itamanna02?igsh=aDhiMmQ3aXR5dXh6",
+        "linkedin": "https://www.linkedin.com/in/tamanna-kinha-a6687237b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 52,
+        "name": "Yashu Suresh Pandey",
+        "designation": "Social media , senior coordinator",
+        "img": "/teams/CC/Yashu Suresh Pandey.jpg",
+        "instagram": "https://www.instagram.com/yashu_pandey04/",
+        "linkedin": "https://www.linkedin.com/in/yashu-pandey-9b9685414?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": "https://github.com/yashupandey29"
+      },
+      {
+        "id": 53,
+        "name": "Ananya Kedia",
+        "designation": "Social Media , Head",
+        "img": "/teams/CC/Ananya Kedia.jpg",
+        "instagram": "https://www.instagram.com/ananyaa.kedia?igsh=MWUyaXJ1bWh0aGFsZA%3D%3D&utm_source=qr",
+        "linkedin": "https://in.linkedin.com/in/ananya-kedia-848829348",
+        "github": "https://github.com/ananyak09"
+      }
     ]
   },
   {
-    department: "Editorial",
-    members: [
-      { id: 48, name: "Ashita Saxena", designation: "Head of Editorial", img: "/Team/ashitasaxena.webp", instagram: "https://www.instagram.com/ashitaaaa_0808/", linkedin:"https://www.linkedin.com/in/ashita-saxena-a3178824a/", github:"" },
-      { id: 49, name: "Shnigddha Pandey", designation: "Joint Head of Editorial", img: "/Team/shnigddhapandey.webp", instagram: "https://www.instagram.com/asturias_7321?igsh=YnUyNzI1YmcyZW83", linkedin:"https://www.linkedin.com/in/shnigddha-pandey-3a0a58333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"https://github.com/shnigddha" },
-      { id: 50, name: "Suhina Ray", designation: "Senior Coordinator", img: "/Team/suhinaray.webp", instagram: "https://www.instagram.com/suhina.ray?igsh=MTZ1dmoxdDBpZTF4Zw%3D%3D&utm_source=qr", linkedin:"https://in.linkedin.com/in/suhina-ray-47738132a", github:"" },
-      { id: 51, name: "Kresha Jain", designation: "Senior Coordinator", img: "/Team/kreshajain.webp", instagram: "https://www.instagram.com/kreshajain_?igsh=MXNpMGZiamxzcXpmbg%3D%3D&utm_source=qr", linkedin:"http://www.linkedin.com/in/kresha-jain-44a150371", github:"https://github.com/kreshaj" },
-      { id: 52, name: "Suryansh Shah", designation: "Senior Coordinator", img: "/Team/suryanshshah.webp", instagram: "", linkedin:"https://www.linkedin.com/in/suryanshshahurl?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
+    "department": "Editorial",
+    "members": [
+      {
+        "id": 54,
+        "name": "Akshita Sinha",
+        "designation": "Head of Editorial",
+        "img": "/teams/CC/Akshita Sinha.jpeg",
+        "instagram": "https://www.instagram.com/akshiiii.ta_07?igsh=MWdybXFrd25qcGxuYQ%3D%3D&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/akshita-sinha-2aa74b1a7?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
+      },
+      {
+        "id": 55,
+        "name": "Tanishka Panda",
+        "designation": "Editorial- Joint Head",
+        "img": "/teams/CC/Tanishka Panda.jpeg",
+        "instagram": "https://www.instagram.com/tanxishka",
+        "linkedin": "https://linkedin.com/in/tanishka-panda",
+        "github": "https://github.com/tanishkapanda18"
+      },
+      {
+        "id": 56,
+        "name": "Prarthana Agarwal",
+        "designation": "Senior coordinator of Editorial",
+        "img": "/teams/CC/Prarthana Agarwal.jpg",
+        "instagram": "https://www.instagram.com/prarthana_agarwal8/",
+        "linkedin": "https://www.linkedin.com/in/prarthana-agarwal-8131b137b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "github": "https://github.com/PrarthanaAgarwal82"
+      },
+      {
+        "id": 57,
+        "name": "Andrea Benjamin",
+        "designation": "Senior Coordinator for Editorial",
+        "img": "/teams/CC/Andrea Benjamin.jpeg",
+        "instagram": "https://www.instagram.com/andrea.diaa?igsh=ZWkwOHJ2bm93cWFm",
+        "linkedin": "https://www.linkedin.com/in/andrea-benjamin-658238311?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      }
     ]
   },
   {
-    department: "Corporate Affairs",
-    members: [
-      { id: 101, name: "Suhaan Tanveer", designation: "Head of Corporate Affairs", img: "/Team/suhaantanveer.webp", instagram: "https://www.instagram.com/vio_lucky_?igsh=MTNnbDJncWtuZHkydA==", linkedin: "https://www.linkedin.com/in/suhaan-tanveer-39a596345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 201, name: "Madhura Bhosale", designation: "Joint Head of Corporate Affairs", img: "/Team/madhurabhosale.webp", instagram: "https://www.instagram.com/itsokaymadhura?igsh=b25qNnBvYnJuMWxi", linkedin: "https://www.linkedin.com/in/madhura-bhosale-b79615316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 301, name: "Tanisha Bhardwaj", designation: "Senior Coordinator", img: "/Team/tanishabhardwaj.webp", instagram: "https://www.instagram.com/tanishazzz.z?igsh=MWUwMjk4cGo3dHo2ZQ==", linkedin: "https://www.linkedin.com/in/tanisha-b-50257a223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 401, name: "Aaryan", designation: "Senior Coordinator", img: "/Team/aaryan.webp", instagram: "", linkedin:"", github:"" },
-      { id: 501, name: "Soumya Arya", designation: "Senior Coordinator", img: "/Team/soumyaarya.webp", instagram: "", linkedin:"", github:"" },
+    "department": "Corporate Affairs",
+    "members": [
+      {
+        "id": 58,
+        "name": "Kavya das",
+        "designation": "Corporate affairs (senior coordinator),BTECH CSE",
+        "img": "/teams/CC/Kavya Das.jpg",
+        "instagram": "https://www.instagram.com/kabuli_chanaaa?igsh=MWJudXgyeTV0YXhhOA==",
+        "linkedin": "https://www.linkedin.com/in/kavya-das-4728b936a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 59,
+        "name": "Vaibhav Sharma",
+        "designation": "Corporate Affairs , Joint Head",
+        "img": "/teams/CC/Vaibhav Sharma.jpg",
+        "instagram": "https://www.instagram.com/vbhvshrma1?igsh=bjlyZTh5Zm05YXdm&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/vaibhav-sharma-a03025399?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "github": "https://github.com/vaibhavrsharma01-cell"
+      },
+      {
+        "id": 60,
+        "name": "Yash Sharma",
+        "designation": "Cse and head of corporate affairs",
+        "img": "/teams/CC/Yash Sharma.jpg",
+        "instagram": "https://www.instagram.com/busyguy_18?igsh=aDMybmV3MWwzNjVw",
+        "linkedin": "https://www.linkedin.com/in/yash-sharma-a46ab7339?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      }
     ]
   },
   {
-    department: "Curations",
-    members: [
-      { id: 601, name: "Aayra Gupta", designation: "Head of Curations", img: "/Team/aayragupta.webp", instagram: "https://www.instagram.com/aayra0_0?igsh=OHdicHIzeGhhYjcz", linkedin: "https://www.linkedin.com/in/aayra-gupta-9b248526b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 701, name: "Guru", designation: "Joint Head of Curations", img: "/Team/guru.webp", instagram: "", linkedin: "" },
-      { id: 801, name: "Parth Joshi", designation: "Senior Coordinator", img: "/Team/parthjoshi.webp", instagram: "https://www.instagram.com/itsparth26o4?igsh=MThoZG5kZGF0dHYwOA==", linkedin: "https://www.linkedin.com/in/parth-joshi-168a68363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 901, name: "Yash Kishore", designation: "Senior Coordinator", img: "/Team/yashkishore.webp", instagram: "https://www.instagram.com/yash318_/", linkedin:"https://www.linkedin.com/in/yashkishore2/", github:"" },
-      { id: 10, name: "Samichha Singh", designation: "Senior Coordinator", img: "/Team/samichhasingh.webp", instagram: "https://www.instagram.com/samikshaa_1310?igsh=cTZjNHY0ZzhpdmJu", linkedin:"https://www.linkedin.com/in/samichha-singh-5b3405282", github:"https://github.com/Samichha13" },
-      { id: 11, name: "Akshita Jain", designation: "Senior Coordinator", img: "/Team/akshitajain.webp", instagram: "https://www.instagram.com/akshitajain_27", linkedin:"https://www.linkedin.com/in/akshitajain-ai", github:"" },
+    "department": "Curations",
+    "members": [
+      {
+        "id": 61,
+        "name": "Aanya Singhal",
+        "designation": "Cuartions- Head",
+        "img": "/teams/CC/Aanya Singhal.jpeg",
+        "instagram": "https://www.instagram.com/aanyasinghal03",
+        "linkedin": "https://www.linkedin.com/in/aanya-singhal-583796378?",
+        "github": "https://github.com/aanyasinghal03"
+      },
+      {
+        "id": 62,
+        "name": "Alisha Chaudhary",
+        "designation": "IEEE WIE Curations Senior Coordinator",
+        "img": "/teams/CC/Alisha Chaudhary.jpg",
+        "instagram": "https://www.instagram.com/_its.alishaaa_?utm_source=qr&igsh=MXNmdHMwMmpseHQzeg==",
+        "linkedin": "https://www.linkedin.com/in/alisha-chaudhary-771056372?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 63,
+        "name": "Saurish",
+        "designation": "Senior Coordinator of Curations",
+        "img": "/teams/CC/Saurish.jpg",
+        "instagram": "https://www.instagram.com/saurish_idk?igsh=MWd5eWRrMW93bXlpcQ==",
+        "linkedin": "https://www.linkedin.com/in/saurish-mishra-b1a30936b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/Saurish187"
+      },
+      {
+        "id": 64,
+        "name": "Saisha Narang",
+        "designation": "Joint head of curations",
+        "img": "/teams/CC/Saisha Narang.jpg",
+        "instagram": "https://www.instagram.com/saishanarang.7?igsh=cjQ5Zmljd3d1Ym8=",
+        "linkedin": "https://www.linkedin.com/in/saisha-narang-8246533a5?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/saishanarang13-source"
+      }
     ]
   },
   {
-    department: "Social Media",
-    members: [
-      { id: 12, name: "Aastha Shukla", designation: "Head of Social Media", img: "/Team/aasthashukla.webp", instagram: "", linkedin: "" },
-      { id: 13, name: "Shivangi Kotnala", designation: "Joint Head of Social Media", img: "/Team/shivangikotnala.webp", instagram: "https://www.instagram.com/kotnalashivangi?igsh=d21ibnkzNmVhNXNl&utm_source=qr", linkedin: "https://www.linkedin.com/in/shivangi-kotnala-41a4b3359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
-      { id: 14, name: "Polina Aneja", designation: "Senior Coordinator", img: "/Team/polinaaneja.webp", instagram: "https://www.instagram.com/polinaaneja/", linkedin: "https://www.linkedin.com/in/polina-aneja-307791329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 15, name: "Ritika Lal", designation: "Senior Coordinator", img: "/Team/ritikalal.webp", instagram: "https://www.instagram.com/_ritika_2805?igsh=MTZkbXpiOTBtMjZyaA==", linkedin:"https://www.linkedin.com/in/ritika-lal-31a07a311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 16, name: "Saina Kumar", designation: "Senior Coordinator", img: "/Team/sainakumar.webp", instagram: "", linkedin:"", github:"" },
+    "department": "Promotions",
+    "members": [
+      {
+        "id": 65,
+        "name": "Jannat Ghuman",
+        "designation": "Joint head of promotions",
+        "img": "/teams/CC/Jannat Ghuman.jpeg",
+        "instagram": "https://www.instagram.com/jannat.ghuman?igsh=NnZkanRkdmdwZGZh&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/jannat-ghuman-8923913b9?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
+      },
+      {
+        "id": 66,
+        "name": "Tanisha Salian",
+        "designation": "Senior Coordinator of Promotions",
+        "img": "/teams/CC/Tanisha Salian.jpg",
+        "instagram": "https://www.instagram.com/tanii_salian17?igsh=MWo5MmE3cnkzN2I1cQ==",
+        "linkedin": "https://www.linkedin.com/in/tanisha-salian-5a3591376?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/Tanisha-123-tech"
+      },
+      {
+        "id": 67,
+        "name": "Abhishek Vishnoi",
+        "designation": "Promotion , Senior coordinator",
+        "img": "/teams/CC/Abhishek Vishnoi.jpeg",
+        "instagram": "https://www.instagram.com/abhishek.v10?igsh=MW4wNHp1dmpqbDMwbQ==",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 68,
+        "name": "Shouryam Sharma",
+        "designation": "Promotions,Senior Coordinator",
+        "img": "/teams/CC/Shouryam Sharma.jpeg",
+        "instagram": "https://www.instagram.com/shoury4mz?igsh=NTIwZ3E2cHgwZTl3&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/shouryam-sharma-8839843a0?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
+      },
+      {
+        "id": 69,
+        "name": "Mahi Mehrotra",
+        "designation": "BTech CSE & Head of Promotions",
+        "img": "/teams/CC/Mahi Mehrotra.jpeg",
+        "instagram": "https://www.instagram.com/mahimehrotraa?igsh=bTNrcTEyNXVudjV4&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/mahi-mehrotra-a260723a7?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": "https://github.com/mahimehrotra1234-cell"
+      }
     ]
   },
   {
-    department: "Promotions",
-    members: [
-      { id: 17, name: "Chinmayee Khanna", designation: "Head of Promotions", img: "/Team/chinmayeekhanna.webp", instagram: "https://www.instagram.com/chinmayee.kh?igsh=MWZnamJqZ3F6c3M1NQ%3D%3D&utm_source=qr", linkedin: "https://www.linkedin.com/in/chinmayee-khanna-a663492b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
-      { id: 18, name: "Vidhushi Rathore", designation: "Joint Head of Promotions", img: "/Team/vidhushirathore.webp", instagram: "https://www.instagram.com/ll.vidushii.ll?igsh=MTdncDZhcWoybGhheg==", linkedin: "" },
-      { id: 19, name: "Vanshika Bhatia", designation: "Senior Coordinator", img: "/Team/vanshikabhatia.webp", instagram: "https://www.instagram.com/vanshika_bhatia27?igsh=OXQyYWNiZWNoMHYw&utm_source=qr", linkedin: "https://www.linkedin.com/in/vanshika-bhatia-a69300319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
-      { id: 20, name: "Ayesha Askari", designation: "Senior Coordinator", img: "/Team/ayeshaaskari.webp", instagram: "https://www.instagram.com/ayesha.askari?igsh=NTV6dzFkNXU1dmxh", linkedin:"https://www.linkedin.com/in/ayesha-askari-7bb5b3351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 21, name: "Aksh Singhi", designation: "Senior Coordinator", img: "/Team/akshsinghi.webp", instagram: "https://www.instagram.com/aksh_singhi/?utm_source=ig_web_button_share_sheet", linkedin:"https://in.linkedin.com/in/aksh-singhi-304146325?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile", github:"" },
+    "department": "Graphics Design",
+    "members": [
+      {
+        "id": 70,
+        "name": "Sahil",
+        "designation": "Graphics Design & Joint Head",
+        "img": "/teams/CC/Sahil.jpg",
+        "instagram": "https://www.instagram.com/thisisme.sahil/",
+        "linkedin": "https://www.linkedin.com/in/thisis-mesahil/",
+        "github": ""
+      },
+      {
+        "id": 71,
+        "name": "Anika Gujral",
+        "designation": "Graphic Design- Senior Coordinator",
+        "img": "/teams/CC/Anika Gujral.jpg",
+        "instagram": "https://www.instagram.com/anika.gujral?igsh=MTIwMTUzdmlpZW43bA==",
+        "linkedin": "https://www.linkedin.com/in/anika-gujral-529a17409?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 72,
+        "name": "Vidhi Makkar",
+        "designation": "Graphic Design, Senior Coordinator",
+        "img": "/teams/CC/Vidhi Makkar.jpeg",
+        "instagram": "https://www.instagram.com/vidhiimakkarr",
+        "linkedin": "https://www.linkedin.com/in/vidhi-makkar-75a010270?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "github": ""
+      },
+      {
+        "id": 73,
+        "name": "Shivanshi Punj",
+        "designation": "Graphics Design, Senior Coordinator",
+        "img": "/teams/CC/shivanshi punj.jpeg",
+        "instagram": "https://www.instagram.com/shivanshipunj?igsh=MTVsdWdhdW0zYnV4cA%3D%3D&utm_source=qr",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 74,
+        "name": "Vaani Dhiman",
+        "designation": "Graphic Design, Head",
+        "img": "/teams/CC/Vaani Dhiman.jpg",
+        "instagram": "https://www.instagram.com/vxxni_19?utm_source=qr&igsh=MWtranEzd3lrZmo1eQ==",
+        "linkedin": "https://www.linkedin.com/in/vaani-dhiman-a6b242378?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 75,
+        "name": "Utkarsh Jain",
+        "designation": "Graphic Design, Senior Coordinator",
+        "img": "/teams/CC/Utkarsh Jain.jpeg",
+        "instagram": "https://www.instagram.com/utkxrsh_307/",
+        "linkedin": "https://www.linkedin.com/in/utkarshjain007/",
+        "github": ""
+      },
+      {
+        "id": 76,
+        "name": "Ifra Inam",
+        "designation": "Graphic design senior coordinator",
+        "img": "/teams/CC/Ifra Inam.jpeg",
+        "instagram": "https://www.instagram.com/ifraaa.com_?igsh=MXFoYWFwaGVlaTVwZw%3D%3D&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/ifra-inam-984a5937b?trk=contact-info",
+        "github": ""
+      }
     ]
   },
   {
-    department: "Graphics Design",
-    members: [
-      { id: 22, name: "Annanya Jaswal", designation: "Head of Graphics Design", img: "/Team/annanyajaswal.webp", instagram: "https://www.instagram.com/annanyaa_26_?igsh=NXhnc21iZG01ZTNh&utm_source=qr", linkedin:"https://www.linkedin.com/in/annanya-jaswal-2133a8330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", github:"" },
-      { id: 23, name: "Piyush Agarwal", designation: "Joint Head of Graphics Design", img: "/Team/piyushagarwal.webp", instagram: "https://www.instagram.com/piyushagarwal5525?igsh=YnM4ZnZvcnFpdWVi", linkedin:"https://www.linkedin.com/in/piyush-agarwal-97b731316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github:"" },
-      { id: 24, name: "Ansh", designation: "Senior Coordinator", img: "/Team/ansh.webp", instagram: "https://www.instagram.com/simpl.icity18?igsh=MWJjMW8xN3Z0NWZ6bg==", linkedin:"", github:"" },
-      { id: 25, name: "Subhi Gupta", designation: "Senior Coordinator", img: "/Team/subhigupta.webp", instagram: "https://www.instagram.com/subhiiguptaa?igsh=MW1jOHY2eGo0cjIxMQ==", linkedin:"", github:"" },
+    "department": "Events",
+    "members": [
+      {
+        "id": 77,
+        "name": "Ananya Singh",
+        "designation": "Event senior coordinator",
+        "img": "/teams/CC/Ananya Singh.jpeg",
+        "instagram": "https://www.instagram.com/20._.ananya",
+        "linkedin": "https://www.linkedin.com/in/ananya-singh-077267410",
+        "github": "https://github.com/Ananya20-Singh"
+      },
+      {
+        "id": 78,
+        "name": "Aditi Agarwal",
+        "designation": "Btech CSE and Head of Events",
+        "img": "/teams/CC/Aditi Agarwal.jpg",
+        "instagram": "https://www.instagram.com/aditiiagarwalll/",
+        "linkedin": "https://linkedin.com/in/aditi-agarwal-064bb6377",
+        "github": "https://github.com/aditiiagarwalll"
+      },
+      {
+        "id": 79,
+        "name": "Abhigyan Padhy",
+        "designation": "Events (senior coordinator)",
+        "img": "/teams/CC/Abhigyan Padhy.jpeg",
+        "instagram": "https://www.instagram.com/abhigyanpadhy",
+        "linkedin": "",
+        "github": ""
+      },
+      {
+        "id": 80,
+        "name": "Niharika Singh",
+        "designation": "Events, Senior Coordinator",
+        "img": "/teams/CC/Niharika Singh.jpg",
+        "instagram": "https://www.instagram.com/niharikaezz?igsh=azFka2wwdnV2ZnEz",
+        "linkedin": "https://www.linkedin.com/in/niharika-singh-96b967380?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
+        "id": 81,
+        "name": "Manya Singh",
+        "designation": "Joint head of Events",
+        "img": "/teams/CC/Manya Singh.jpeg",
+        "instagram": "https://www.instagram.com/manyaa.14?igsh=Zjl6MjQ2NDEzMTJq&utm_source=qr",
+        "linkedin": "https://www.linkedin.com/in/manya-singh-8852a7420/?skipRedirect=true",
+        "github": "https://github.com/manyasingh1477/Manya-Singh"
+      }
     ]
   },
   {
-    department: "Events",
-    members: [
-      { id: 26, name: "Palakshi Sirsat", designation: "Head of Events", img: "/Team/palakshisirsat.webp", instagram: "https://www.instagram.com/palakshiiii_?igsh=MXdld3ptcnc4bXNzOQ==", linkedin:"https://www.linkedin.com/in/palakshi-sirsat-8185b4351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 27, name: "Kshiti Singh", designation: "Joint Head of Events", img: "/Team/kshitisingh.webp", instagram: "https://www.instagram.com/k_shiti_?igsh=MTVqcW4wNzFzYnQwcA%3D%3D&utm_source=qr", linkedin:"https://www.linkedin.com/in/kshiti-singh-6515b8319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
-      { id: 28, name: "Tanmay Gole", designation: "Senior Coordinator", img: "/Team/tanmaygole.webp", instagram: "https://www.instagram.com/_tanmay_gole?igsh=OTN6dG9mOHI0OG0=", linkedin:"https://www.linkedin.com/in/tanmay-g-390690313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 29, name: "Mahika Sahu", designation: "Senior Coordinator", img: "/Team/mahikasahu.webp", instagram: "https://www.instagram.com/mahikasahu_?igsh=aWZrdWprOGQ0Nnp0", linkedin:"https://www.linkedin.com/in/mahika-sahu-85b801370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-      { id: 30, name: "Shriya Desai", designation: "Senior Coordinator", img: "/Team/shriyadesai.webp", instagram: "https://www.instagram.com/shriyadesai612?igsh=bDNqZGNpdm82MXhi", linkedin:"https://www.linkedin.com/in/shriya-desai-9a3b74361", github:"https://github.com/astro-quanta" },
-      { id: 31, name: "Dhruv Gupta", designation: "Senior Coordinator", img: "/Team/dhruvgupta.webp", instagram: "https://www.instagram.com/ur_dhruvv/", linkedin:"https://www.linkedin.com/in/dhruv-gupta-3933b231a" },
+    "department": "Marketing",
+    "members": [
+      {
+        "id": 82,
+        "name": "Presha Gusain",
+        "designation": "Senior coordinator of Marketing",
+        "img": "/teams/CC/Presha Gusain.jpeg",
+        "instagram": "https://www.instagram.com/preshagusain__?igsh=aTVidHV5ZDBwam05",
+        "linkedin": "https://www.linkedin.com/in/presha-gusain-7198863a6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      }
     ]
   }
 ];
+
 
 // Shuffle Utility (Locks index 0 and 1)
 const shuffleMembers = (members) => {
