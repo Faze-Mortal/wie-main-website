@@ -44,7 +44,6 @@ const popularEvents = sortedEvents.slice(0, 5).map((event, index) => ({
   location: event.location,
   isCenter: latestClasses[index].isCenter,
 }));
-
 export default function LatestEvents() {
   const shouldReduceMotion = useReducedMotion();
 
