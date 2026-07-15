@@ -67,7 +67,7 @@ export default function About() {
             {/* Massive Background Text with Purple Gradient Glow */}
             <div className="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none select-none flex flex-col items-center justify-center">
               <h1
-                className="text-[clamp(4.5rem,12vw,15rem)] font-black leading-none tracking-tighter whitespace-nowrap flex gap-12 md:gap-32 justify-center"
+                className="text-[clamp(3.5rem,10vw,15rem)] font-black leading-none tracking-tighter flex flex-col md:flex-row gap-0 md:gap-32 justify-center"
                 style={{
                   background: 'linear-gradient(to bottom, #f0abfc 0%, #c77dff 40%, #7b2cbf 100%)',
                   WebkitBackgroundClip: 'text',
@@ -90,7 +90,7 @@ export default function About() {
               <img
                 src={womanImg}
                 alt="Woman in Tech"
-                className="w-full h-auto object-contain scale-150 origin-bottom translate-y-30 md:translate-y-45 -translate-x-20 md:-translate-x-35"
+                className="w-full h-auto object-contain scale-110 md:scale-150 origin-bottom translate-y-10 md:translate-y-45 -translate-x-0 md:-translate-x-35"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'

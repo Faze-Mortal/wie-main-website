@@ -8,69 +8,42 @@ import {
   viewAllLink,
 } from './animations/animationVariants';
 
-const popularEvents = [
-  {
-    id: 'pop-card-1',
-    className: 'pop-card pop-card--sm pop-card--pink',
-    imgClass: 'pop-card__img pop-card__img--1',
-    poster: '/Events/herverdict.jpeg',
-    alt: 'HerVerdict poster',
-    label: 'HerVerdict',
-    title: 'HerVerdict',
-    date: '11 February 2026',
-    location: 'AB1 Lobby',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-2',
-    className: 'pop-card pop-card--sm pop-card--purple',
-    imgClass: 'pop-card__img pop-card__img--2',
-    poster: '/Events/confluence.jpeg',
-    alt: 'Confluence poster',
-    label: 'Confluence',
-    title: 'The Confluence',
-    date: '10 February 2026',
-    location: 'Manipal University Jaipur',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-centre',
-    className: 'pop-card pop-card--sm pop-card--violet',
-    imgClass: 'pop-card__img pop-card__img--5',
-    poster: '/Events/cyber_odyssey.jpeg',
-    alt: 'Cyber Odyssey poster',
-    label: 'Cyber Odyssey',
-    title: 'Cyber Odyssey',
-    date: '26-28 June 2026',
-    location: 'Online / MUJ',
-    isCenter: true,
-  },
-  {
-    id: 'pop-card-5',
-    className: 'pop-card pop-card--center pop-card--cyan',
-    imgClass: 'pop-card__img pop-card__img--3',
-    poster: '/Events/bnb8.jpeg',
-    alt: 'Bits & Brews 8.0 poster',
-    label: 'Bits & Brews 8.0',
-    title: 'Bits & Brews 8.0',
-    date: '14 June 2026',
-    location: 'Google Meet (Online)',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-4',
-    className: 'pop-card pop-card--sm pop-card--blue',
-    imgClass: 'pop-card__img pop-card__img--4',
-    poster: '/Events/dealroom.jpeg',
-    alt: 'The Deal Room poster',
-    label: 'The Deal Room',
-    title: 'Shark Tank: The Deal Room',
-    date: '11 February 2026',
-    location: 'Smt. Sharda Pai',
-    isCenter: false,
-  },
+import allEvents from '../../eventsData';
 
+const latestClasses = [
+  { cardClass: 'pop-card pop-card--sm pop-card--pink', imgClass: 'pop-card__img pop-card__img--1', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--purple', imgClass: 'pop-card__img pop-card__img--2', isCenter: false },
+  { cardClass: 'pop-card pop-card--center pop-card--blue', imgClass: 'pop-card__img pop-card__img--3', isCenter: true },
+  { cardClass: 'pop-card pop-card--sm pop-card--cyan', imgClass: 'pop-card__img pop-card__img--4', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--violet', imgClass: 'pop-card__img pop-card__img--5', isCenter: false },
 ];
+
+const parseEventDate = (dateStr: string, year: string) => {
+  if (!dateStr || !year) return new Date(0);
+  let cleanDate = dateStr.toString();
+  // Handle ranges like "26–31 December" by taking the start or end date. We'll take the end date.
+  if (cleanDate.includes('–')) cleanDate = cleanDate.split('–')[1].trim();
+  if (cleanDate.includes('-')) cleanDate = cleanDate.split('-')[1].trim();
+  
+  const parsed = new Date(`${cleanDate} ${year}`);
+  // fallback if Invalid Date
+  return isNaN(parsed.getTime()) ? new Date(0) : parsed;
+};
+
+const sortedEvents = [...allEvents].sort((a, b) => parseEventDate(b.date, b.year).getTime() - parseEventDate(a.date, a.year).getTime());
+
+const popularEvents = sortedEvents.slice(0, 5).map((event, index) => ({
+  id: `pop-card-${event.id}`,
+  className: latestClasses[index].cardClass,
+  imgClass: latestClasses[index].imgClass,
+  poster: event.image,
+  alt: event.title,
+  label: event.title + (latestClasses[index].isCenter ? ' — Number 1 this week' : ''),
+  title: event.title,
+  date: event.date + (event.year ? ', ' + event.year : ''),
+  location: event.location,
+  isCenter: latestClasses[index].isCenter,
+}));
 export default function LatestEvents() {
   const shouldReduceMotion = useReducedMotion();
 

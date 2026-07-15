@@ -18,7 +18,21 @@ const latestClasses = [
   { cardClass: 'pop-card pop-card--sm pop-card--violet', imgClass: 'pop-card__img pop-card__img--5', isCenter: false },
 ];
 
-const popularEvents = allEvents.slice(0, 5).map((event, index) => ({
+const parseEventDate = (dateStr, year) => {
+  if (!dateStr || !year) return new Date(0);
+  let cleanDate = dateStr.toString();
+  // Handle ranges like "26–31 December" by taking the start or end date. We'll take the end date.
+  if (cleanDate.includes('–')) cleanDate = cleanDate.split('–')[1].trim();
+  if (cleanDate.includes('-')) cleanDate = cleanDate.split('-')[1].trim();
+  
+  const parsed = new Date(`${cleanDate} ${year}`);
+  // fallback if Invalid Date
+  return isNaN(parsed.getTime()) ? new Date(0) : parsed;
+};
+
+const sortedEvents = [...allEvents].sort((a, b) => parseEventDate(b.date, b.year) - parseEventDate(a.date, a.year));
+
+const popularEvents = sortedEvents.slice(0, 5).map((event, index) => ({
   id: event.id,
   className: latestClasses[index].cardClass,
   imgClass: latestClasses[index].imgClass,

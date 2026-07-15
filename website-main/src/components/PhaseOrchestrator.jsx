@@ -25,10 +25,18 @@ const PhaseOrchestrator = () => {
   const setPhaseProgress = useScrollStore(state => state.setPhaseProgress);
   const isScrollLocked = useScrollStore(state => state.isScrollLocked);
   const rafRef = useRef(null);
-  
+
+  const [isMobile, setIsMobile] = useState(false);
   const phaseRefs = useRef([]);
   const tlRef = useRef(null);
-  
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useGSAP(() => {
     if (tlRef.current) {
       tlRef.current.kill();
@@ -44,7 +52,7 @@ const PhaseOrchestrator = () => {
     if (next) gsap.set(next, { zIndex: 20 });
 
     const tl = gsap.timeline({ paused: true });
-    
+
     // 1. Enter transition (0.0 to 0.15)
     if (prev && current) {
       tl.fromTo(prev, { opacity: 0.5, scale: 0.98 }, { opacity: 0, scale: 0.96, duration: 0.15, ease: 'none' }, 0);
@@ -76,14 +84,14 @@ const PhaseOrchestrator = () => {
 
     return () => unsubscribe();
   }, [currentPhase]);
-  
-  
+
+
   useEffect(() => {
     return () => {
       console.time('PhaseOrchestrator unmount');
       // Adding a synchronous wait just in case to ensure we capture the whole teardown phase,
       // but standard console.time/timeEnd around the unmount should give us a good idea.
-            console.timeEnd('PhaseOrchestrator unmount');
+      console.timeEnd('PhaseOrchestrator unmount');
     };
   }, []);
 
@@ -99,7 +107,7 @@ const PhaseOrchestrator = () => {
     };
   }, [isScrollLocked]);
 
-    useEffect(() => {
+  useEffect(() => {
     if (PHASES.length === 0) return;
 
     const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
@@ -108,31 +116,31 @@ const PhaseOrchestrator = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
-      
+
       const maxScroll = Math.max(0, documentHeight - windowHeight);
       const progress = maxScroll > 0 ? clamp(scrollY / maxScroll, 0, 1) : 0;
-      
+
       const phaseCount = PHASES.length;
       const phaseThreshold = 1 / phaseCount;
-      
+
       let newPhase = Math.floor(progress / phaseThreshold);
       if (newPhase >= phaseCount) newPhase = phaseCount - 1;
       if (newPhase < 0) newPhase = 0;
-      
+
       let localProgress = (progress % phaseThreshold) / phaseThreshold;
-      
+
       // Strict clamping for the very edges
       if (progress === 1) localProgress = 1;
       if (progress === 0) localProgress = 0;
 
       setCurrentPhase(newPhase);
       setPhaseProgress(localProgress);
-      
+
       rafRef.current = requestAnimationFrame(onScroll);
     };
-    
+
     rafRef.current = requestAnimationFrame(onScroll);
-    
+
     return () => {
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
@@ -142,17 +150,29 @@ const PhaseOrchestrator = () => {
 
   const ActivePhaseComponent = PHASES[currentPhase];
 
+  if (isMobile) {
+    return (
+      <div className="flex flex-col w-full h-auto overflow-hidden">
+        {PHASES.map((PhaseComponent, index) => (
+          <div key={index} className="w-full relative min-h-[100dvh]">
+            <PhaseComponent />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
-      <div 
-        style={{ height: `${PHASES.length * 200}vh`, width: '1px', pointerEvents: 'none' }} 
-        aria-hidden="true" 
+      <div
+        style={{ height: `${PHASES.length * 200}vh`, width: '1px', pointerEvents: 'none' }}
+        aria-hidden="true"
       />
-      
+
       <div className="fixed inset-0 w-full h-full overflow-hidden">
         {PHASES.map((PhaseComponent, index) => {
           const isMounted = Math.abs(index - currentPhase) <= 1; // Mount N-1, N, N+1
-          
+
           if (!isMounted) return null;
 
           return (
@@ -161,7 +181,7 @@ const PhaseOrchestrator = () => {
               ref={(el) => (phaseRefs.current[index] = el)}
               className="absolute inset-0 w-full h-full"
               inert={currentPhase !== index ? true : undefined}
-              style={{ 
+              style={{
                 pointerEvents: currentPhase === index ? 'auto' : 'none',
                 opacity: 0, // GSAP fromTo takes over immediately
               }}

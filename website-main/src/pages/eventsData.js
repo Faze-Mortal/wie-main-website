@@ -1,5 +1,27 @@
 const allEvents = [
   {
+    "id": 106,
+    "title": "Cyber Odyssey",
+    "image": "/Events/cyber_odyssey.jpeg",
+    "date": "26-28 June",
+    "year": "2026",
+    "isPast": false,
+    "description": "A thrilling cybersecurity event.",
+    "location": "Online / MUJ",
+    "category": "WORKSHOP / SEMINAR"
+  },
+  {
+    "id": 105,
+    "title": "Bits & Brews 8.0",
+    "image": "/Events/bnb8.jpeg",
+    "date": "14 June",
+    "year": "2026",
+    "isPast": false,
+    "description": "Alumni talk series featuring industry experts.",
+    "location": "Google Meet (Online)",
+    "category": "WORKSHOP / SEMINAR"
+  },
+  {
     "id": 104,
     "title": "Crown Conquest",
     "image": "/Events/crownconquest.webp",
