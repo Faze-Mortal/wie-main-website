@@ -707,10 +707,12 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         {/* Back Face (Revealed) */}
         <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#070312] border-[1px] border-fuchsia-500/60 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(217,70,239,0.25)]">
           {/* Full Background Portrait */}
-          <div 
+          <div
             className="absolute inset-0 w-full h-full"
             style={{
-              scale: (member.name === "Vaibhav Kumar" || member.name === "Sarath Mohanraj") ? "1.20" : undefined,
+              scale: member.name === "Sarath Mohanraj" ? "1.15" :
+                     member.name === "Akshat Raheja" ? "1.2" :
+                     member.name === "Vaibhav Kumar" ? "1.0" : undefined,
             }}
           >
             <img
@@ -1037,7 +1039,7 @@ export default function Team() {
 
         {/* Executive Committee - Night Market Reveal */}
         <div ref={execSectionRef} className="mt-12 mb-24 max-w-[1200px] mx-auto">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-16 md:mb-20">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold font-montserrat text-center text-purple-100 mb-16 md:mb-20">
             Executive Committee
           </motion.h2>
 
@@ -1054,7 +1056,7 @@ export default function Team() {
         </div>
 
         {/* Advisory */}
-        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mt-28 mb-16">
+        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold font-montserrat text-center text-purple-100 mt-28 mb-16">
           Advisory
         </motion.h2>
         <motion.div className="flex flex-wrap justify-center gap-8 md:gap-10" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -1063,7 +1065,7 @@ export default function Team() {
 
         {/* Core Committee - Dynamic Rows/Sliders */}
         <div className="mt-32 mb-16">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center text-purple-100 mb-20">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold font-montserrat text-center text-purple-100 mb-20">
             Core Committee
           </motion.h2>
 
