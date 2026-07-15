@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PillNav from './components/PillNav';
 import SiteFooter from './components/SiteFooter';
 import AppRoutes from './routes/AppRoutes';
@@ -26,6 +28,9 @@ function AppLayout() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -42,7 +47,7 @@ function AppLayout() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen text-white font-tektur relative">
+    <div className="flex flex-col min-h-[100dvh] overflow-x-hidden text-white font-tektur relative">
       <div className="fixed inset-0 w-full h-full pointer-events-none -z-10">
         {prefersReducedMotion ? (
           <div

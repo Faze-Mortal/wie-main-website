@@ -8,63 +8,42 @@ import {
   viewAllLink,
 } from './animations/animationVariants';
 
-const popularEvents = [
-  {
-    id: 'pop-card-1',
-    className: 'pop-card pop-card--sm pop-card--pink',
-    imgClass: 'pop-card__img pop-card__img--1',
-    poster: '/posters/poster1.webp',
-    alt: 'HerVerdict poster',
-    label: 'HerVerdict',
-    title: 'HerVerdict',
-    date: 'Jul 18, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-2',
-    className: 'pop-card pop-card--sm pop-card--purple',
-    imgClass: 'pop-card__img pop-card__img--2',
-    poster: '/posters/poster2.webp',
-    alt: 'Vision IAS poster',
-    label: 'Vision IAS',
-    title: 'Vision IAS',
-    date: 'Jul 22, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-center',
-    className: 'pop-card pop-card--center pop-card--blue',
-    imgClass: 'pop-card__img pop-card__img--3',
-    poster: '/posters/poster3.webp',
-    alt: 'The Deal Room poster',
-    label: 'The Deal Room — Number 1 this week',
-    title: 'The Deal Room',
-    date: 'Jul 26, 2026',
-    isCenter: true,
-  },
-  {
-    id: 'pop-card-4',
-    className: 'pop-card pop-card--sm pop-card--cyan',
-    imgClass: 'pop-card__img pop-card__img--4',
-    poster: '/posters/poster4.webp',
-    alt: 'Swara poster',
-    label: 'Swara',
-    title: 'Swara',
-    date: 'Aug 3, 2026',
-    isCenter: false,
-  },
-  {
-    id: 'pop-card-5',
-    className: 'pop-card pop-card--sm pop-card--violet',
-    imgClass: 'pop-card__img pop-card__img--5',
-    poster: '/posters/poster5.webp',
-    alt: 'Swara poster',
-    label: 'Swara',
-    title: 'Swara',
-    date: 'Aug 10, 2026',
-    isCenter: false,
-  },
+import allEvents from '../../eventsData';
+
+const latestClasses = [
+  { cardClass: 'pop-card pop-card--sm pop-card--pink', imgClass: 'pop-card__img pop-card__img--1', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--purple', imgClass: 'pop-card__img pop-card__img--2', isCenter: false },
+  { cardClass: 'pop-card pop-card--center pop-card--blue', imgClass: 'pop-card__img pop-card__img--3', isCenter: true },
+  { cardClass: 'pop-card pop-card--sm pop-card--cyan', imgClass: 'pop-card__img pop-card__img--4', isCenter: false },
+  { cardClass: 'pop-card pop-card--sm pop-card--violet', imgClass: 'pop-card__img pop-card__img--5', isCenter: false },
 ];
+
+const parseEventDate = (dateStr: string, year: string) => {
+  if (!dateStr || !year) return new Date(0);
+  let cleanDate = dateStr.toString();
+  // Handle ranges like "26–31 December" by taking the start or end date. We'll take the end date.
+  if (cleanDate.includes('–')) cleanDate = cleanDate.split('–')[1].trim();
+  if (cleanDate.includes('-')) cleanDate = cleanDate.split('-')[1].trim();
+  
+  const parsed = new Date(`${cleanDate} ${year}`);
+  // fallback if Invalid Date
+  return isNaN(parsed.getTime()) ? new Date(0) : parsed;
+};
+
+const sortedEvents = [...allEvents].sort((a, b) => parseEventDate(b.date, b.year).getTime() - parseEventDate(a.date, a.year).getTime());
+
+const popularEvents = sortedEvents.slice(0, 5).map((event, index) => ({
+  id: `pop-card-${event.id}`,
+  className: latestClasses[index].cardClass,
+  imgClass: latestClasses[index].imgClass,
+  poster: event.image,
+  alt: event.title,
+  label: event.title + (latestClasses[index].isCenter ? ' — Number 1 this week' : ''),
+  title: event.title,
+  date: event.date + (event.year ? ', ' + event.year : ''),
+  location: event.location,
+  isCenter: latestClasses[index].isCenter,
+}));
 
 export default function LatestEvents() {
   const shouldReduceMotion = useReducedMotion();

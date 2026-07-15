@@ -26,6 +26,11 @@ const GalleryPhase = () => {
   const currentPhase = useScrollStore(state => state.currentPhase);
 
   useGSAP(() => {
+    if (window.innerWidth < 768) {
+      gsap.set([headingRef.current, galleryRef.current], { opacity: 1, y: 0 });
+      return;
+    }
+
     gsap.set(headingRef.current, { opacity: 0, y: 40 });
     gsap.set(galleryRef.current, { opacity: 0, y: 40 });
 

@@ -2,6 +2,10 @@ import React from 'react';
 import { Rocket, BookOpen, Users, Lightbulb, Trophy } from 'lucide-react';
 
 const ImpactJourney = () => {
+  const uid = React.useId().replace(/:/g, '');
+  const waveId = `waveGradient-${uid}`;
+  const glowId = `glow-${uid}`;
+
   const steps = [
     {
       id: 1,
@@ -68,12 +72,12 @@ const ImpactJourney = () => {
           className="w-full h-full overflow-visible"
         >
           <defs>
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient id={waveId} x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#7b2cbf" stopOpacity="0.2" />
               <stop offset="50%" stopColor="#c77dff" stopOpacity="0.8" />
               <stop offset="100%" stopColor="#7b2cbf" stopOpacity="0.2" />
             </linearGradient>
-            <filter id="glow">
+            <filter id={glowId}>
               <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
@@ -84,9 +88,9 @@ const ImpactJourney = () => {
           <path 
             d="M 0,120 C 50,120 50,120 100,120 C 200,120 200,30 300,30 C 400,30 400,120 500,120 C 600,120 600,30 700,30 C 800,30 800,80 900,80 C 950,80 1000,80 1000,80" 
             fill="none" 
-            stroke="url(#waveGradient)" 
+            stroke={`url(#${waveId})`} 
             strokeWidth="3"
-            filter="url(#glow)"
+            filter={`url(#${glowId})`}
             strokeLinecap="round"
           />
         </svg>

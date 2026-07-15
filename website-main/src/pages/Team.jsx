@@ -642,7 +642,7 @@ const TeamCard = ({ member }) => {
       <img
         src={img}
         alt={name}
-        className="relative z-10 w-full h-80 object-cover rounded-2xl border border-purple-500/30 mb-4 transition-transform duration-300 group-hover:scale-105 group-hover:border-purple-400 filter-none grayscale-0 saturate-100 contrast-100"
+        className="relative z-10 w-full h-80 object-cover object-[center_20%] md:object-center rounded-2xl border border-purple-500/30 mb-4 transition-transform duration-300 group-hover:scale-105 group-hover:border-purple-400 filter-none grayscale-0 saturate-100 contrast-100"
       />
       <h3 className="relative z-10 text-xl font-semibold text-purple-100 mb-1 text-center">{name}</h3>
       <p className="relative z-10 text-purple-400 text-sm mb-4 text-center">{designation}</p>
@@ -663,10 +663,7 @@ const CoreCard = ({ member, isCarousel }) => {
       <img
         src={img}
         alt={name}
-        className="w-full h-64 object-cover rounded-xl border border-gray-600 mb-4 transition-all duration-300 filter-none grayscale-0 saturate-100 contrast-100 group-hover:border-purple-400"
-        style={{
-          objectPosition: name === "Aum Lenka" ? "top" : undefined
-        }}
+        className={`w-full h-64 object-cover object-[center_20%] ${name === 'Aum Lenka' ? 'md:object-[center_20%]' : 'md:object-center'} rounded-xl border border-gray-600 mb-4 transition-all duration-300 filter-none grayscale-0 saturate-100 contrast-100 group-hover:border-purple-400`}
       />
       <h3 className="text-lg font-semibold text-purple-100 mb-1 text-center">{name}</h3>
       <p className="text-purple-300 text-xs mb-4 text-center">{designation}</p>
@@ -720,10 +717,7 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
               alt={member.name}
               loading="eager"
               decoding="async"
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              style={{
-                objectPosition: (member.name === "Kshiti Singh" || member.name === "Akshat Raheja") ? "center 15%" : undefined,
-              }}
+              className="w-full h-full object-cover object-[center_20%] md:object-center transition-transform duration-700 hover:scale-110"
             />
           </div>
 
@@ -980,50 +974,63 @@ export default function Team() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (isFallback || prefersReducedMotion) {
-      return (
-        <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-8 tracking-wide">{dept.department}</h3>
-          <div className="grid grid-cols-2 gap-4 md:flex md:flex-wrap md:justify-center md:gap-8 px-4 max-w-6xl mx-auto">
-            {initialMembers.map((member) => (
-              <div key={member.id} className="md:w-[260px]">
-                <CoreCard member={member} isCarousel={false} />
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
+    const heads = initialMembers.filter(m => m.designation.toLowerCase().includes('head'));
+    const others = initialMembers.filter(m => !m.designation.toLowerCase().includes('head'));
 
     return (
       <div className="mb-32">
         <h3 className="text-2xl md:text-3xl font-bold text-center text-purple-300 mb-12 tracking-wide">{dept.department}</h3>
-        <div
-          ref={containerRef}
-          className="relative w-full max-w-screen-xl h-[450px] mx-auto perspective-[1000px] flex items-center justify-center overflow-visible px-20 touch-pan-y group"
-        >
-          <div id={`live-region-${dept.department.replace(/\s+/g, '')}`} className="sr-only" aria-live="polite"></div>
-          {members.map((member, i) => (
-            <div
-              key={`${member.id}-${i}`}
-              ref={el => cardsRef.current[i] = el}
-              className="absolute w-[260px] h-[380px] origin-center [transform-style:preserve-3d]"
-              style={{ opacity: 0 }}
-            >
-              <div className="carousel-inner w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-2xl">
-                {/* Front Face (Open) */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                  <CoreCard member={member} isCarousel={true} />
+
+        {/* MOBILE LAYOUT (hidden on md) */}
+        <div className="md:hidden w-full px-2 max-w-6xl mx-auto flex flex-col gap-6">
+           <div className="grid grid-cols-2 gap-3 mt-2">
+              {[...heads, ...others].map(m => (
+                 <div key={m.id} className="w-full">
+                   <CoreCard member={m} isCarousel={false} />
+                 </div>
+              ))}
+           </div>
+        </div>
+
+        {/* DESKTOP LAYOUT (hidden on mobile, block on md) */}
+        <div className="hidden md:block w-full">
+          {isFallback || prefersReducedMotion ? (
+            <div className="flex flex-wrap justify-center gap-8 px-4 max-w-6xl mx-auto">
+              {initialMembers.map((member) => (
+                <div key={member.id} className="w-[260px]">
+                  <CoreCard member={member} isCarousel={false} />
                 </div>
-                {/* Back Face (Closed) */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-white/5 bg-gradient-to-b from-black/20 to-black/50 border border-fuchsia-500/20 shadow-[0_0_10px_rgba(217,70,239,0.1)] flex items-center justify-center overflow-hidden">
-                  <span className="font-tomorrow-bold text-fuchsia-400 text-sm tracking-[0.25em] text-center px-4 uppercase whitespace-normal break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
-                    CORE COMMITTEE
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div
+              ref={containerRef}
+              className="relative w-full max-w-screen-xl h-[450px] mx-auto perspective-[1000px] flex items-center justify-center overflow-visible px-20 group"
+            >
+              <div id={`live-region-${dept.department.replace(/\s+/g, '')}`} className="sr-only" aria-live="polite"></div>
+              {members.map((member, i) => (
+                <div
+                  key={`${member.id}-${i}`}
+                  ref={el => cardsRef.current[i] = el}
+                  className="absolute w-[260px] h-[380px] origin-center [transform-style:preserve-3d]"
+                  style={{ opacity: 0 }}
+                >
+                  <div className="carousel-inner w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-2xl">
+                    {/* Front Face (Open) */}
+                    <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                      <CoreCard member={member} isCarousel={true} />
+                    </div>
+                    {/* Back Face (Closed) */}
+                    <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-white/5 bg-gradient-to-b from-black/20 to-black/50 border border-fuchsia-500/20 shadow-[0_0_10px_rgba(217,70,239,0.1)] flex items-center justify-center overflow-hidden">
+                      <span className="font-tomorrow-bold text-fuchsia-400 text-sm tracking-[0.25em] text-center px-4 uppercase whitespace-normal break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
+                        CORE COMMITTEE
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     );

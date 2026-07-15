@@ -22,6 +22,11 @@ const EventsPhase = () => {
   const card5Ref = useRef(null);
 
   useGSAP(() => {
+    if (window.innerWidth < 768) {
+      gsap.set([headingRef.current, card1Ref.current, card2Ref.current, card3Ref.current, card4Ref.current, card5Ref.current], { opacity: 1, y: 0 });
+      return;
+    }
+
     gsap.set(headingRef.current, { opacity: 0, y: 40 });
     gsap.set(card1Ref.current, { opacity: 0, y: 100 });
     gsap.set(card2Ref.current, { opacity: 0, y: 100 });
@@ -66,27 +71,27 @@ const EventsPhase = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col items-center p-8 lg:p-20 overflow-hidden">
+    <div className="w-full min-h-[100dvh] md:h-full flex flex-col items-center p-8 lg:p-20 overflow-hidden md:overflow-hidden">
       <div ref={headingRef} className="text-center mb-8 md:mb-12 relative z-10 pt-12 lg:pt-16">
         <h2 className="text-5xl md:text-6xl font-bold font-agdasima-bold text-white uppercase tracking-wider">
           Recent Events
         </h2>
       </div>
       
-      <div ref={containerRef} className="w-full max-w-7xl flex-1 flex flex-row items-center md:items-start md:justify-center gap-4 md:gap-3 lg:gap-6 py-12 min-h-0 overflow-x-auto overflow-y-hidden snap-x snap-mandatory [&::-webkit-scrollbar]:hidden">
-        <div ref={card1Ref} className="h-full max-h-full w-[82vw] md:w-auto md:max-w-[17%] shrink-0 snap-center" style={{ aspectRatio: events[0].aspectRatio }}>
+      <div ref={containerRef} className="w-full max-w-7xl flex-1 flex flex-col md:flex-row items-center md:items-start md:justify-center gap-10 md:gap-3 lg:gap-6 py-12 min-h-0 md:overflow-x-auto md:overflow-y-hidden md:[&::-webkit-scrollbar]:hidden">
+        <div ref={card1Ref} className="w-[82vw] h-auto md:h-full md:max-h-full md:w-auto md:max-w-[17%] shrink-0" style={{ aspectRatio: events[0].aspectRatio }}>
           <TiltCard {...events[0]} />
         </div>
-        <div ref={card2Ref} className="h-full max-h-full w-[82vw] md:w-auto md:max-w-[17%] shrink-0 snap-center" style={{ aspectRatio: events[1].aspectRatio }}>
+        <div ref={card2Ref} className="w-[82vw] h-auto md:h-full md:max-h-full md:w-auto md:max-w-[17%] shrink-0" style={{ aspectRatio: events[1].aspectRatio }}>
           <TiltCard {...events[1]} />
         </div>
-        <div ref={card3Ref} className="h-full max-h-full w-[82vw] md:w-auto md:max-w-[17%] shrink-0 snap-center" style={{ aspectRatio: events[2].aspectRatio }}>
+        <div ref={card3Ref} className="w-[82vw] h-auto md:h-full md:max-h-full md:w-auto md:max-w-[17%] shrink-0" style={{ aspectRatio: events[2].aspectRatio }}>
           <TiltCard {...events[2]} />
         </div>
-        <div ref={card4Ref} className="h-full max-h-full w-[82vw] md:w-auto md:max-w-[17%] shrink-0 snap-center" style={{ aspectRatio: events[3].aspectRatio }}>
+        <div ref={card4Ref} className="w-[82vw] h-auto md:h-full md:max-h-full md:w-auto md:max-w-[17%] shrink-0" style={{ aspectRatio: events[3].aspectRatio }}>
           <TiltCard {...events[3]} />
         </div>
-        <div ref={card5Ref} className="h-full max-h-full w-[82vw] md:w-auto md:max-w-[17%] shrink-0 snap-center" style={{ aspectRatio: events[4].aspectRatio }}>
+        <div ref={card5Ref} className="w-[82vw] h-auto md:h-full md:max-h-full md:w-auto md:max-w-[17%] shrink-0" style={{ aspectRatio: events[4].aspectRatio }}>
           <TiltCard {...events[4]} />
         </div>
       </div>

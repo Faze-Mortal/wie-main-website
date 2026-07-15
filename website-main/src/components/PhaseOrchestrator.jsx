@@ -26,8 +26,16 @@ const PhaseOrchestrator = () => {
   const isScrollLocked = useScrollStore(state => state.isScrollLocked);
   const rafRef = useRef(null);
 
+  const [isMobile, setIsMobile] = useState(false);
   const phaseRefs = useRef([]);
   const tlRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useGSAP(() => {
     if (tlRef.current) {
@@ -141,6 +149,18 @@ const PhaseOrchestrator = () => {
   }, [setCurrentPhase, setPhaseProgress]);
 
   const ActivePhaseComponent = PHASES[currentPhase];
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col w-full h-auto overflow-hidden">
+        {PHASES.map((PhaseComponent, index) => (
+          <div key={index} className="w-full relative min-h-[100dvh]">
+            <PhaseComponent />
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <>

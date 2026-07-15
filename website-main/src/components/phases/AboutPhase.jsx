@@ -11,6 +11,11 @@ const AboutPhase = () => {
   const card3Ref = useRef(null);
 
   useGSAP(() => {
+    if (window.innerWidth < 768) {
+      gsap.set([card1Ref.current, card2Ref.current, card3Ref.current], { opacity: 1, x: 0, y: 0 });
+      return;
+    }
+
     // Initial setup: cards are 0 opacity, translated off to the side and slightly down
     gsap.set(card1Ref.current, { opacity: 0, x: -60, y: 20 });
     gsap.set(card2Ref.current, { opacity: 0, x: 60, y: 20 });
