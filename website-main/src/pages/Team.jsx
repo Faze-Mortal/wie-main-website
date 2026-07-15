@@ -38,7 +38,7 @@ const executiveCommittee = [
     "id": 49,
     "name": "Akshat Raheja",
     "designation": "General Secretary",
-    "img": "/teams/EC/Akshat Raheja.png",
+    "img": "/teams/EC/Akshat Raheja.jpeg",
     "instagram": "https://www.instagram.com/akshat_raheja06/",
     "linkedin": "https://www.linkedin.com/in/akshat-raheja06",
     "github": ""
@@ -707,17 +707,23 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         {/* Back Face (Revealed) */}
         <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#070312] border-[1px] border-fuchsia-500/60 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(217,70,239,0.25)]">
           {/* Full Background Portrait */}
-          <img
-            src={member.img}
-            alt={member.name}
-            loading="eager"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+          <div 
+            className="absolute inset-0 w-full h-full"
             style={{
-              objectPosition: (member.name === "Kshiti Singh" || member.name === "Akshat Raheja") ? "center 15%" : undefined,
-              scale: (member.name === "Vaibhav Kumar" || member.name === "Sarath Mohanraj") ? "1.35" : undefined,
+              scale: (member.name === "Vaibhav Kumar" || member.name === "Sarath Mohanraj") ? "1.20" : undefined,
             }}
-          />
+          >
+            <img
+              src={member.img}
+              alt={member.name}
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              style={{
+                objectPosition: (member.name === "Kshiti Singh" || member.name === "Akshat Raheja") ? "center 15%" : undefined,
+              }}
+            />
+          </div>
 
           {/* Outer Frame Corners (Float on top) */}
           <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
