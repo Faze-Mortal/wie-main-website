@@ -71,7 +71,7 @@ const BlogsPhase = () => {
       </div>
 
       <div className="w-full md:w-1/2 h-full relative pointer-events-none flex items-center justify-center">
-        <div ref={cardSwapRef} className="pointer-events-auto relative w-full flex items-center justify-center [&_.card-swap-container]:!relative [&_.card-swap-container]:!transform-none [&_.card-swap-container]:!bottom-auto [&_.card-swap-container]:!right-auto mt-24 md:mt-32">
+        <div ref={cardSwapRef} className="pointer-events-auto relative w-full flex items-center justify-center md:[&_.card-swap-container]:!relative md:[&_.card-swap-container]:!transform-none md:[&_.card-swap-container]:!bottom-auto md:[&_.card-swap-container]:!right-auto mt-24 md:mt-32">
           <CardSwap
               cardDistance={50}
               verticalDistance={60}

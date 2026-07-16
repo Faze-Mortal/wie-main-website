@@ -49,7 +49,7 @@ export default function About() {
             </p>
 
             <a
-              href="#join"
+              href="https://www.instagram.com/ieee.wiemuj/" target="_blank" rel="noopener noreferrer"
               className="group flex items-center gap-3 bg-gradient-to-r from-[#5a189a] to-[#7b2cbf] hover:from-[#7b2cbf] hover:to-[#9d4edd] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(123,44,191,0.5)] hover:shadow-[0_0_30px_rgba(157,78,221,0.7)]"
             >
               <span>Join Us</span>
@@ -380,7 +380,7 @@ export default function About() {
             Join a community that's empowering women in engineering, nurturing innovation, and shaping the future of technology! One idea, one project, and one leader at a time.
           </p>
           <a
-            href="#join"
+            href="https://www.instagram.com/ieee.wiemuj/" target="_blank" rel="noopener noreferrer"
             className="inline-block bg-[#7b2cbf] hover:bg-[#9d4edd] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(157,78,221,0.5)] hover:shadow-[0_0_30px_rgba(199,125,255,0.7)] hover:-translate-y-1"
           >
             Join IEEE WIE MUJ

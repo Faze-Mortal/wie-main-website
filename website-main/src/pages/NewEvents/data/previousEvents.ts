@@ -179,7 +179,7 @@ export const previousEvents: PreviousEvent[] = [
   {
     id: 80,
     title: 'CODER\'S CRUSADE',
-    image: '/Events/coders_crusade.webp',
+    image: '/Events/coders_crusade.jpeg',
     category: 'TECH / HACKATHON',
     date: '27 November 2024',
     location: 'Manipal University Jaipur',
@@ -451,7 +451,7 @@ export const previousEvents: PreviousEvent[] = [
   {
     id: 46,
     title: 'Tech Flix',
-    image: '/Events/Techflix.webp.webp',
+    image: '/Events/Techflix.jpg.webp',
     category: 'GENERAL',
     date: '18 July 2023',
     location: 'Manipal University Jaipur',

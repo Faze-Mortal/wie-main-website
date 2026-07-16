@@ -8,7 +8,9 @@ const allEvents = [
     "isPast": false,
     "description": "A thrilling cybersecurity event.",
     "location": "Online / MUJ",
-    "category": "WORKSHOP / SEMINAR"
+    "category": "WORKSHOP / SEMINAR",
+    "accentColor": "#8b5cf6",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 105,
@@ -19,7 +21,9 @@ const allEvents = [
     "isPast": false,
     "description": "Alumni talk series featuring industry experts.",
     "location": "Google Meet (Online)",
-    "category": "WORKSHOP / SEMINAR"
+    "category": "WORKSHOP / SEMINAR",
+    "accentColor": "#b45309",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 104,
@@ -30,7 +34,9 @@ const allEvents = [
     "isPast": false,
     "description": "A competitive team-based brain game where participants solve challenges to claim and defend a crown, facing rival teams in a dynamic battle of strategy and intelligence.",
     "location": "Manipal University Jaipur",
-    "category": "GAMING / COMPETITION"
+    "category": "GAMING / COMPETITION",
+    "accentColor": "#d946ef",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 103,
@@ -41,7 +47,9 @@ const allEvents = [
     "isPast": true,
     "description": "A courtroom-style debate event where participants argue on fun and relatable topics like mess food, hostel vs day scholar, and tech vs cultural fest. With women holding the gavel, expect bold arguments, objections, and dramatic moments.",
     "location": "Manipal University Jaipur",
-    "category": "CULTURAL"
+    "category": "CULTURAL",
+    "accentColor": "#ec4899",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 102,
@@ -52,7 +60,9 @@ const allEvents = [
     "isPast": true,
     "description": "A mentorship session offering personalized career guidance, insights into UPSC and government careers, discounts on VisionIAS courses, and access to premium resources.",
     "location": "Manipal University Jaipur",
-    "category": "WORKSHOP / SEMINAR"
+    "category": "WORKSHOP / SEMINAR",
+    "accentColor": "#3b82f6",
+    "aspectRatio": "4/5"
   },
   {
     "id": 101,
@@ -63,7 +73,9 @@ const allEvents = [
     "isPast": true,
     "description": "A Shark Tank-style startup pitching event where participants present ideas, face expert questioning, and get opportunities for incubation, patent support, and funding.",
     "location": "Manipal University Jaipur",
-    "category": "CAREER / BUSINESS"
+    "category": "CAREER / BUSINESS",
+    "accentColor": "#64748b",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 100,
@@ -74,7 +86,9 @@ const allEvents = [
     "isPast": true,
     "description": "A cultural evening featuring Kathak dancer Mrs. Prerana Shrimali from the Jaipur Gharana, showcasing the journey of women through dance. Includes a special cinematic act by Cinefilia blending storytelling and visual drama.",
     "location": "Manipal University Jaipur",
-    "category": "CULTURAL"
+    "category": "CULTURAL",
+    "accentColor": "#ef4444",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 99,
@@ -85,7 +99,9 @@ const allEvents = [
     "isPast": true,
     "description": "A tech and corporate guidance session by Raghav Garg covering real-world applications, industry insights, and bridging the gap between theoretical knowledge and practical skills.",
     "location": "Manipal University Jaipur",
-    "category": "WORKSHOP / SEMINAR"
+    "category": "WORKSHOP / SEMINAR",
+    "accentColor": "#3b82f6",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 98,
@@ -96,7 +112,9 @@ const allEvents = [
     "isPast": true,
     "description": "An AI-focused event exploring prompt engineering, generative AI tools, and creative problem-solving challenges with a prize pool of up to ₹4K.",
     "location": "Manipal University Jaipur",
-    "category": "TECH / HACKATHON"
+    "category": "TECH / HACKATHON",
+    "accentColor": "#10b981",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 97,
@@ -107,7 +125,9 @@ const allEvents = [
     "isPast": true,
     "description": "An online project-based coding event focusing on frontend, backend, databases, machine learning, and research. Offers mentorship, beginner-friendly resources, and certificates to help build real-world projects.",
     "location": "Manipal University Jaipur",
-    "category": "TECH / HACKATHON"
+    "category": "TECH / HACKATHON",
+    "accentColor": "#14b8a6",
+    "aspectRatio": "1/1.414"
   },
   {
     "id": 96,
@@ -288,7 +308,7 @@ const allEvents = [
   {
     "id": 80,
     "title": "CODER'S CRUSADE",
-    "image": "/Events/coders_crusade.webp",
+    "image": "/Events/coders_crusade.jpeg",
     "date": "27 November",
     "year": "2024",
     "isPast": true,
@@ -662,7 +682,7 @@ const allEvents = [
   {
     "id": 46,
     "title": "Tech Flix",
-    "image": "/Events/Techflix.webp.webp",
+    "image": "/Events/Techflix.jpg.webp",
     "date": "18 July",
     "year": "2023",
     "isPast": true,

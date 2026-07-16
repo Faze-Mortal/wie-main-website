@@ -13,7 +13,6 @@ import ieeeWieText from '../../assets/IEEE WIE.png';
 import bottomLeftGlass from '../../assets/bottom left Minor glass break.png';
 import instagramIcon from '../../assets/instagram.png';
 import linkedinIcon from '../../assets/linkedin.png';
-import websiteIcon from '../../assets/website.png';
 
 const HeroPhase = () => {
   const bgGlass1Ref = useRef(null);
@@ -144,9 +143,8 @@ const HeroPhase = () => {
 
       {/* Mobile Social Icons */}
       <div className="md:hidden absolute bottom-6 left-6 flex gap-4 z-40">
-        <a href="#" className="hover:scale-110 transition-transform"><img src={instagramIcon} alt="Instagram" className="w-6 h-6" /></a>
-        <a href="#" className="hover:scale-110 transition-transform"><img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" /></a>
-        <a href="#" className="hover:scale-110 transition-transform"><img src={websiteIcon} alt="Website" className="w-6 h-6" /></a>
+        <a href="https://www.instagram.com/ieee.wiemuj/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><img src={instagramIcon} alt="Instagram" className="w-6 h-6" /></a>
+        <a href="https://www.linkedin.com/company/ieee-wie-muj/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" /></a>
       </div>
 
       {/* ============================================================== */}
@@ -163,9 +161,8 @@ const HeroPhase = () => {
       <div className="hidden md:flex absolute bottom-0 left-0 w-[40%] min-w-[250px] h-[40%] z-20 items-end justify-start pointer-events-none">
         <img ref={bgGlass2Ref} src={bottomLeftGlass} alt="Glass Break Texture" className="absolute bottom-0 left-0 w-full h-full object-cover object-left-bottom scale-[1.3] origin-bottom-left drop-shadow-lg opacity-0" />
         <div ref={socialIconsRef} className="relative z-10 flex gap-5 pb-10 pl-10 pointer-events-auto opacity-0 translate-y-4">
-          <a href="#" className="hover:scale-110 transition-transform"><img src={instagramIcon} alt="Instagram" className="w-6 h-6" /></a>
-          <a href="#" className="hover:scale-110 transition-transform"><img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" /></a>
-          <a href="#" className="hover:scale-110 transition-transform"><img src={websiteIcon} alt="Website" className="w-6 h-6" /></a>
+          <a href="https://www.instagram.com/ieee.wiemuj/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><img src={instagramIcon} alt="Instagram" className="w-6 h-6" /></a>
+          <a href="https://www.linkedin.com/company/ieee-wie-muj/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" /></a>
         </div>
       </div>
 
