@@ -40,9 +40,9 @@ const deckCards = [
   {
     className: 'deck-card bg-card-4',
     src: '/posters/poster5.webp',
-    alt: 'World Championship Series',
-    label: 'Bring World Championship Series to front',
-    title: 'Swara',
+    alt: 'Cyber Odyssey',
+    label: 'Bring Cyber Odyssey to front',
+    title: 'Cyber Odyssey',
   },
 ];
 
