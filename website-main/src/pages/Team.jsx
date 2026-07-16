@@ -686,62 +686,66 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
         className="w-full h-full absolute inset-0 [transform-style:preserve-3d] rounded-xl shadow-[0_0_10px_rgba(217,70,239,0.15)] group-hover:shadow-[0_0_25px_rgba(217,70,239,0.5)] group-hover:-translate-y-1 transition-shadow duration-500"
       >
         {/* Front Face (Unrevealed) */}
-        <div className="absolute inset-0 p-4 flex flex-col items-center justify-center  w-full h-full [backface-visibility:hidden] border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
-          {/* Outer Frame Corners */}
-          <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tr-xl"></div>
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-bl-xl"></div>
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-br-xl"></div>
-          </div>
+        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [-webkit-backface-visibility:hidden] rounded-xl">
+          <div className="absolute inset-0 p-4 flex flex-col items-center justify-center w-full h-full border-[1px] border-fuchsia-500/30 group-hover:border-fuchsia-500/60 transition-colors duration-500 rounded-xl overflow-hidden">
+            {/* Outer Frame Corners */}
+            <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tl-xl"></div>
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-tr-xl"></div>
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-bl-xl"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-500/40 opacity-70 group-hover:border-fuchsia-400 group-hover:opacity-100 transition-all duration-500 rounded-br-xl"></div>
+            </div>
 
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(217,70,239,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]"></div>
-          <h3 className="font-mono tracking-[0.1em] text-fuchsia-400/80 text-xs md:text-[13px] text-center uppercase relative z-10 break-words w-full px-2">
-            {member.designation}
-          </h3>
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(217,70,239,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]"></div>
+            <h3 className="font-mono tracking-[0.1em] text-fuchsia-400/80 text-xs md:text-[13px] text-center uppercase relative z-10 break-words w-full px-2">
+              {member.designation}
+            </h3>
+          </div>
         </div>
 
         {/* Back Face (Revealed) */}
-        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#070312] border-[1px] border-fuchsia-500/60 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(217,70,239,0.25)]">
-          {/* Full Background Portrait */}
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{
-              scale: member.name === "Sarath Mohanraj" ? "1.15" :
-                member.name === "Akshat Raheja" ? "1.2" :
-                  member.name === "Vaibhav Kumar" ? "1.0" : undefined,
-            }}
-          >
-            <img
-              src={member.img}
-              alt={member.name}
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover object-[center_20%] md:object-center transition-transform duration-700 hover:scale-110"
-            />
-          </div>
+        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl">
+          <div className="absolute inset-0 w-full h-full bg-[#070312] border-[1px] border-fuchsia-500/60 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(217,70,239,0.25)]">
+            {/* Full Background Portrait */}
+            <div
+              className="absolute inset-0 w-full h-full"
+              style={{
+                scale: member.name === "Sarath Mohanraj" ? "1.15" :
+                  member.name === "Akshat Raheja" ? "1.2" :
+                    member.name === "Vaibhav Kumar" ? "1.0" : undefined,
+              }}
+            >
+              <img
+                src={member.img}
+                alt={member.name}
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover object-[center_20%] md:object-center transition-transform duration-700 hover:scale-110"
+              />
+            </div>
 
-          {/* Outer Frame Corners (Float on top) */}
-          <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-tl-xl"></div>
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-tr-xl"></div>
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-bl-xl"></div>
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-br-xl"></div>
-          </div>
+            {/* Outer Frame Corners (Float on top) */}
+            <div className="absolute inset-0 pointer-events-none z-30 rounded-xl">
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-tl-xl"></div>
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-tr-xl"></div>
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[2px] border-l-[2px] border-fuchsia-400 opacity-100 rounded-bl-xl"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-fuchsia-400 opacity-100 rounded-br-xl"></div>
+            </div>
 
-          {/* Dark Vignette Base */}
-          <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#0d0221] via-[#0d0221]/90 to-transparent pointer-events-none z-10"></div>
+            {/* Dark Vignette Base */}
+            <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#0d0221] via-[#0d0221]/90 to-transparent pointer-events-none z-10"></div>
 
-          {/* Text/Footer Section */}
-          <div className="absolute bottom-0 inset-x-0 w-full flex flex-col justify-end items-center pb-4 px-3 md:px-4 pointer-events-none z-20">
-            <div ref={textRef} className="opacity-0 translate-y-4 pointer-events-auto flex flex-col items-center text-center w-full">
-              <h3 className="text-[13px] md:text-sm font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mb-1 whitespace-normal break-words leading-tight">{member.name}</h3>
-              <p className="text-fuchsia-400 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] text-[10px] md:text-[11px] font-mono tracking-wider mb-2 whitespace-normal break-words leading-tight">{member.designation}</p>
+            {/* Text/Footer Section */}
+            <div className="absolute bottom-0 inset-x-0 w-full flex flex-col justify-end items-center pb-4 px-3 md:px-4 pointer-events-none z-20">
+              <div ref={textRef} className="opacity-0 translate-y-4 pointer-events-auto flex flex-col items-center text-center w-full">
+                <h3 className="text-[13px] md:text-sm font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mb-1 whitespace-normal break-words leading-tight">{member.name}</h3>
+                <p className="text-fuchsia-400 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] text-[10px] md:text-[11px] font-mono tracking-wider mb-2 whitespace-normal break-words leading-tight">{member.designation}</p>
 
-              <div className="flex gap-3 text-purple-200 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mt-1">
-                {member.instagram && <a href={member.instagram} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaInstagram size={15} /></a>}
-                {member.linkedin && <a href={member.linkedin} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaLinkedin size={15} /></a>}
-                {member.github && <a href={member.github} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaGithub size={15} /></a>}
+                <div className="flex gap-3 text-purple-200 drop-shadow-[0_2px_3px_rgba(0,0,0,0.95)] mt-1">
+                  {member.instagram && <a href={member.instagram} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaInstagram size={15} /></a>}
+                  {member.linkedin && <a href={member.linkedin} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaLinkedin size={15} /></a>}
+                  {member.github && <a href={member.github} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all"><FaGithub size={15} /></a>}
+                </div>
               </div>
             </div>
           </div>

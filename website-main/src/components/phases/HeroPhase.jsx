@@ -132,11 +132,11 @@ const HeroPhase = () => {
 
         {/* Middle: Graphic Block */}
         <div className="relative w-full max-w-sm mx-auto mb-12 flex justify-center items-center">
-          <img src={ieeeWieText} alt="IEEE WIE" className="w-[85%] object-contain drop-shadow-2xl relative z-10" />
+          <img src={ieeeWieText} alt="IEEE WIE" className="w-[110%] object-contain drop-shadow-2xl relative z-10" />
         </div>
 
         {/* Bottom: Impact Journey */}
-        <div className="w-full flex justify-center transform scale-[0.8] origin-top -ml-4">
+        <div className="w-full flex justify-center mt-4">
           <ImpactJourney />
         </div>
       </div>
