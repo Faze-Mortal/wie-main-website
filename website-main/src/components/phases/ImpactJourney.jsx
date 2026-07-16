@@ -55,7 +55,7 @@ const ImpactJourney = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto h-[220px] md:h-[280px] mt-8 md:mt-12 z-30 font-inter">
+    <div className="relative w-full max-w-6xl mx-auto h-auto md:h-[280px] mt-8 md:mt-12 z-30 font-inter">
       {/* Header */}
       <div className="impact-header absolute -top-6 left-[5%] flex flex-col items-start gap-1 opacity-0">
         <h3 className="text-[#c77dff] text-xs md:text-sm font-semibold tracking-wider uppercase">
@@ -64,8 +64,8 @@ const ImpactJourney = () => {
         <div className="w-8 h-[2px] bg-[#c77dff] shadow-[0_0_8px_#c77dff]"></div>
       </div>
 
-      {/* SVG Wave */}
-      <div className="impact-path absolute inset-0 w-full h-full pointer-events-none opacity-0">
+      {/* SVG Wave - Desktop Only */}
+      <div className="impact-path hidden md:block absolute inset-0 w-full h-full pointer-events-none opacity-0">
         <svg 
           viewBox="0 0 1000 200" 
           preserveAspectRatio="none" 
@@ -96,36 +96,62 @@ const ImpactJourney = () => {
         </svg>
       </div>
 
-      {/* Nodes */}
-      {steps.map((step) => (
-        <div 
-          key={step.id} 
-          className="impact-node absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2 opacity-0 scale-75"
-          style={{ left: step.left, top: step.top }}
-        >
-          {step.textPos === "top" && (
-            <div className="absolute bottom-[calc(100%+16px)] flex flex-col items-center min-w-[120px] text-center">
-              <h4 className="text-white font-semibold text-sm md:text-base mb-1">{step.title}</h4>
-              <p className="text-gray-400 text-[10px] md:text-xs leading-tight">{step.desc}</p>
-              {/* Dotted Line */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 h-3 border-l-2 border-dotted border-[#c77dff] opacity-60 mt-1"></div>
-            </div>
-          )}
+      {/* Mobile Layout Container (Hidden on Desktop) */}
+      <div className="md:hidden relative flex flex-col w-full pt-6 px-4">
+        {/* Mobile Vertical Line */}
+        <div className="absolute left-[39px] top-6 bottom-4 w-0.5 bg-gradient-to-b from-[#7b2cbf]/20 via-[#c77dff]/80 to-[#7b2cbf]/20 z-0 impact-path opacity-0"></div>
 
-          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/40 border border-[#c77dff] flex items-center justify-center shadow-[0_0_15px_rgba(199,125,255,0.4)] relative z-10 backdrop-blur-sm">
-            {step.icon}
+        {/* Mobile Nodes */}
+        {steps.map((step) => (
+          <div 
+            key={step.id} 
+            className="impact-node relative flex flex-row items-center z-10 w-full mb-8 last:mb-0 opacity-0"
+          >
+            <div className="w-12 h-12 flex-shrink-0 rounded-full bg-black/40 border border-[#c77dff] flex items-center justify-center shadow-[0_0_15px_rgba(199,125,255,0.4)] relative z-10 backdrop-blur-sm mr-6">
+              {step.icon}
+            </div>
+
+            <div className="flex flex-col text-left">
+              <h4 className="text-white font-semibold text-base mb-1">{step.title}</h4>
+              <p className="text-gray-400 text-xs leading-tight">{step.desc}</p>
+            </div>
           </div>
+        ))}
+      </div>
 
-          {step.textPos === "bottom" && (
-            <div className="absolute top-[calc(100%+16px)] flex flex-col items-center min-w-[120px] text-center">
-              {/* Dotted Line */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-3 border-l-2 border-dotted border-[#c77dff] opacity-60 mb-1"></div>
-              <h4 className="text-white font-semibold text-sm md:text-base mb-1">{step.title}</h4>
-              <p className="text-gray-400 text-[10px] md:text-xs leading-tight">{step.desc}</p>
+      {/* Desktop Layout Container (Hidden on Mobile) */}
+      <div className="hidden md:block">
+        {/* Desktop Nodes */}
+        {steps.map((step) => (
+          <div 
+            key={step.id} 
+            className="impact-node absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2 opacity-0 scale-75"
+            style={{ left: step.left, top: step.top }}
+          >
+            {step.textPos === "top" && (
+              <div className="absolute bottom-[calc(100%+16px)] flex flex-col items-center min-w-[120px] text-center">
+                <h4 className="text-white font-semibold text-sm md:text-base mb-1">{step.title}</h4>
+                <p className="text-gray-400 text-[10px] md:text-xs leading-tight">{step.desc}</p>
+                {/* Dotted Line */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 h-3 border-l-2 border-dotted border-[#c77dff] opacity-60 mt-1"></div>
+              </div>
+            )}
+
+            <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/40 border border-[#c77dff] flex items-center justify-center shadow-[0_0_15px_rgba(199,125,255,0.4)] relative z-10 backdrop-blur-sm">
+              {step.icon}
             </div>
-          )}
-        </div>
-      ))}
+
+            {step.textPos === "bottom" && (
+              <div className="absolute top-[calc(100%+16px)] flex flex-col items-center min-w-[120px] text-center">
+                {/* Dotted Line */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-3 border-l-2 border-dotted border-[#c77dff] opacity-60 mb-1"></div>
+                <h4 className="text-white font-semibold text-sm md:text-base mb-1">{step.title}</h4>
+                <p className="text-gray-400 text-[10px] md:text-xs leading-tight">{step.desc}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
