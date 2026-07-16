@@ -25,7 +25,7 @@ const TeamIntro = ({ onComplete }) => {
           }
         });
       }
-    }, 7000);
+    }, 3000);
 
     // Cleanup to prevent memory leaks
     return () => {
@@ -63,8 +63,8 @@ const TeamIntro = ({ onComplete }) => {
             filter: 'blur(40px)',
           }}
         />
-        
-        <h1 
+
+        <h1
           className="text-5xl md:text-7xl font-bold mb-4 tracking-wider drop-shadow-lg"
           style={{
             background: 'linear-gradient(to right, #ffffff, var(--mauve-magic, #c77dff))',
@@ -75,7 +75,7 @@ const TeamIntro = ({ onComplete }) => {
         >
           IEEE WIE MUJ
         </h1>
-        <h2 
+        <h2
           className="text-2xl md:text-4xl font-semibold drop-shadow-md"
           style={{ color: 'var(--mauve-magic, #c77dff)' }}
         >

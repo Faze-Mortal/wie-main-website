@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import "./Blog.css";
 
 export const blogData = [
+  { id: 15, title: "Brain-Computer Interfaces: When Thoughts Become Technology", excerpt: "What if you could control technology with your mind? Explore how BCIs translate thoughts into actions, their life-changing healthcare applications, and innovations by Neuralink, Synchron & more.", imageUrl: "/blog15.webp", readMoreUrl: "https://medium.com/@ieee.wiemuj/brain-computer-interfaces-bridging-thought-and-technology-b6053f8da5d8" },
   { id: 14, title: "The Silent War: Nations Battling in Cyberspace", excerpt: "The next global conflict may never be declared — it could already be unfolding behind your screen.", imageUrl: "/blog14.webp", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-silent-war-nations-battling-in-cyberspace-09bfb57daf9a" },
   { id: 13, title: "Beyond the Event Horizon", excerpt: "A blurry orange ring that changed astronomy forever — discover the technology that made the impossible visible.", imageUrl: "/blog13.webp", readMoreUrl: "https://medium.com/@ieee.wiemuj/beyond-the-event-horizon-how-technology-helped-humanity-capture-a-black-hole-98f20b5f8cf2" },
   { id: 12, title: "The Invisible Arms Race: How Quantum Computing Could Change Global Power", excerpt: "What if the future of global power isn't decided by weapons — but by a single qubit?", imageUrl: "/blog12.webp", readMoreUrl: "https://medium.com/@ieee.wiemuj/the-invisible-arms-race-how-quantum-computing-could-change-global-power-3bc1e65b904c" },
