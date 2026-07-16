@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Advisory data
 
 const Advisory = [
-  { id: 1, name: "Kashish Kumar", designation: "Advisory, IEEE WIE MUJ", img: "/teams/EC/advisory.webp", instagram: "https://www.instagram.com/kashish._kumar_?utm_source=qr", linkedin: "http://linkedin.com/in/kashish-kumar-527ba72b3" }
+  { id: 1, name: "Kashish Kumar", designation: "Advisory", img: "/teams/EC/advisory.webp", instagram: "https://www.instagram.com/kashish._kumar_?utm_source=qr", linkedin: "http://linkedin.com/in/kashish-kumar-527ba72b3" }
 ];
 
 // Executive Committee Data
@@ -194,6 +194,15 @@ const coreDepartments = [
     "department": "Media",
     "members": [
       {
+        "id": 51,
+        "name": "Yashika Agarwal",
+        "designation": "Senior Coordinator",
+        "img": "/teams/CC/Yashika Agarwal.jpg",
+        "instagram": "https://www.instagram.com/yashika_agarwal22?igsh=ZDAyMXN4d2lqaTJj",
+        "linkedin": "https://www.linkedin.com/in/yashika-agarwal-070ab03a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": ""
+      },
+      {
         "id": 44,
         "name": "Krishna Tripathi",
         "designation": "Head",
@@ -209,15 +218,6 @@ const coreDepartments = [
         "img": "/teams/CC/Tamanna Kinha.jpg",
         "instagram": "https://www.instagram.com/itamanna02?igsh=aDhiMmQ3aXR5dXh6",
         "linkedin": "https://www.linkedin.com/in/tamanna-kinha-a6687237b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-        "github": ""
-      },
-      {
-        "id": 51,
-        "name": "Yashika Agarwal",
-        "designation": "Senior Coordinator",
-        "img": "/teams/CC/Yashika Agarwal.jpg",
-        "instagram": "https://www.instagram.com/yashika_agarwal22?igsh=ZDAyMXN4d2lqaTJj",
-        "linkedin": "https://www.linkedin.com/in/yashika-agarwal-070ab03a4?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         "github": ""
       },
       {
@@ -708,8 +708,8 @@ const ExecutiveCard = ({ member, innerRef, textRef }) => {
             className="absolute inset-0 w-full h-full"
             style={{
               scale: member.name === "Sarath Mohanraj" ? "1.15" :
-                     member.name === "Akshat Raheja" ? "1.2" :
-                     member.name === "Vaibhav Kumar" ? "1.0" : undefined,
+                member.name === "Akshat Raheja" ? "1.2" :
+                  member.name === "Vaibhav Kumar" ? "1.0" : undefined,
             }}
           >
             <img
@@ -983,13 +983,13 @@ export default function Team() {
 
         {/* MOBILE LAYOUT (hidden on md) */}
         <div className="md:hidden w-full px-2 max-w-6xl mx-auto flex flex-col gap-6">
-           <div className="grid grid-cols-2 gap-3 mt-2">
-              {[...heads, ...others].map(m => (
-                 <div key={m.id} className="w-full">
-                   <CoreCard member={m} isCarousel={false} />
-                 </div>
-              ))}
-           </div>
+          <div className="grid grid-cols-2 gap-3 mt-2">
+            {[...heads, ...others].map(m => (
+              <div key={m.id} className="w-full">
+                <CoreCard member={m} isCarousel={false} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* DESKTOP LAYOUT (hidden on mobile, block on md) */}
