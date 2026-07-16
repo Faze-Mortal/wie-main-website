@@ -700,14 +700,21 @@
 }
 .pop-card:hover .pop-card__img { transform: scale(1.04); }
 
-/* Blue glow frame on the active centre card */
+/* Accent-color glow frame on the centre card — hover/focus only */
 .pop-card--center .pop-card__frame {
-  border: 2px solid rgba(30, 125, 255, 0.95);
-  box-shadow:
-    0 0 20px rgba(20, 110, 255, 0.55),
-    0 0 50px rgba(0, 145, 255, 0.25),
-    0 20px 45px rgba(0, 0, 0, 0.50);
+  border: 2px solid transparent;
   border-radius: var(--r-lg);
+  transition: border-color var(--t-mid), box-shadow var(--t-mid);
+}
+.pop-card--center:hover .pop-card__frame,
+.pop-card--center:focus-visible .pop-card__frame {
+  border-color: var(--card-accent, rgba(30, 125, 255, 0.95));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--card-accent, #1e7dff) 90%, transparent),
+    0 0 15px 4px color-mix(in srgb, var(--card-accent, #1e7dff) 80%, transparent),
+    0 0 40px 10px color-mix(in srgb, var(--card-accent, #0091ff) 50%, transparent),
+    0 0 90px 25px color-mix(in srgb, var(--card-accent, #0091ff) 25%, transparent),
+    0 20px 45px rgba(0, 0, 0, 0.50);
 }
 
 /* Badge */
@@ -1086,7 +1093,9 @@
 /* Very small ≤ 420px */
 @media (max-width: 420px) {
   .explore-grid { grid-template-columns: 1fr; }
-  .events-grid  { grid-template-columns: 1fr; }
+  .events-grid  { grid-template-columns: 1fr; justify-items: center; }
+  /* Cap wrapper width so justify-items:center on the grid actually shifts cards */
+  .events-grid .event-reveal-wrapper { width: auto; max-width: 290px; }
   .hero__title-word { font-size: 44px; }
 }
 

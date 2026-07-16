@@ -82,12 +82,7 @@ export default function LatestEvents() {
                 role="listitem"
                 tabIndex={0}
                 aria-label={event.label}
-                style={{
-                  ...(event.isCenter && {
-                    borderColor: event.accentColor,
-                    boxShadow: `0 0 20px ${event.accentColor}, inset 0 0 10px ${event.accentColor}`
-                  })
-                }}
+                style={event.isCenter ? { '--card-accent': event.accentColor } as React.CSSProperties : undefined}
               >
                 <div className="pop-card__frame">
                   <div className={event.imgClass}>
