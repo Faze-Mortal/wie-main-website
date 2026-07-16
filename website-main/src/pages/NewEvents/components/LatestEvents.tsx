@@ -13,7 +13,7 @@ const popularEvents = [
     id: 'pop-card-1',
     className: 'pop-card pop-card--sm pop-card--pink',
     imgClass: 'pop-card__img pop-card__img--1',
-    poster: '/Events/herverdict.jpeg',
+    poster: '/Events/herverdict.webp',
     alt: 'HerVerdict poster',
     label: 'HerVerdict',
     title: 'HerVerdict',
@@ -25,7 +25,7 @@ const popularEvents = [
     id: 'pop-card-2',
     className: 'pop-card pop-card--sm pop-card--purple',
     imgClass: 'pop-card__img pop-card__img--2',
-    poster: '/Events/confluence.jpeg',
+    poster: '/Events/confluence.webp',
     alt: 'Confluence poster',
     label: 'Confluence',
     title: 'The Confluence',
@@ -61,7 +61,7 @@ const popularEvents = [
     id: 'pop-card-4',
     className: 'pop-card pop-card--sm pop-card--blue',
     imgClass: 'pop-card__img pop-card__img--4',
-    poster: '/Events/dealroom.jpeg',
+    poster: '/Events/dealroom.webp',
     alt: 'The Deal Room poster',
     label: 'The Deal Room',
     title: 'Shark Tank: The Deal Room',
@@ -84,8 +84,8 @@ export default function LatestEvents() {
             initial={shouldReduceMotion ? false : latestEventsHeading.hidden}
             whileInView={shouldReduceMotion ? undefined : latestEventsHeading.visible}
             viewport={SCROLL_VIEWPORT}
-            transition={{ duration: 0.8, ease: PREMIUM_EASE }}
-          >
+         transition={{ duration: 0.8, ease: PREMIUM_EASE }}
+       >
             Latest Events
           </motion.h2>
           <motion.a
@@ -119,7 +119,7 @@ export default function LatestEvents() {
                 className={event.className}
                 id={event.id}
                 role="listitem"
-                tabIndex={0}
+       tabIndex={0}
                 aria-label={event.label}
               >
                 <div className="pop-card__frame">
